@@ -24,3 +24,7 @@ $ ionic cordova run ios
 
 Substitute ios for android if not on a Mac.
 
+<<<<<<< HEAD
+=======
+"# MobileAppGZONETECHNOLOGIES" 
+>>>>>>> 689b87110b9f7adca8e44c3d54fd5713970bcc13
