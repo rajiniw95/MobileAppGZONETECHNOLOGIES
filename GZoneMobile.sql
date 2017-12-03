@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 30, 2017 at 04:14 PM
--- Server version: 5.7.14
--- PHP Version: 5.6.25
+-- Host: localhost
+-- Generation Time: Dec 03, 2017 at 07:43 AM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 7.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `gzone_technologiesdb`
+-- Database: `GZoneMobile`
 --
 
 -- --------------------------------------------------------
@@ -186,8 +186,16 @@ CREATE TABLE `deposit_amount` (
 CREATE TABLE `login` (
   `id` int(11) NOT NULL,
   `user_name` varchar(50) NOT NULL,
-  `password` varchar(100) DEFAULT NULL
+  `password` varchar(100) DEFAULT NULL,
+  `role` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`id`, `user_name`, `password`, `role`) VALUES
+(1, 'admin', 'admin', '');
 
 -- --------------------------------------------------------
 
@@ -527,7 +535,7 @@ ALTER TABLE `deposit_amount`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `online_payment`
 --
