@@ -1,7 +1,7 @@
 <?php
 header('Access-Control-Allow-Origin:*');
-include('Connecting_DB.php');
-
+$con= mysqli_connect("localhost","root","");
+$db = mysqli_select_db("GZoneMobile",$con);
 $sql = " select role from login where user_name= "'.$_GET['username'].'" ";
 $result = mysql_query($sql,$con);
 if($row=mysql_fetch_array($result,$con))
