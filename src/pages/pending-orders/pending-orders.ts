@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-
+import { Http, Headers, Response } from '@angular/http';
 import { OrderPage } from '../order/order';
 
 @Component({
@@ -9,7 +9,15 @@ import { OrderPage } from '../order/order';
 })
 export class PendingOrdersPage {
 
-  constructor(public navCtrl: NavController) {
+  headers = new Headers();
+  orders : any;
+  username : string = localStorage.getItem('auth_token');
+
+  constructor(public navCtrl: NavController, public http: Http) {
+    this.headers.append('Content-Type', 'application/json');
+    this.http.get('http://localhost/myapp/pending-order.php?username='+ this.username).subscribe((res) => {
+        this.orders = res.json();
+    });
   }
 
   goToOrder(params){
