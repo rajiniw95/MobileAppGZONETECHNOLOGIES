@@ -20,7 +20,9 @@ export class PendingOrdersPage {
 
   goToOrder(params){
     if (!params) params = {};
-    this.navCtrl.push(OrderPage);
+    this.navCtrl.push(OrderPage, {
+      id : params
+    });
   }
 
 }
