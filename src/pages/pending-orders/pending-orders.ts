@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-
+import { Http, Headers, Response } from '@angular/http';
 import { OrderPage } from '../order/order';
-import { Http } from '@angular/http';
 
 @Component({
   selector: 'page-pending-orders',
