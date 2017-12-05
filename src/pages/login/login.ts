@@ -22,9 +22,8 @@ export class LoginPage {
       .http
       .get('http://localhost:8081/GZone/Login.php?username=' + this.account.username)
       .subscribe((response) => {
-        console.log(response);
         var res = response.json();
-        console.log(res);
+        console.log(res[0]);
         // var d = res.toString(); if(d.indexOf(this.account.username) != -1){
         // if(d.indexOf(this.account.password) != -1){     console.log('Login Success')
         //    localStorage.setItem('Auth_Token', this.account.username)
@@ -33,7 +32,10 @@ export class LoginPage {
         // 'Password Incorrect',       buttons: ['OK']     });     alert.present();   }
         // } else {   let alert = this.Alert.create({     title: 'Error',     subTitle:
         // 'Username Incorrect',     buttons: ['OK']   });   alert.present(); }
-      });
+      },
+    error => {
+      console.error(error);
+    });
   }
 
   // logForm(res){   console.log(res + " "+ res.Password);   var d =
