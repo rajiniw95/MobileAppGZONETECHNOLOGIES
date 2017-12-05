@@ -19,30 +19,33 @@ export class LoginPage {
   }
 
   goToHomePage(params){
-    //this.http.get('http://localhost/myapp/Login.php?username='+this.account.username).subscribe((res) => {
-      //var d = res.toString();
-      //if(d.indexOf(this.account.username) != -1){
-        //if(d.indexOf(this.account.password) != -1){
-          //console.log('Login Success')
+    this.http.get('http://localhost/myapp/Login.php?username='+this.account.username).subscribe((response) => {
+      var res = response.json();
+      console.log(res);
+      var d = res.toString();
+      if(d.indexOf(this.account.username) != -1){
+        if(d.indexOf(this.account.password) != -1){
+          console.log('Login Success')
+          localStorage.setItem('Auth_Token', this.account.username)
           this.navCtrl.push(HomePagePage);
-        //}else{
-          //console.log('Login failed')
-          //let alert = this.Alert.create({
-            //title: 'Error',
-           //subTitle: 'Password Incorrect',
-            //buttons: ['OK']
-          //});
-          //alert.present();
-        //}
-      //}else{
-        //let alert = this.Alert.create({
-          //title: 'Error',
-         //subTitle: 'Username Incorrect',
-          //buttons: ['OK']
-        //});
-        //alert.present();
-      //}
-//});
+        }else{
+          console.log('Login failed')
+          let alert = this.Alert.create({
+            title: 'Error',
+           subTitle: 'Password Incorrect',
+            buttons: ['OK']
+          });
+          alert.present();
+        }
+      }else{
+        let alert = this.Alert.create({
+          title: 'Error',
+         subTitle: 'Username Incorrect',
+          buttons: ['OK']
+        });
+        alert.present();
+      }
+});
 
 
 
