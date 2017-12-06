@@ -23,23 +23,17 @@ export class LoginPage {
       .get('http://localhost:8081/GZone/Login.php?username=' + this.account.username)
       .subscribe((response) => {
         var res = response.json();
-        console.log(res[0]);
-        // var d = res.toString(); if(d.indexOf(this.account.username) != -1){
-        // if(d.indexOf(this.account.password) != -1){     console.log('Login Success')
-        //    localStorage.setItem('Auth_Token', this.account.username)
-        // this.navCtrl.push(HomePagePage);   }else{     console.log('Login failed')
-        // let alert = this.Alert.create({       title: 'Error',      subTitle:
-        // 'Password Incorrect',       buttons: ['OK']     });     alert.present();   }
-        // } else {   let alert = this.Alert.create({     title: 'Error',     subTitle:
-        // 'Username Incorrect',     buttons: ['OK']   });   alert.present(); }
-      },
-    error => {
-      console.error(error);
-    });
+        if(this.account.username == res[0].user_name && this.account.password == res[0].password){
+          let alert = this.Alert.create({title: 'Success', subTitle: 'Login Successfull', buttons: ['OK']});
+          alert.present();
+          localStorage.setItem('Auth_Token', res[0].user_name);
+          this.navCtrl.push(HomePagePage);
+        }else{
+          let alert = this.Alert.create({title: 'Error', subTitle: 'Login Failed', buttons: ['OK']});
+          alert.present();
+        }
+      }, error => {
+        console.error(error);
+      });
   }
-
-  // logForm(res){   console.log(res + " "+ res.Password);   var d =
-  // res.toString();   if(d.indexOf('Response with status: 200 OK') != -1){
-  // console.log('We are in mf')     this.navCtrl.push(HomePagePage);   } }
-
 }
