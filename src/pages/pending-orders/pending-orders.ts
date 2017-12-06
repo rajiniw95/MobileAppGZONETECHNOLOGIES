@@ -8,19 +8,20 @@ import { OrderPage } from '../order/order';
   templateUrl: 'pending-orders.html'
 })
 export class PendingOrdersPage {
-  user : string;
-  res : any[];
+  userID : string;
+  res :any;
   constructor(public navCtrl: NavController, public http: Http) {
-   this.user= localStorage.getItem('Auth_Token');
-    this.http.get('http://localhost:8081/GZone/pending-order.php?username='+this.user).subscribe(data => {
+    this.userID = localStorage.getItem('Agent_ID');
+   
+    this.http.get('http://localhost:8081/GZone/pending-order.php?username='+this.userID).subscribe((data) => {
       this.res = data.json();
     });
   }
 
   goToOrder(params){
-    if (!params) params = {};
+  if (!params) params = {};
     this.navCtrl.push(OrderPage, {
-      id : params.user_name
+      id : params.orderID
     });
   }
 

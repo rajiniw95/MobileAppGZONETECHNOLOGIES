@@ -10,30 +10,26 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page1">
-  <div>
-    <img [src]="res.profile_image" *ngIf="res.profile_image" style="display:block;width:100%;height:200;margin-left:auto;margin-right:auto;" />
-  </div>
-  <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
-    <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
-  </div>
+<ion-content padding id="page1" *ngIf="res">
+
   <ion-card id="myProfile-card22">
     <ion-list>
       <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
-        <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
-      </div>
+              <!-- <img [src]="res.profile_photo" *ngIf="res.profile_photo" style="display:block;width:100%;height:200;margin-left:auto;margin-right:auto;" /> -->
+              <img [src]="res.profile_photo" *ngIf="res.profile_photo" style="display:block;width:100%;height:200;margin-left:auto;margin-right:auto;" />
+            </div>
       <ion-item id="myProfile-list-item-container2">
         <div id="myProfile-markdown11" class="show-list-numbers-and-dots">
           <p style="margin-top:0px;color:#000000;">
             <strong>
-              {{res.first_name}} {{res.last_name}}
+              {{res.fname}} {{res.lname}}
             </strong>
           </p>
         </div>
         <div id="myProfile-markdown14" class="show-list-numbers-and-dots">
           <p style="margin-top:0px;color:#000000;">
             <strong>
-              {{res.email}}
+              {{res.tel_no}}
             </strong>
           </p>
         </div>

@@ -9,7 +9,7 @@ import {Http, Headers, Response} from '@angular/http';
   })
 export class MyProfilePage {
   user : string;
-  res : any[];
+  res : any;
   constructor(public navCtrl : NavController, public http : Http) {
     this.user = localStorage.getItem('Auth_Token');
     this.http
@@ -17,10 +17,8 @@ export class MyProfilePage {
       .subscribe((data) => {
         let response = data.json();
         this.res = response[0];
-        console.log(this.res);
       },(error) => {
         console.error(error);
       });
   }
-
 }
