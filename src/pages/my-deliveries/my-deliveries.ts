@@ -21,7 +21,7 @@ export class MyDeliveriesPage {
     });
   }
 
-  goToDelivery(params)(params){
+  goToDelivery(params){
     if (!params) params = {};
     this.navCtrl.push(DeliveryPage, {
       id : params

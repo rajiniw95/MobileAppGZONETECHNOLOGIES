@@ -14,14 +14,13 @@ export class PendingOrdersPage {
    this.user= localStorage.getItem('Auth_Token');
     this.http.get('http://localhost:8081/GZone/pending-order.php?username='+this.user).subscribe(data => {
       this.res = data.json();
-      console.log(this.res);
     });
   }
 
   goToOrder(params){
     if (!params) params = {};
     this.navCtrl.push(OrderPage, {
-      id : params
+      id : params.user_name
     });
   }
 

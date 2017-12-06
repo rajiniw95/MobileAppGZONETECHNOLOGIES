@@ -2,7 +2,11 @@ import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
 import {Http, Headers, Response} from '@angular/http';
 
-@Component({selector: 'page-my-profile', templateUrl: 'my-profile.html'})
+@Component(
+  {
+    selector: 'page-my-profile', 
+    templateUrl: 'my-profile.html'
+  })
 export class MyProfilePage {
   user : string;
   res : any[];
@@ -10,10 +14,12 @@ export class MyProfilePage {
     this.user = localStorage.getItem('Auth_Token');
     this.http
       .get('http://localhost:8081/GZone/view-profile.php?username=' + this.user)
-      .subscribe(data => {
+      .subscribe((data) => {
         let response = data.json();
         this.res = response[0];
         console.log(this.res);
+      },(error) => {
+        console.error(error);
       });
   }
 
