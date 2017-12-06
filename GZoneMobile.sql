@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 06, 2017 at 05:11 AM
+-- Generation Time: Dec 06, 2017 at 08:36 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -56,8 +56,8 @@ CREATE TABLE `agent` (
   `last_name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `profile_image` varchar(500) DEFAULT NULL,
+  `user_name` varchar(50) NOT NULL,
   `cart_id` int(11) DEFAULT NULL,
-  `login_id` int(11) DEFAULT NULL,
   `phone_number_id` int(11) DEFAULT NULL,
   `address_id` int(11) DEFAULT NULL,
   `deposit_amount_id` int(11) DEFAULT NULL,
@@ -68,8 +68,8 @@ CREATE TABLE `agent` (
 -- Dumping data for table `agent`
 --
 
-INSERT INTO `agent` (`id`, `first_name`, `middle_name`, `last_name`, `email`, `profile_image`, `cart_id`, `login_id`, `phone_number_id`, `address_id`, `deposit_amount_id`, `password`) VALUES
-(1, 'namal', NULL, 'alwis', 'na@gmail.com', NULL, 1, 2, 3, 1, 1, '1234');
+INSERT INTO `agent` (`id`, `first_name`, `middle_name`, `last_name`, `email`, `profile_image`, `user_name`, `cart_id`, `phone_number_id`, `address_id`, `deposit_amount_id`, `password`) VALUES
+(1, 'namal', NULL, 'alwis', 'na@gmail.com', NULL, 'jill', 1, 3, 1, 1, '1234');
 
 -- --------------------------------------------------------
 
@@ -488,10 +488,11 @@ ALTER TABLE `address`
 ALTER TABLE `agent`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_agent_cart1_idx` (`cart_id`),
-  ADD KEY `fk_agent_login1_idx` (`login_id`),
   ADD KEY `fk_agent_phone_number1_idx` (`phone_number_id`),
   ADD KEY `fk_agent_address1_idx` (`address_id`),
-  ADD KEY `fk_agent_deposit_amount1_idx` (`deposit_amount_id`);
+  ADD KEY `fk_agent_deposit_amount1_idx` (`deposit_amount_id`),
+  ADD KEY `cart_id` (`cart_id`),
+  ADD KEY `fk_agent_user_name1` (`user_name`);
 
 --
 -- Indexes for table `agent_rating`
@@ -563,7 +564,8 @@ ALTER TABLE `deposit_amount`
 -- Indexes for table `login`
 --
 ALTER TABLE `login`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`,`user_name`),
+  ADD UNIQUE KEY `user_name` (`user_name`);
 
 --
 -- Indexes for table `online_payment`
@@ -745,8 +747,8 @@ ALTER TABLE `agent`
   ADD CONSTRAINT `fk_agent_address1` FOREIGN KEY (`address_id`) REFERENCES `address` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_agent_cart1` FOREIGN KEY (`cart_id`) REFERENCES `shopping_cart` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_agent_deposit_amount1` FOREIGN KEY (`deposit_amount_id`) REFERENCES `deposit_amount` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_agent_login1` FOREIGN KEY (`login_id`) REFERENCES `login` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_agent_phone_number1` FOREIGN KEY (`phone_number_id`) REFERENCES `phone_number` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_agent_phone_number1` FOREIGN KEY (`phone_number_id`) REFERENCES `phone_number` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_agent_user_name1` FOREIGN KEY (`user_name`) REFERENCES `login` (`user_name`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `agent_rating`
