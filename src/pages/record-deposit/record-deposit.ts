@@ -25,16 +25,18 @@ export class RecordDepositPage {
 
 
   addDeposit(){
-    console.log(this.amount, this.year, this.month);
     if(this.amount == "null" || this.year == "null" || this.month == "null"){
       let alert = this.Alert.create({title: 'Error', subTitle: 'All fields must be filled', buttons: ['OK']});
       alert.present();
     }else{
-      this.http.post('http://localhost:8081/GZone/recordDeposit.php?amount=' + this.amount +'&year='+this.year+'&month='+this.month,"").subscribe((response) => {
+      this.http.post('http://localhost:8081/GZone/recordDeposit.php?amount=' + this.amount.trim() +'&year='+this.year.trim()+'&month='+this.month.trim(),"").subscribe((response) => {
         console.log(response);
         if(response.statusText){
           let alert = this.Alert.create({title: 'Success', subTitle: 'Successfull Added', buttons: ['OK']});
           alert.present();
+          this.amount ="null";
+          this.year = "null";
+          this.month = "null";
         }else{
           let alert = this.Alert.create({title: 'Error', subTitle: 'Error Inserting values', buttons: ['OK']});
           alert.present();

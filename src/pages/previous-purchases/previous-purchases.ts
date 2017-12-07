@@ -9,20 +9,20 @@ import { OrderPage } from '../order/order';
 })
 
 export class PreviousPurchasesPage {
-  user : string;
+  userID : string;
   res : any[];
   constructor(public navCtrl: NavController, public http: Http) {
-   this.user= localStorage.getItem('Auth_Token');
-    this.http.get('http://localhost:8081/GZone/previous-purchases.php?username='+this.user).subscribe(data => {
+   this.userID= localStorage.getItem('Agent_ID');
+    this.http.get('http://localhost:8081/GZone/previous-purchases.php?username='+this.userID).subscribe((data) => {
+      console.log(data);
       this.res = data.json();
-      console.log(this.res);
     });
   }
 
   goToOrder(params){
     if (!params) params = {};
     this.navCtrl.push(OrderPage, {
-      id : params
+      id : params.orderID
     });
   }
 

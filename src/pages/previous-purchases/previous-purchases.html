@@ -6,25 +6,20 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page7">
+<ion-content padding id="page7" *ngIf="res">
 
   <ion-list id="previousPurchases-list3">
     <ion-searchbar placeholder="" name="" id="previousPurchases-search1"></ion-searchbar>
-    <ion-item-sliding>
+    
 
-      <ion-item color="none" on-click="goToOrder()" id="previousPurchases-list-item10" *ngFor="let order of res">
+      <ion-item color="none" on-click="goToOrder(order)" id="previousPurchases-list-item10" *ngFor="let order of res">
         <ion-thumbnail item-left>
-          <img />
+            <img [src]="order.image"/>
         </ion-thumbnail>
         <h2>
-          {{order.key}}
+          {{order.orderID}}
         </h2>
       </ion-item>
-      <ion-item-options side="left">
-        <button ion-button color="positive"></button>
-        <button ion-button color="positive"></button>
-      </ion-item-options>
-    </ion-item-sliding>
-
+      
     </ion-list>
   </ion-content>

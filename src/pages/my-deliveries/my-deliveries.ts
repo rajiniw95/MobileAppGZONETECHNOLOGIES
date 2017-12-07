@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Http, Headers, Response } from '@angular/http';
-
+import { OrderPage } from '../order/order';
 import { DeliveryPage } from '../delivery/delivery';
 
 @Component({
@@ -11,20 +11,19 @@ import { DeliveryPage } from '../delivery/delivery';
 
 export class MyDeliveriesPage {
 
-  user : string;
+  userID : string;
   res : any[];
   constructor(public navCtrl: NavController, public http: Http) {
-   this.user= localStorage.getItem('Auth_Token');
-    this.http.get('http://localhost:8081/GZone/deliverylist.php?username='+this.user).subscribe(data => {
+   this.userID= localStorage.getItem('Agent_ID');
+    this.http.get('http://localhost:8081/GZone/my-deliveries.php?username='+this.userID).subscribe((data) => {
       this.res = data.json();
-      console.log(this.res);
     });
   }
 
   goToDelivery(params){
     if (!params) params = {};
-    this.navCtrl.push(DeliveryPage, {
-      id : params
+    this.navCtrl.push(OrderPage, {
+      id : params.orderID
     });
   }
 
