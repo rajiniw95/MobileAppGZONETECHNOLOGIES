@@ -1,5 +1,5 @@
 <?php	
-	$host = 'localhost:3301';
+	$host = 'localhost:8100';
 	$user = 'root';
 	$pass = '';
 	$db = 'GZoneMobile';

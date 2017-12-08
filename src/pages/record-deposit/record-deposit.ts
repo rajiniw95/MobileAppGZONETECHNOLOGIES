@@ -29,7 +29,7 @@ export class RecordDepositPage {
       let alert = this.Alert.create({title: 'Error', subTitle: 'All fields must be filled', buttons: ['OK']});
       alert.present();
     }else{
-      this.http.post('http://localhost:8081/GZone/recordDeposit.php?amount=' + this.amount.trim() +'&year='+this.year.trim()+'&month='+this.month.trim(),"").subscribe((response) => {
+      this.http.post('http://localhost:8100/GZone/recordDeposit.php?amount=' + this.amount.trim() +'&year='+this.year.trim()+'&month='+this.month.trim(),"").subscribe((response) => {
         console.log(response);
         if(response.statusText){
           let alert = this.Alert.create({title: 'Success', subTitle: 'Successfull Added', buttons: ['OK']});
