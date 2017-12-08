@@ -10,7 +10,8 @@
     <ion-searchbar placeholder="" name="" id="pendingOrders-search2"></ion-searchbar>
     <ion-item color="none"  on-click="goToOrder(order)" id="pendingOrders-list-item30" *ngFor="let order of res">
       <ion-thumbnail item-left>
-        <img [src]="order.image"/>
+        <!-- <img [src]="order.image"/> -->
+        <img src="assets/img/images.png"  />
       </ion-thumbnail>
       <h2>
         {{order.orderID}}
