@@ -7,7 +7,7 @@ include('Connecting_DB.php');
 $CusID = $_GET['username'];
 //Select Data from the postadvertiesement table in the smartapp database
 
-$query = sprintf("select * from deliveries where Agent_Id='%s'", $CusID);
+$query = sprintf("select * from deliveries where AgentId='%s'", $CusID);
 $result = $mysqli->query($query) or die($mysqli->error . __LINE__);
 $ban = array();
 if ($result->num_rows > 0) {
