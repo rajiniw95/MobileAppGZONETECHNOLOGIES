@@ -1,12 +1,12 @@
 <?php	
-	$host = 'localhost:3301';
+	$host = 'localhost:3306';
 	$user = 'root';
 	$pass = '';
-	$db = 'newapp2';
+	$db = 'newdatabase';
+
 	
 	$mysqli = mysqli_connect($host, $user, $pass, $db);
 	if (mysqli_connect_errno()){
 		die("Connection Error : ". mysqli_connect_error());
 	}		
 ?>
-

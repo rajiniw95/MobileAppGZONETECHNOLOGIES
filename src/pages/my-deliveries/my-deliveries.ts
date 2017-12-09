@@ -22,9 +22,13 @@ export class MyDeliveriesPage {
 
   goToDelivery(params){
     if (!params) params = {};
-    this.navCtrl.push(OrderPage, {
+    this.navCtrl.push(DeliveryPage, {
       id : params.orderID
     });
+  }
+
+  Deliver(){
+    
   }
 
 }

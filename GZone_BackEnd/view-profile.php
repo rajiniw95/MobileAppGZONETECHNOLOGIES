@@ -6,7 +6,7 @@ header('Access-Control-Allow-Headers: Content-Type,x-prototype-version,x-request
 include('Connecting_DB.php');
 //Select Data from the postadvertiesement table in the smartapp database
 $userName = $_GET['username'];
-$query = sprintf("select * from Agent where User_name = '%s'", $userName);
+$query = sprintf("select * from agent where user_name = '%s'", $userName);
 
 $result = $mysqli->query($query) or die($mysqli->error . __LINE__);
 $ban = array();
