@@ -25,5 +25,13 @@ export class PreviousPurchasesPage {
       id : params.orderID
     });
   }
+  deletePurchases(params){
+    this.userID= localStorage.getItem('Agent_ID');
+    this.http.get('http://localhost:8081/GZone/delete.php?username='+this.userID).subscribe((data) => {
+      console.log(data);
+      this.res = data.json();
+    });
+
+  }
 
 }

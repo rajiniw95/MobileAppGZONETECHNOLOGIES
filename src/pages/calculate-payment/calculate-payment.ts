@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Http, Headers, Response } from '@angular/http';
+import { RecordDepositPage } from '../record-deposit/record-deposit';
+
 
 @Component({
   selector: 'page-calculate-payment',
@@ -27,9 +29,12 @@ export class CalculatePaymentPage {
   }
 
   totalAmount(){
+    var d = new Date();
+    var date = d.getMonth()+1;
     let userID = localStorage.getItem('Agent_ID');
-    this.http.get('http://localhost:8081/GZone/updateAmount.php?agent_Id='+userID+'&total='+this.total).subscribe((response) => {
+    this.http.get('http://localhost:8081/GZone/updateAmount.php?agent_Id='+userID+'&total='+this.deposit+'&date='+date).subscribe((response) => {
     console.log(response);
+    this.navCtrl.push(RecordDepositPage)
       });
   }
   

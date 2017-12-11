@@ -23,40 +23,40 @@
         Month
       </ion-label>
       <ion-select name="month" [(ngModel)]="month">
-        <ion-option>
+        <ion-option value='1'>
           January
         </ion-option>
-        <ion-option>
+        <ion-option value='2'>
           February
         </ion-option>
-        <ion-option>
+        <ion-option value='3'>
           March
         </ion-option>
-        <ion-option>
+        <ion-option value='4'>
           April
         </ion-option>
-        <ion-option>
+        <ion-option value='5'>
           May
         </ion-option>
-        <ion-option>
+        <ion-option value='6'>
           June
         </ion-option>
-        <ion-option>
+        <ion-option value='7'>
           July
         </ion-option>
-        <ion-option>
+        <ion-option value='8'>
           August
         </ion-option>
-        <ion-option>
+        <ion-option value='9'>
           September
         </ion-option>
-        <ion-option>
+        <ion-option value='10'>
           October
         </ion-option>
-        <ion-option>
+        <ion-option value='11'>
           November
         </ion-option>
-        <ion-option>
+        <ion-option value='12'>
           December
         </ion-option>
       </ion-select>
@@ -189,7 +189,7 @@
     </p>
   </div>
     <ion-item id="recordDeposit-input3">
-      <ion-input type="number" placeholder="Amount" name="amount" [(ngModel)]="amount"></ion-input>
+      <ion-input type="number" disabled="true" placeholder="Amount" name="amount" [(ngModel)]="amount"></ion-input>
     </ion-item>
   </form>
   <button ion-button color="calm" block style="color:#000000;" on-click="addDeposit()" >Submit</button>

@@ -16,8 +16,10 @@ export class RecordDepositPage {
   month : string = "null";
   date : string = "null";
   constructor(public navCtrl: NavController, public http: Http, public Alert : AlertController) {
+    var d = new Date();
+    var date = d.getMonth()+1;
     let userID = localStorage.getItem('Agent_ID');
-    this.http.post('http://localhost:8081/GZone/GettotalAmount.php?agentId=' + userID,"").subscribe((response) => {
+    this.http.post('http://localhost:8081/GZone/GettotalAmount.php?agentId='+userID+'&date='+date,"").subscribe((response) => {
         let res = response.json();
         this.amount = res[0].total_amount;
     });
@@ -36,7 +38,8 @@ export class RecordDepositPage {
       let alert = this.Alert.create({title: 'Error', subTitle: 'All fields must be filled', buttons: ['OK']});
       alert.present();
     }else{
-      this.http.post('http://localhost:8081/GZone/recordDeposit.php?year='+this.year.trim()+'&month='+this.month.trim()+'&date='+this.date.trim(),"").subscribe((response) => {
+      let Agent_Id = localStorage.getItem('Agent_ID');
+      this.http.post('http://localhost:8081/GZone/recordDeposit.php?agentId='+Agent_Id+'&year='+this.year.trim()+'&month='+this.month.trim()+'&date='+this.date.trim(),"").subscribe((response) => {
         console.log(response);
         if(response.statusText){
           let alert = this.Alert.create({title: 'Success', subTitle: 'Successfull Added', buttons: ['OK']});
@@ -44,6 +47,7 @@ export class RecordDepositPage {
           this.amount ="null";
           this.year = "null";
           this.month = "null";
+          this.date = "null";
         }else{
           let alert = this.Alert.create({title: 'Error', subTitle: 'Error Inserting values', buttons: ['OK']});
           alert.present();
