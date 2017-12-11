@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import {AlertController} from 'ionic-angular';
+import {MyPaymentsPage} from '../my-payments/my-payments';
 
 import { UploadDepositSlipPage } from '../upload-deposit-slip/upload-deposit-slip';
 
@@ -54,9 +55,10 @@ export class RecordDepositPage {
         }
       });
       let userID = localStorage.getItem('Agent_ID');
-      this.http.post('http://localhost:8081/GZone/mail/index.php?agentId=' + userID,"").subscribe((response) => {
-
+      this.http.post('http://localhost:8081/GZone/mail/sendmail.php?agentId=' + userID,"").subscribe((response) => {
+        console.log(response);
       });
+      this.navCtrl.push(MyPaymentsPage);
 
     }
 
