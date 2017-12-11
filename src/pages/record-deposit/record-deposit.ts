@@ -11,7 +11,7 @@ import { UploadDepositSlipPage } from '../upload-deposit-slip/upload-deposit-sli
   templateUrl: 'record-deposit.html'
 })
 export class RecordDepositPage {
-
+  finalAmount : string = "null";
   amount : string ="null";
   year: string = "null";
   month : string = "null";
@@ -23,6 +23,7 @@ export class RecordDepositPage {
     this.http.post('http://localhost:8081/GZone/GettotalAmount.php?agentId='+userID+'&date='+date,"").subscribe((response) => {
         let res = response.json();
         this.amount = res[0].total_amount;
+        
     });
 
   }
@@ -55,7 +56,7 @@ export class RecordDepositPage {
         }
       });
       let userID = localStorage.getItem('Agent_ID');
-      this.http.post('http://localhost:8081/GZone/mail/sendmail.php?agentId=' + userID,"").subscribe((response) => {
+      this.http.post('https://senda-mobile-app-senuraa.c9users.io/mail/index.php?agentId=' + userID+'&amount='+this.amount,"").subscribe((response) => {
         console.log(response);
       });
       this.navCtrl.push(MyPaymentsPage);

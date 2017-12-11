@@ -128,6 +128,7 @@ var RecordDepositPage = (function () {
         this.navCtrl = navCtrl;
         this.http = http;
         this.Alert = Alert;
+        this.finalAmount = "null";
         this.amount = "null";
         this.year = "null";
         this.month = "null";
@@ -148,28 +149,28 @@ var RecordDepositPage = (function () {
     RecordDepositPage.prototype.addDeposit = function () {
         var _this = this;
         if (this.year == "null" || this.month == "null" || this.date == "null") {
-            var alert_1 = this.Alert.create({ title: 'Error', subTitle: 'All fields must be filled', buttons: ['OK'] });
-            alert_1.present();
+            var alert = this.Alert.create({ title: 'Error', subTitle: 'All fields must be filled', buttons: ['OK'] });
+            alert.present();
         }
         else {
             var Agent_Id = localStorage.getItem('Agent_ID');
             this.http.post('http://localhost:8081/GZone/recordDeposit.php?agentId=' + Agent_Id + '&year=' + this.year.trim() + '&month=' + this.month.trim() + '&date=' + this.date.trim(), "").subscribe(function (response) {
                 console.log(response);
                 if (response.statusText) {
-                    var alert_2 = _this.Alert.create({ title: 'Success', subTitle: 'Successfull Added', buttons: ['OK'] });
-                    alert_2.present();
+                    var alert = _this.Alert.create({ title: 'Success', subTitle: 'Successfull Added', buttons: ['OK'] });
+                    alert.present();
                     _this.amount = "null";
                     _this.year = "null";
                     _this.month = "null";
                     _this.date = "null";
                 }
                 else {
-                    var alert_3 = _this.Alert.create({ title: 'Error', subTitle: 'Error Inserting values', buttons: ['OK'] });
-                    alert_3.present();
+                    var alert = _this.Alert.create({ title: 'Error', subTitle: 'Error Inserting values', buttons: ['OK'] });
+                    alert.present();
                 }
             });
             var userID = localStorage.getItem('Agent_ID');
-            this.http.post('http://localhost:8081/GZone/mail/sendmail.php?agentId=' + userID, "").subscribe(function (response) {
+            this.http.post('https://senda-mobile-app-senuraa.c9users.io/mail/index.php?agentId=' + userID + '&amount=' + this.amount, "").subscribe(function (response) {
                 console.log(response);
             });
             this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__my_payments_my_payments__["a" /* MyPaymentsPage */]);
@@ -181,9 +182,10 @@ RecordDepositPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-record-deposit',template:/*ion-inline-start:"C:\Users\Senda\Desktop\FInal\20171211\MobileAppGZONETECHNOLOGIES\src\pages\record-deposit\record-deposit.html"*/'\n\n\n\n<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>\n\n      Record Deposit\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding id="page9">\n\n    <form id="recordDeposit-form6" method="POST">\n\n  <div id="recordDeposit-markdown7" class="show-list-numbers-and-dots">\n\n    <p style="color:#000000;">\n\n      Deposit Date\n\n    </p>\n\n  </div>\n\n    <div class="spacer" style="width:300px;height:18px;" id="recordDeposit-spacer14"></div>\n\n    <ion-item id="recordDeposit-select2">\n\n      <ion-label>\n\n        Month\n\n      </ion-label>\n\n      <ion-select name="month" [(ngModel)]="month">\n\n        <ion-option value=\'1\'>\n\n          January\n\n        </ion-option>\n\n        <ion-option value=\'2\'>\n\n          February\n\n        </ion-option>\n\n        <ion-option value=\'3\'>\n\n          March\n\n        </ion-option>\n\n        <ion-option value=\'4\'>\n\n          April\n\n        </ion-option>\n\n        <ion-option value=\'5\'>\n\n          May\n\n        </ion-option>\n\n        <ion-option value=\'6\'>\n\n          June\n\n        </ion-option>\n\n        <ion-option value=\'7\'>\n\n          July\n\n        </ion-option>\n\n        <ion-option value=\'8\'>\n\n          August\n\n        </ion-option>\n\n        <ion-option value=\'9\'>\n\n          September\n\n        </ion-option>\n\n        <ion-option value=\'10\'>\n\n          October\n\n        </ion-option>\n\n        <ion-option value=\'11\'>\n\n          November\n\n        </ion-option>\n\n        <ion-option value=\'12\'>\n\n          December\n\n        </ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n    <ion-item id="recordDeposit-select3">\n\n      <ion-label>\n\n        Year\n\n      </ion-label>\n\n      <ion-select name="year" [(ngModel)]="year">\n\n        <ion-option>\n\n        2015\n\n        </ion-option>\n\n        <ion-option>\n\n        2016\n\n        </ion-option>\n\n        <ion-option>\n\n          2017\n\n        </ion-option>\n\n        <ion-option>\n\n          2018\n\n        </ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n\n\n    <ion-item id="recordDeposit-select3">\n\n      <ion-label>\n\n        Date\n\n      </ion-label>\n\n      <ion-select name="date" [(ngModel)]="date">\n\n        <ion-option>\n\n        1\n\n        </ion-option>\n\n        <ion-option>\n\n        2\n\n        </ion-option>\n\n        <ion-option>\n\n        3\n\n        </ion-option>\n\n        <ion-option>\n\n        4\n\n        </ion-option>\n\n        <ion-option>\n\n        5\n\n        </ion-option>\n\n        <ion-option>\n\n        6\n\n        </ion-option>\n\n        <ion-option>\n\n        7\n\n        </ion-option>\n\n        <ion-option>\n\n        8\n\n        </ion-option>\n\n        <ion-option>\n\n        9\n\n        </ion-option>\n\n        <ion-option>\n\n        10\n\n        </ion-option>\n\n        <ion-option>\n\n        11\n\n        </ion-option>\n\n        <ion-option>\n\n        12\n\n        </ion-option>\n\n        <ion-option>\n\n        13\n\n        </ion-option>\n\n        <ion-option>\n\n        14\n\n        </ion-option>\n\n        <ion-option>\n\n        15\n\n        </ion-option>\n\n        <ion-option>\n\n        16\n\n        </ion-option>\n\n        <ion-option>\n\n        17\n\n        </ion-option>\n\n        <ion-option>\n\n        18\n\n        </ion-option>\n\n        <ion-option>\n\n        19\n\n        </ion-option>\n\n        <ion-option>\n\n        20\n\n        </ion-option>\n\n        <ion-option>\n\n        21\n\n        </ion-option>\n\n        <ion-option>\n\n        22\n\n        </ion-option>\n\n        <ion-option>\n\n        23\n\n        </ion-option>\n\n        <ion-option>\n\n        24\n\n        </ion-option>\n\n        <ion-option>\n\n        25\n\n        </ion-option>\n\n        <ion-option>\n\n        26\n\n        </ion-option>\n\n        <ion-option>\n\n        27\n\n        </ion-option>\n\n        <ion-option>\n\n        28\n\n        </ion-option>\n\n        <ion-option>\n\n        29\n\n        </ion-option>\n\n        <ion-option>\n\n        30\n\n        </ion-option>\n\n        <ion-option>\n\n        31\n\n        </ion-option>\n\n        \n\n      </ion-select>\n\n    </ion-item>\n\n\n\n  <div id="recordDeposit-markdown6" class="show-list-numbers-and-dots">\n\n    <p style="color:#000000;">\n\n      Amount Deposited (LKR)\n\n    </p>\n\n  </div>\n\n    <ion-item id="recordDeposit-input3">\n\n      <ion-input type="number" disabled="true" placeholder="Amount" name="amount" [(ngModel)]="amount"></ion-input>\n\n    </ion-item>\n\n  </form>\n\n  <button ion-button color="calm" block style="color:#000000;" on-click="addDeposit()" >Submit</button>\n\n  <div class="spacer" style="width:300px;height:27px;" id="recordDeposit-spacer15"></div>\n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Senda\Desktop\FInal\20171211\MobileAppGZONETECHNOLOGIES\src\pages\record-deposit\record-deposit.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _c || Object])
 ], RecordDepositPage);
 
+var _a, _b, _c;
 //# sourceMappingURL=record-deposit.js.map
 
 /***/ }),
