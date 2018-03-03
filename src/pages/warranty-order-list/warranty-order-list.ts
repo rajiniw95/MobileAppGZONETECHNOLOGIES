@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { ClaimOrderPage } from '../claim-order/claim-order';
+
 /**
  * Generated class for the WarrantyOrderListPage page.
  *
@@ -22,4 +24,8 @@ export class WarrantyOrderListPage {
     console.log('ionViewDidLoad WarrantyOrderListPage');
   }
 
+  /**create function for to go to page which shows details of order*/
+  goToClaimOrder(params){
+    if (!params) params = {};
+    this.navCtrl.push(ClaimOrderPage);}
 }
