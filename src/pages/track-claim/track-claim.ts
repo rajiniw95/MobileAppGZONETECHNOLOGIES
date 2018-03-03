@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { TrackRequestIdPage } from '../track-request-id/track-request-id';
+import { TrackListPage } from '../track-list/track-list';
+
+
 /**
  * Generated class for the TrackClaimPage page.
  *
@@ -21,5 +25,14 @@ export class TrackClaimPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad TrackClaimPage');
   }
+
+  
+  goToTrackRequestID(params){
+    if (!params) params = {};
+    this.navCtrl.push(TrackRequestIdPage);}
+
+  goToTrackingList(params){
+    if (!params) params = {};
+    this.navCtrl.push(TrackListPage);}
 
 }

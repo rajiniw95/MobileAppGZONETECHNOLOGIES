@@ -24,6 +24,9 @@ import { WarrantyOrderListPage } from '../pages/warranty-order-list/warranty-ord
 import { ClaimOrderPage } from '../pages/claim-order/claim-order';
 import { WarrantyDetailsPage } from '../pages/warranty-details/warranty-details';
 import { SubmitRequestPage } from '../pages/submit-request/submit-request';
+import { TrackRequestIdPage } from '../pages/track-request-id/track-request-id';
+import { TrackListPage } from '../pages/track-list/track-list';
+import { TrackingStatusPage } from '../pages/tracking-status/tracking-status';
 
 
 
@@ -57,7 +60,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     WarrantyOrderListPage,
     ClaimOrderPage,
     WarrantyDetailsPage,
-    SubmitRequestPage
+    SubmitRequestPage,
+    TrackRequestIdPage,
+    TrackListPage,
+    TrackingStatusPage
   ],
   imports: [
     BrowserModule,
@@ -88,7 +94,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     WarrantyOrderListPage,
     ClaimOrderPage,
     WarrantyDetailsPage,
-    SubmitRequestPage
+    SubmitRequestPage,
+    TrackRequestIdPage,
+    TrackListPage,
+    TrackingStatusPage
   ],
   providers: [
     StatusBar,

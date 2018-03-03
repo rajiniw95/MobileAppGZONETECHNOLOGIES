@@ -7,12 +7,75 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>SubmitRequest</ion-title>
+    <ion-title>Submit Request</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding id="submitrequestpage">
+  <div id="submitRequest-container1">
 
+    <div id="submitRequest-markdown1" class="show-list-numbers-and-dots">
+      <p style="color:#000000;">
+        Customer ID : 
+      </p>
+    </div>
+      <ion-item>
+        <ion-label></ion-label>
+      </ion-item>
+
+      <div id="submitRequest-markdown2" class="show-list-numbers-and-dots">
+      <p style="color:#000000;">
+        Customer Name : 
+      </p>
+    </div>
+      <ion-item>
+        <ion-label></ion-label>
+      </ion-item>
+
+      <div id="submitRequest-markdown3" class="show-list-numbers-and-dots">
+      <p style="color:#000000;">
+        Product ID : 
+      </p>
+    </div>
+      <ion-item>
+        <ion-label></ion-label>
+      </ion-item>
+
+    <div id="submitRequest-markdown4" class="show-list-numbers-and-dots">
+      <p style="color:#000000;">
+        Product Name : 
+      </p>
+    </div>
+      <ion-item>
+        <ion-label></ion-label>
+      </ion-item>
+
+    <div id="submitRequest-markdown5" class="show-list-numbers-and-dots">
+      <p style="color:#000000;">
+        Quantity :
+      </p>
+    </div>
+      <ion-item>
+        <ion-input type="text"  name="title"></ion-input>
+      </ion-item>
+
+      <div id="submitRequest-markdown6" class="show-list-numbers-and-dots">
+      <p style="color:#000000;">
+        Special Remarks and Observations : 
+      </p>
+    </div>
+      <ion-item>
+        <ion-textarea type="text"  name="title"></ion-textarea>
+      </ion-item>
+
+      <div class="spacer" style="width:300px;height:20px;" id="submitRequest-spacer16"></div>
+
+      <button ion-button color="calm" block style="color:#000000;" on-click="SubmitRequest()">Submit Warranty Request</button>
+      
+  </div>
 </ion-content>
+
+
+

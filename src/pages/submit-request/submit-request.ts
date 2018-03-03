@@ -22,4 +22,7 @@ export class SubmitRequestPage {
     console.log('ionViewDidLoad SubmitRequestPage');
   }
 
+  /**ccheck whether the item falls within the warranty period*/
+  SubmitRequest(params){}
+
 }
