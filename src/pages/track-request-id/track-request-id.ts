@@ -26,7 +26,7 @@ export class TrackRequestIdPage {
 
  
 
-  /**create function for to go to page which shows the previous claims of customer*/
+
   goToTrackingStatus(params){
     if (!params) params = {};
     this.navCtrl.push(TrackingStatusPage);}

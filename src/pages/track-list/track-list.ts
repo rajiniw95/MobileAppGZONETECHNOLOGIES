@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { TrackingStatusPage } from '../tracking-status/tracking-status';
+
 /**
  * Generated class for the TrackListPage page.
  *
@@ -22,4 +24,9 @@ export class TrackListPage {
     console.log('ionViewDidLoad TrackListPage');
   }
 
+  goToTrackingStatus(params){
+    if (!params) params = {};
+    this.navCtrl.push(TrackingStatusPage);}
+
 }
+
