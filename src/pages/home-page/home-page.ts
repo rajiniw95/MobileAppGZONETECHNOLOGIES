@@ -6,6 +6,7 @@ import { MyDeliveriesPage } from '../my-deliveries/my-deliveries';
 import { MyPaymentsPage } from '../my-payments/my-payments';
 import { MyProfilePage } from '../my-profile/my-profile';
 import { LoginPage } from '../login/login';
+import { WarrantyHomePage } from '../warranty-home/warranty-home';
 
 @Component({
   selector: 'page-home-page',
@@ -39,6 +40,11 @@ export class HomePagePage {
   goToLogin(params){
     if (!params) params = {};
     this.navCtrl.push(LoginPage);
+  }
+
+  goToWarrantyHome(params){
+    if (!params) params = {};
+    this.navCtrl.push(WarrantyHomePage);
   }
 
 }

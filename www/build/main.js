@@ -1,4 +1,4 @@
-webpackJsonp([0],{
+webpackJsonp([1],{
 
 /***/ 100:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -6,7 +6,7 @@ webpackJsonp([0],{
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OrderPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(19);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -39,9 +39,9 @@ var OrderPage = (function () {
 }());
 OrderPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-order',template:/*ion-inline-start:"C:\Users\Senda\Desktop\FInal\20171211\MobileAppGZONETECHNOLOGIES\src\pages\order\order.html"*/'\n\n<ion-content>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>\n\n      Order\n\n    </ion-title>\n\n  </ion-navbar>\n\n<div padding id="page10" *ngIf="items">\n\n  <ion-card id="order-card21"  *ngFor="let item of items">\n\n    <ion-list>\n\n      <ion-item color="none" id="order-list-item28">\n\n         Product ID: {{item.productID}}\n\n         <!-- {{item.product_photo}} -->\n\n      </ion-item>\n\n      <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">\n\n          <img [src]="item.product_photo"/>\n\n      </div>\n\n      <ion-list id="order-list5">\n\n        <ion-item color="none" id="order-list-item76">\n\n        <ion-icon name="calculator" item-start></ion-icon>\n\n         Quantity: {{item.qty}}\n\n        </ion-item>\n\n      </ion-list>\n\n    </ion-list>\n\n  </ion-card>\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Senda\Desktop\FInal\20171211\MobileAppGZONETECHNOLOGIES\src\pages\order\order.html"*/
+        selector: 'page-order',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/order/order.html"*/'\n<ion-content>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      Order\n    </ion-title>\n  </ion-navbar>\n<div padding id="page10" *ngIf="items">\n  <ion-card id="order-card21"  *ngFor="let item of items">\n    <ion-list>\n      <ion-item color="none" id="order-list-item28">\n         Product ID: {{item.productID}}\n         <!-- {{item.product_photo}} -->\n      </ion-item>\n      <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">\n          <img [src]="item.product_photo"/>\n      </div>\n      <ion-list id="order-list5">\n        <ion-item color="none" id="order-list-item76">\n        <ion-icon name="calculator" item-start></ion-icon>\n         Quantity: {{item.qty}}\n        </ion-item>\n      </ion-list>\n    </ion-list>\n  </ion-card>\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/order/order.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
 ], OrderPage);
 
 //# sourceMappingURL=order.js.map
@@ -54,7 +54,7 @@ OrderPage = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyPaymentsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__record_deposit_record_deposit__ = __webpack_require__(102);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__calculate_payment_calculate_payment__ = __webpack_require__(203);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -88,9 +88,9 @@ var MyPaymentsPage = (function () {
 }());
 MyPaymentsPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-my-payments',template:/*ion-inline-start:"C:\Users\Senda\Desktop\FInal\20171211\MobileAppGZONETECHNOLOGIES\src\pages\my-payments\my-payments.html"*/'\n\n<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>\n\n      My Payments\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding id="page2">\n\n  <div class="spacer" style="height:102px;" id="myPayments-spacer11"></div>\n\n  <button id="myPayments-button13" ion-button color="calm" block style="color:#000000;" on-click="goToCalculatePayment()">\n\n    Calculate Amount to be Deposited\n\n  </button>\n\n  <div class="spacer" style="width:300px;height:42px;" id="myPayments-spacer13"></div>\n\n  <button id="myPayments-button14" ion-button color="calm" block style="color:#000000;" on-click="goToRecordDeposit()">\n\n    Record Payment made\n\n  </button>\n\n  <div class="spacer" style="width:300px;height:103px;" id="myPayments-spacer12"></div>\n\n  <div>\n\n    <img src="assets/img/ynKQMmmQ1eii12NHRr6A_12342335_1674935559443552_4840384717682269278_n.png" style="display:block;width:20%;height:auto;margin-left:auto;margin-right:auto;" />\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Senda\Desktop\FInal\20171211\MobileAppGZONETECHNOLOGIES\src\pages\my-payments\my-payments.html"*/
+        selector: 'page-my-payments',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/my-payments/my-payments.html"*/'\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      My Payments\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page2">\n  <div class="spacer" style="height:102px;" id="myPayments-spacer11"></div>\n  <button id="myPayments-button13" ion-button color="calm" block style="color:#000000;" on-click="goToCalculatePayment()">\n    Calculate Amount to be Deposited\n  </button>\n  <div class="spacer" style="width:300px;height:42px;" id="myPayments-spacer13"></div>\n  <button id="myPayments-button14" ion-button color="calm" block style="color:#000000;" on-click="goToRecordDeposit()">\n    Record Payment made\n  </button>\n  <div class="spacer" style="width:300px;height:103px;" id="myPayments-spacer12"></div>\n  <div>\n    <img src="assets/img/ynKQMmmQ1eii12NHRr6A_12342335_1674935559443552_4840384717682269278_n.png" style="display:block;width:20%;height:auto;margin-left:auto;margin-right:auto;" />\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/my-payments/my-payments.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]])
 ], MyPaymentsPage);
 
 //# sourceMappingURL=my-payments.js.map
@@ -103,7 +103,7 @@ MyPaymentsPage = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RecordDepositPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__my_payments_my_payments__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__upload_deposit_slip_upload_deposit_slip__ = __webpack_require__(202);
@@ -149,24 +149,24 @@ var RecordDepositPage = (function () {
     RecordDepositPage.prototype.addDeposit = function () {
         var _this = this;
         if (this.year == "null" || this.month == "null" || this.date == "null") {
-            var alert = this.Alert.create({ title: 'Error', subTitle: 'All fields must be filled', buttons: ['OK'] });
-            alert.present();
+            var alert_1 = this.Alert.create({ title: 'Error', subTitle: 'All fields must be filled', buttons: ['OK'] });
+            alert_1.present();
         }
         else {
             var Agent_Id = localStorage.getItem('Agent_ID');
             this.http.post('http://localhost:8081/GZone/recordDeposit.php?agentId=' + Agent_Id + '&year=' + this.year.trim() + '&month=' + this.month.trim() + '&date=' + this.date.trim(), "").subscribe(function (response) {
                 console.log(response);
                 if (response.statusText) {
-                    var alert = _this.Alert.create({ title: 'Success', subTitle: 'Successfull Added', buttons: ['OK'] });
-                    alert.present();
+                    var alert_2 = _this.Alert.create({ title: 'Success', subTitle: 'Successfull Added', buttons: ['OK'] });
+                    alert_2.present();
                     _this.amount = "null";
                     _this.year = "null";
                     _this.month = "null";
                     _this.date = "null";
                 }
                 else {
-                    var alert = _this.Alert.create({ title: 'Error', subTitle: 'Error Inserting values', buttons: ['OK'] });
-                    alert.present();
+                    var alert_3 = _this.Alert.create({ title: 'Error', subTitle: 'Error Inserting values', buttons: ['OK'] });
+                    alert_3.present();
                 }
             });
             var userID = localStorage.getItem('Agent_ID');
@@ -180,12 +180,11 @@ var RecordDepositPage = (function () {
 }());
 RecordDepositPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-record-deposit',template:/*ion-inline-start:"C:\Users\Senda\Desktop\FInal\20171211\MobileAppGZONETECHNOLOGIES\src\pages\record-deposit\record-deposit.html"*/'\n\n\n\n<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>\n\n      Record Deposit\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding id="page9">\n\n    <form id="recordDeposit-form6" method="POST">\n\n  <div id="recordDeposit-markdown7" class="show-list-numbers-and-dots">\n\n    <p style="color:#000000;">\n\n      Deposit Date\n\n    </p>\n\n  </div>\n\n    <div class="spacer" style="width:300px;height:18px;" id="recordDeposit-spacer14"></div>\n\n    <ion-item id="recordDeposit-select2">\n\n      <ion-label>\n\n        Month\n\n      </ion-label>\n\n      <ion-select name="month" [(ngModel)]="month">\n\n        <ion-option value=\'1\'>\n\n          January\n\n        </ion-option>\n\n        <ion-option value=\'2\'>\n\n          February\n\n        </ion-option>\n\n        <ion-option value=\'3\'>\n\n          March\n\n        </ion-option>\n\n        <ion-option value=\'4\'>\n\n          April\n\n        </ion-option>\n\n        <ion-option value=\'5\'>\n\n          May\n\n        </ion-option>\n\n        <ion-option value=\'6\'>\n\n          June\n\n        </ion-option>\n\n        <ion-option value=\'7\'>\n\n          July\n\n        </ion-option>\n\n        <ion-option value=\'8\'>\n\n          August\n\n        </ion-option>\n\n        <ion-option value=\'9\'>\n\n          September\n\n        </ion-option>\n\n        <ion-option value=\'10\'>\n\n          October\n\n        </ion-option>\n\n        <ion-option value=\'11\'>\n\n          November\n\n        </ion-option>\n\n        <ion-option value=\'12\'>\n\n          December\n\n        </ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n    <ion-item id="recordDeposit-select3">\n\n      <ion-label>\n\n        Year\n\n      </ion-label>\n\n      <ion-select name="year" [(ngModel)]="year">\n\n        <ion-option>\n\n        2015\n\n        </ion-option>\n\n        <ion-option>\n\n        2016\n\n        </ion-option>\n\n        <ion-option>\n\n          2017\n\n        </ion-option>\n\n        <ion-option>\n\n          2018\n\n        </ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n\n\n    <ion-item id="recordDeposit-select3">\n\n      <ion-label>\n\n        Date\n\n      </ion-label>\n\n      <ion-select name="date" [(ngModel)]="date">\n\n        <ion-option>\n\n        1\n\n        </ion-option>\n\n        <ion-option>\n\n        2\n\n        </ion-option>\n\n        <ion-option>\n\n        3\n\n        </ion-option>\n\n        <ion-option>\n\n        4\n\n        </ion-option>\n\n        <ion-option>\n\n        5\n\n        </ion-option>\n\n        <ion-option>\n\n        6\n\n        </ion-option>\n\n        <ion-option>\n\n        7\n\n        </ion-option>\n\n        <ion-option>\n\n        8\n\n        </ion-option>\n\n        <ion-option>\n\n        9\n\n        </ion-option>\n\n        <ion-option>\n\n        10\n\n        </ion-option>\n\n        <ion-option>\n\n        11\n\n        </ion-option>\n\n        <ion-option>\n\n        12\n\n        </ion-option>\n\n        <ion-option>\n\n        13\n\n        </ion-option>\n\n        <ion-option>\n\n        14\n\n        </ion-option>\n\n        <ion-option>\n\n        15\n\n        </ion-option>\n\n        <ion-option>\n\n        16\n\n        </ion-option>\n\n        <ion-option>\n\n        17\n\n        </ion-option>\n\n        <ion-option>\n\n        18\n\n        </ion-option>\n\n        <ion-option>\n\n        19\n\n        </ion-option>\n\n        <ion-option>\n\n        20\n\n        </ion-option>\n\n        <ion-option>\n\n        21\n\n        </ion-option>\n\n        <ion-option>\n\n        22\n\n        </ion-option>\n\n        <ion-option>\n\n        23\n\n        </ion-option>\n\n        <ion-option>\n\n        24\n\n        </ion-option>\n\n        <ion-option>\n\n        25\n\n        </ion-option>\n\n        <ion-option>\n\n        26\n\n        </ion-option>\n\n        <ion-option>\n\n        27\n\n        </ion-option>\n\n        <ion-option>\n\n        28\n\n        </ion-option>\n\n        <ion-option>\n\n        29\n\n        </ion-option>\n\n        <ion-option>\n\n        30\n\n        </ion-option>\n\n        <ion-option>\n\n        31\n\n        </ion-option>\n\n        \n\n      </ion-select>\n\n    </ion-item>\n\n\n\n  <div id="recordDeposit-markdown6" class="show-list-numbers-and-dots">\n\n    <p style="color:#000000;">\n\n      Amount Deposited (LKR)\n\n    </p>\n\n  </div>\n\n    <ion-item id="recordDeposit-input3">\n\n      <ion-input type="number" disabled="true" placeholder="Amount" name="amount" [(ngModel)]="amount"></ion-input>\n\n    </ion-item>\n\n  </form>\n\n  <button ion-button color="calm" block style="color:#000000;" on-click="addDeposit()" >Submit</button>\n\n  <div class="spacer" style="width:300px;height:27px;" id="recordDeposit-spacer15"></div>\n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Senda\Desktop\FInal\20171211\MobileAppGZONETECHNOLOGIES\src\pages\record-deposit\record-deposit.html"*/
+        selector: 'page-record-deposit',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/record-deposit/record-deposit.html"*/'\n\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      Record Deposit\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page9">\n    <form id="recordDeposit-form6" method="POST">\n  <div id="recordDeposit-markdown7" class="show-list-numbers-and-dots">\n    <p style="color:#000000;">\n      Deposit Date\n    </p>\n  </div>\n    <div class="spacer" style="width:300px;height:18px;" id="recordDeposit-spacer14"></div>\n    <ion-item id="recordDeposit-select2">\n      <ion-label>\n        Month\n      </ion-label>\n      <ion-select name="month" [(ngModel)]="month">\n        <ion-option value=\'1\'>\n          January\n        </ion-option>\n        <ion-option value=\'2\'>\n          February\n        </ion-option>\n        <ion-option value=\'3\'>\n          March\n        </ion-option>\n        <ion-option value=\'4\'>\n          April\n        </ion-option>\n        <ion-option value=\'5\'>\n          May\n        </ion-option>\n        <ion-option value=\'6\'>\n          June\n        </ion-option>\n        <ion-option value=\'7\'>\n          July\n        </ion-option>\n        <ion-option value=\'8\'>\n          August\n        </ion-option>\n        <ion-option value=\'9\'>\n          September\n        </ion-option>\n        <ion-option value=\'10\'>\n          October\n        </ion-option>\n        <ion-option value=\'11\'>\n          November\n        </ion-option>\n        <ion-option value=\'12\'>\n          December\n        </ion-option>\n      </ion-select>\n    </ion-item>\n    <ion-item id="recordDeposit-select3">\n      <ion-label>\n        Year\n      </ion-label>\n      <ion-select name="year" [(ngModel)]="year">\n        <ion-option>\n        2015\n        </ion-option>\n        <ion-option>\n        2016\n        </ion-option>\n        <ion-option>\n          2017\n        </ion-option>\n        <ion-option>\n          2018\n        </ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item id="recordDeposit-select3">\n      <ion-label>\n        Date\n      </ion-label>\n      <ion-select name="date" [(ngModel)]="date">\n        <ion-option>\n        1\n        </ion-option>\n        <ion-option>\n        2\n        </ion-option>\n        <ion-option>\n        3\n        </ion-option>\n        <ion-option>\n        4\n        </ion-option>\n        <ion-option>\n        5\n        </ion-option>\n        <ion-option>\n        6\n        </ion-option>\n        <ion-option>\n        7\n        </ion-option>\n        <ion-option>\n        8\n        </ion-option>\n        <ion-option>\n        9\n        </ion-option>\n        <ion-option>\n        10\n        </ion-option>\n        <ion-option>\n        11\n        </ion-option>\n        <ion-option>\n        12\n        </ion-option>\n        <ion-option>\n        13\n        </ion-option>\n        <ion-option>\n        14\n        </ion-option>\n        <ion-option>\n        15\n        </ion-option>\n        <ion-option>\n        16\n        </ion-option>\n        <ion-option>\n        17\n        </ion-option>\n        <ion-option>\n        18\n        </ion-option>\n        <ion-option>\n        19\n        </ion-option>\n        <ion-option>\n        20\n        </ion-option>\n        <ion-option>\n        21\n        </ion-option>\n        <ion-option>\n        22\n        </ion-option>\n        <ion-option>\n        23\n        </ion-option>\n        <ion-option>\n        24\n        </ion-option>\n        <ion-option>\n        25\n        </ion-option>\n        <ion-option>\n        26\n        </ion-option>\n        <ion-option>\n        27\n        </ion-option>\n        <ion-option>\n        28\n        </ion-option>\n        <ion-option>\n        29\n        </ion-option>\n        <ion-option>\n        30\n        </ion-option>\n        <ion-option>\n        31\n        </ion-option>\n        \n      </ion-select>\n    </ion-item>\n\n  <div id="recordDeposit-markdown6" class="show-list-numbers-and-dots">\n    <p style="color:#000000;">\n      Amount Deposited (LKR)\n    </p>\n  </div>\n    <ion-item id="recordDeposit-input3">\n      <ion-input type="number" disabled="true" placeholder="Amount" name="amount" [(ngModel)]="amount"></ion-input>\n    </ion-item>\n  </form>\n  <button ion-button color="calm" block style="color:#000000;" on-click="addDeposit()" >Submit</button>\n  <div class="spacer" style="width:300px;height:27px;" id="recordDeposit-spacer15"></div>\n  \n</ion-content>\n'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/record-deposit/record-deposit.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
 ], RecordDepositPage);
 
-var _a, _b, _c;
 //# sourceMappingURL=record-deposit.js.map
 
 /***/ }),
@@ -208,19 +207,27 @@ webpackEmptyAsyncContext.id = 111;
 /***/ }),
 
 /***/ 152:
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-function webpackEmptyAsyncContext(req) {
-	// Here Promise.resolve().then() is used instead of new Promise() to prevent
-	// uncatched exception popping up in devtools
-	return Promise.resolve().then(function() {
-		throw new Error("Cannot find module '" + req + "'.");
+var map = {
+	"../pages/warranty-home/warranty-home.module": [
+		275,
+		0
+	]
+};
+function webpackAsyncContext(req) {
+	var ids = map[req];
+	if(!ids)
+		return Promise.reject(new Error("Cannot find module '" + req + "'."));
+	return __webpack_require__.e(ids[1]).then(function() {
+		return __webpack_require__(ids[0]);
 	});
-}
-webpackEmptyAsyncContext.keys = function() { return []; };
-webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
-module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 152;
+};
+webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+	return Object.keys(map);
+};
+webpackAsyncContext.id = 152;
+module.exports = webpackAsyncContext;
 
 /***/ }),
 
@@ -230,12 +237,13 @@ webpackEmptyAsyncContext.id = 152;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePagePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__my_orders_my_orders__ = __webpack_require__(197);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__my_deliveries_my_deliveries__ = __webpack_require__(200);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__my_payments_my_payments__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__my_profile_my_profile__ = __webpack_require__(204);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__login_login__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__warranty_home_warranty_home__ = __webpack_require__(205);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -245,6 +253,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -281,13 +290,18 @@ var HomePagePage = (function () {
             params = {};
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__login_login__["a" /* LoginPage */]);
     };
+    HomePagePage.prototype.goToWarrantyHome = function (params) {
+        if (!params)
+            params = {};
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__warranty_home_warranty_home__["a" /* WarrantyHomePage */]);
+    };
     return HomePagePage;
 }());
 HomePagePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home-page',template:/*ion-inline-start:"C:\Users\Senda\Desktop\FInal\20171211\MobileAppGZONETECHNOLOGIES\src\pages\home-page\home-page.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Home Page\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding id="page6">\n\n  <div class="spacer" style="width:300px;height:40px;" id="homePage-spacer8"></div>\n\n  <button id="homePage-button8" ion-button color="calm" block style="color:#000000;border-radius:0px 0px 0px 0px;" on-click="goToMyOrders()">\n\n    My Orders\n\n  </button>\n\n  <button id="homePage-button9" ion-button color="calm" block style="color:#000000;" on-click="goToMyDeliveries()">\n\n    My Deliveries\n\n  </button>\n\n  <button id="homePage-button10" ion-button color="calm" block style="color:#000000;" on-click="goToMyPayments()">\n\n    My Payments\n\n  </button>\n\n  <button id="homePage-button11" ion-button color="calm" block style="color:#000000;" on-click="goToMyProfile()">\n\n    View Profile\n\n  </button>\n\n  <button id="homePage-button12" ion-button color="calm" block style="color:#000000;" on-click="goToLogin()">\n\n    Sign out\n\n  </button>\n\n  <div class="spacer" style="width:300px;height:52px;" id="homePage-spacer9"></div>\n\n  <div>\n\n    <img src="assets/img/5BVK1GSduXGR69BddHAA_12342335_1674935559443552_4840384717682269278_n.png" style="display:block;width:30%;height:auto;margin-left:auto;" />\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Senda\Desktop\FInal\20171211\MobileAppGZONETECHNOLOGIES\src\pages\home-page\home-page.html"*/
+        selector: 'page-home-page',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/home-page/home-page.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Home Page\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page6">\n  <div class="spacer" style="width:300px;height:40px;" id="homePage-spacer8"></div>\n  <button id="homePage-button8" ion-button color="calm" block style="color:#000000;border-radius:0px 0px 0px 0px;" on-click="goToMyOrders()">\n    My Orders\n  </button>\n  <button id="homePage-button9" ion-button color="calm" block style="color:#000000;" on-click="goToMyDeliveries()">\n    My Deliveries\n  </button>\n  <button id="homePage-button10" ion-button color="calm" block style="color:#000000;" on-click="goToMyPayments()">\n    My Payments\n  </button>\n  <button id="homePage-button13" ion-button color="calm" block style="color:#000000;" on-click="goToWarrantyHome()">\n    Handle Warranty Claims\n  </button>\n  <button id="homePage-button11" ion-button color="calm" block style="color:#000000;" on-click="goToMyProfile()">\n    View Profile\n  </button>\n  <button id="homePage-button12" ion-button color="calm" block style="color:#000000;" on-click="goToLogin()">\n    Sign out\n  </button>\n  <div class="spacer" style="width:300px;height:52px;" id="homePage-spacer9"></div>\n  <div>\n    <img src="assets/img/5BVK1GSduXGR69BddHAA_12342335_1674935559443552_4840384717682269278_n.png" style="display:block;width:30%;height:auto;margin-left:auto;" />\n  </div>\n</ion-content>\n\n\n<!--on-click direct to relevant pages-->'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/home-page/home-page.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]])
 ], HomePagePage);
 
 //# sourceMappingURL=home-page.js.map
@@ -300,7 +314,7 @@ HomePagePage = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyOrdersPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__previous_purchases_previous_purchases__ = __webpack_require__(198);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pending_orders_pending_orders__ = __webpack_require__(199);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -334,9 +348,9 @@ var MyOrdersPage = (function () {
 }());
 MyOrdersPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-my-orders',template:/*ion-inline-start:"C:\Users\Senda\Desktop\FInal\20171211\MobileAppGZONETECHNOLOGIES\src\pages\my-orders\my-orders.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>\n\n      My Orders\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding id="page5">\n\n  <div class="spacer" style="width:300px;height:102px;" id="myOrders-spacer6"></div>\n\n  <button id="myOrders-button6" ion-button color="calm" block style="color:#000000;" on-click="goToPreviousPurchases()">\n\n    View Previous Purchases\n\n  </button>\n\n  <div class="spacer" style="width:300px;height:42px;" id="myOrders-spacer7"></div>\n\n  <button id="myOrders-button7" ion-button color="calm" block style="color:#000000;" on-click="goToPendingOrders()">\n\n    View Pending Orders\n\n  </button>\n\n  <div class="spacer" style="width:300px;height:102px;" id="myOrders-spacer10"></div>\n\n  <div>\n\n    <img src="assets/img/TtHlAxrfTdiy3Y5Kpu0M_12342335_1674935559443552_4840384717682269278_n.png" style="display:block;width:20%;height:auto;margin-left:auto;margin-right:auto;" />\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Senda\Desktop\FInal\20171211\MobileAppGZONETECHNOLOGIES\src\pages\my-orders\my-orders.html"*/
+        selector: 'page-my-orders',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/my-orders/my-orders.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      My Orders\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page5">\n  <div class="spacer" style="width:300px;height:102px;" id="myOrders-spacer6"></div>\n  <button id="myOrders-button6" ion-button color="calm" block style="color:#000000;" on-click="goToPreviousPurchases()">\n    View Previous Purchases\n  </button>\n  <div class="spacer" style="width:300px;height:42px;" id="myOrders-spacer7"></div>\n  <button id="myOrders-button7" ion-button color="calm" block style="color:#000000;" on-click="goToPendingOrders()">\n    View Pending Orders\n  </button>\n  <div class="spacer" style="width:300px;height:102px;" id="myOrders-spacer10"></div>\n  <div>\n    <img src="assets/img/TtHlAxrfTdiy3Y5Kpu0M_12342335_1674935559443552_4840384717682269278_n.png" style="display:block;width:20%;height:auto;margin-left:auto;margin-right:auto;" />\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/my-orders/my-orders.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]])
 ], MyOrdersPage);
 
 //# sourceMappingURL=my-orders.js.map
@@ -349,7 +363,7 @@ MyOrdersPage = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PreviousPurchasesPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__order_order__ = __webpack_require__(100);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -395,9 +409,9 @@ var PreviousPurchasesPage = (function () {
 }());
 PreviousPurchasesPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-previous-purchases',template:/*ion-inline-start:"C:\Users\Senda\Desktop\FInal\20171211\MobileAppGZONETECHNOLOGIES\src\pages\previous-purchases\previous-purchases.html"*/'\n\n<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Previous Purchases\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding id="page7" *ngIf="res">\n\n\n\n  <ion-list id="previousPurchases-list3">\n\n    \n\n\n\n      <ion-item color="none" on-click="goToOrder(order)" id="previousPurchases-list-item10" *ngFor="let order of res">\n\n        <ion-thumbnail item-left>\n\n            <!-- <img [src]="order.image"/> -->\n\n            <img src="assets/img/images.png"  />\n\n        </ion-thumbnail>\n\n        <h2>\n\n          Order ID: {{order.orderID}}\n\n        </h2>\n\n      </ion-item>\n\n      \n\n      <button ion-button color="calm" block style="color:#000000;" on-click="deletePurchases()">Delete Purchases</button>\n\n   \n\n    </ion-list>\n\n  '/*ion-inline-end:"C:\Users\Senda\Desktop\FInal\20171211\MobileAppGZONETECHNOLOGIES\src\pages\previous-purchases\previous-purchases.html"*/
+        selector: 'page-previous-purchases',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/previous-purchases/previous-purchases.html"*/'\n<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Previous Purchases\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page7" *ngIf="res">\n\n  <ion-list id="previousPurchases-list3">\n    \n\n      <ion-item color="none" on-click="goToOrder(order)" id="previousPurchases-list-item10" *ngFor="let order of res">\n        <ion-thumbnail item-left>\n            <!-- <img [src]="order.image"/> -->\n            <img src="assets/img/images.png"  />\n        </ion-thumbnail>\n        <h2>\n          Order ID: {{order.orderID}}\n        </h2>\n      </ion-item>\n      \n      <button ion-button color="calm" block style="color:#000000;" on-click="deletePurchases()">Delete Purchases</button>\n   \n    </ion-list>\n  '/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/previous-purchases/previous-purchases.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]])
 ], PreviousPurchasesPage);
 
 //# sourceMappingURL=previous-purchases.js.map
@@ -410,7 +424,7 @@ PreviousPurchasesPage = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PendingOrdersPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__order_order__ = __webpack_require__(100);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -447,9 +461,9 @@ var PendingOrdersPage = (function () {
 }());
 PendingOrdersPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-pending-orders',template:/*ion-inline-start:"C:\Users\Senda\Desktop\FInal\20171211\MobileAppGZONETECHNOLOGIES\src\pages\pending-orders\pending-orders.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Pending Orders\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding id="page8" *ngIf="res">\n\n  <ion-list id="pendingOrders-list4">\n\n    \n\n    <ion-item color="none"  on-click="goToOrder(order)" id="pendingOrders-list-item30" *ngFor="let order of res">\n\n      <ion-thumbnail item-left>\n\n        <!-- <img [src]="order.image"/> -->\n\n        <img src="assets/img/images.png"  />\n\n      </ion-thumbnail>\n\n      <h2>\n\n        Order ID: {{order.orderID}}\n\n      </h2>\n\n    </ion-item>\n\n    </ion-list>\n\n  </ion-content>\n\n'/*ion-inline-end:"C:\Users\Senda\Desktop\FInal\20171211\MobileAppGZONETECHNOLOGIES\src\pages\pending-orders\pending-orders.html"*/
+        selector: 'page-pending-orders',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/pending-orders/pending-orders.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Pending Orders\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page8" *ngIf="res">\n  <ion-list id="pendingOrders-list4">\n    \n    <ion-item color="none"  on-click="goToOrder(order)" id="pendingOrders-list-item30" *ngFor="let order of res">\n      <ion-thumbnail item-left>\n        <!-- <img [src]="order.image"/> -->\n        <img src="assets/img/images.png"  />\n      </ion-thumbnail>\n      <h2>\n        Order ID: {{order.orderID}}\n      </h2>\n    </ion-item>\n    </ion-list>\n  </ion-content>\n'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/pending-orders/pending-orders.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]])
 ], PendingOrdersPage);
 
 //# sourceMappingURL=pending-orders.js.map
@@ -462,7 +476,7 @@ PendingOrdersPage = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyDeliveriesPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__delivery_delivery__ = __webpack_require__(201);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -501,9 +515,9 @@ var MyDeliveriesPage = (function () {
 }());
 MyDeliveriesPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-my-deliveries',template:/*ion-inline-start:"C:\Users\Senda\Desktop\FInal\20171211\MobileAppGZONETECHNOLOGIES\src\pages\my-deliveries\my-deliveries.html"*/'\n\n<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      My Deliveries\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding id="page3">\n\n  <form id="myDeliveries-form3">\n\n    \n\n    <ion-item color="none" on-click="goToDelivery(deliver)" id="myDeliveries-list-item49" *ngFor="let deliver of res">\n\n      <ion-thumbnail item-left>\n\n        <!-- <img /> -->\n\n        <img src="assets/img/images.png"  />\n\n      </ion-thumbnail>\n\n      <h2>\n\n        Order ID: {{deliver.orderID}} \n\n      </h2>\n\n    </ion-item>\n\n  </form>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Senda\Desktop\FInal\20171211\MobileAppGZONETECHNOLOGIES\src\pages\my-deliveries\my-deliveries.html"*/
+        selector: 'page-my-deliveries',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/my-deliveries/my-deliveries.html"*/'\n<ion-header>\n  <ion-navbar>\n    <ion-title>\n      My Deliveries\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page3">\n  <form id="myDeliveries-form3">\n    \n    <ion-item color="none" on-click="goToDelivery(deliver)" id="myDeliveries-list-item49" *ngFor="let deliver of res">\n      <ion-thumbnail item-left>\n        <!-- <img /> -->\n        <img src="assets/img/images.png"  />\n      </ion-thumbnail>\n      <h2>\n        Order ID: {{deliver.orderID}} \n      </h2>\n    </ion-item>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/my-deliveries/my-deliveries.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]])
 ], MyDeliveriesPage);
 
 //# sourceMappingURL=my-deliveries.js.map
@@ -516,7 +530,7 @@ MyDeliveriesPage = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DeliveryPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(19);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -589,9 +603,9 @@ var DeliveryPage = (function () {
 }());
 DeliveryPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-delivery',template:/*ion-inline-start:"C:\Users\Senda\Desktop\FInal\20171211\MobileAppGZONETECHNOLOGIES\src\pages\delivery\delivery.html"*/'\n\n<ion-content>\n\n    <ion-navbar>\n\n      <button ion-button menuToggle>\n\n        <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n      <ion-title>\n\n        Delivery\n\n      </ion-title>\n\n    </ion-navbar>\n\n  <div padding id="page10" *ngIf="items">\n\n      <button ion-button style="float:right" on-click="Deliver()" *ngIf="deliver">Deliver</button>\n\n    <ion-card id="order-card21"  *ngFor="let item of items">\n\n      <ion-list>\n\n        <ion-item color="none" id="order-list-item28">\n\n           Product Id: {{item.productID}}\n\n           <!-- {{item.product_photo}} -->\n\n        </ion-item>\n\n        <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">\n\n            <img [src]="item.product_photo"/>\n\n        </div>\n\n        <ion-list id="order-list5">\n\n          <ion-item color="none" id="order-list-item76">\n\n          <ion-icon name="calculator" item-start></ion-icon>\n\n           Quantity: {{item.qty}}\n\n          </ion-item>\n\n        </ion-list>\n\n      </ion-list>\n\n    </ion-card>\n\n    </div>\n\n  </ion-content>'/*ion-inline-end:"C:\Users\Senda\Desktop\FInal\20171211\MobileAppGZONETECHNOLOGIES\src\pages\delivery\delivery.html"*/
+        selector: 'page-delivery',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/delivery/delivery.html"*/'\n<ion-content>\n    <ion-navbar>\n      <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n      <ion-title>\n        Delivery\n      </ion-title>\n    </ion-navbar>\n  <div padding id="page10" *ngIf="items">\n      <button ion-button style="float:right" on-click="Deliver()" *ngIf="deliver">Deliver</button>\n    <ion-card id="order-card21"  *ngFor="let item of items">\n      <ion-list>\n        <ion-item color="none" id="order-list-item28">\n           Product Id: {{item.productID}}\n           <!-- {{item.product_photo}} -->\n        </ion-item>\n        <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">\n            <img [src]="item.product_photo"/>\n        </div>\n        <ion-list id="order-list5">\n          <ion-item color="none" id="order-list-item76">\n          <ion-icon name="calculator" item-start></ion-icon>\n           Quantity: {{item.qty}}\n          </ion-item>\n        </ion-list>\n      </ion-list>\n    </ion-card>\n    </div>\n  </ion-content>'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/delivery/delivery.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
 ], DeliveryPage);
 
 //# sourceMappingURL=delivery.js.map
@@ -604,7 +618,7 @@ DeliveryPage = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UploadDepositSlipPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -624,9 +638,9 @@ var UploadDepositSlipPage = (function () {
 }());
 UploadDepositSlipPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-upload-deposit-slip',template:/*ion-inline-start:"C:\Users\Senda\Desktop\FInal\20171211\MobileAppGZONETECHNOLOGIES\src\pages\upload-deposit-slip\upload-deposit-slip.html"*/'\n\n\n\n<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>\n\n      Upload Deposit Slip\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding id="page13">\n\n  <div class="spacer" style="width:300px;height:84px;" id="uploadDepositSlip-spacer18"></div>\n\n  <ion-list id="uploadDepositSlip-list6">\n\n    <ion-item color="positive" id="uploadDepositSlip-list-item70">\n\n      <ion-icon name="cloud-upload" item-left></ion-icon>\n\n      Upload Image\n\n    </ion-item>\n\n  </ion-list>\n\n  <div class="spacer" style="width:300px;height:52px;" id="uploadDepositSlip-spacer19"></div>\n\n  <button id="uploadDepositSlip-button16" ion-button color="calm" block style="color:#000000;">\n\n    Submit\n\n  </button>\n\n  <div class="spacer" style="width:300px;height:123px;" id="uploadDepositSlip-spacer20"></div>\n\n  <div>\n\n    <img src="assets/img/6OiE3mQuGnVGOBw5GDVA_12342335_1674935559443552_4840384717682269278_n.png" style="display:block;width:20%;height:auto;margin-left:auto;margin-right:auto;" />\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Senda\Desktop\FInal\20171211\MobileAppGZONETECHNOLOGIES\src\pages\upload-deposit-slip\upload-deposit-slip.html"*/
+        selector: 'page-upload-deposit-slip',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/upload-deposit-slip/upload-deposit-slip.html"*/'\n\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      Upload Deposit Slip\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page13">\n  <div class="spacer" style="width:300px;height:84px;" id="uploadDepositSlip-spacer18"></div>\n  <ion-list id="uploadDepositSlip-list6">\n    <ion-item color="positive" id="uploadDepositSlip-list-item70">\n      <ion-icon name="cloud-upload" item-left></ion-icon>\n      Upload Image\n    </ion-item>\n  </ion-list>\n  <div class="spacer" style="width:300px;height:52px;" id="uploadDepositSlip-spacer19"></div>\n  <button id="uploadDepositSlip-button16" ion-button color="calm" block style="color:#000000;">\n    Submit\n  </button>\n  <div class="spacer" style="width:300px;height:123px;" id="uploadDepositSlip-spacer20"></div>\n  <div>\n    <img src="assets/img/6OiE3mQuGnVGOBw5GDVA_12342335_1674935559443552_4840384717682269278_n.png" style="display:block;width:20%;height:auto;margin-left:auto;margin-right:auto;" />\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/upload-deposit-slip/upload-deposit-slip.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]])
 ], UploadDepositSlipPage);
 
 //# sourceMappingURL=upload-deposit-slip.js.map
@@ -639,7 +653,7 @@ UploadDepositSlipPage = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CalculatePaymentPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__record_deposit_record_deposit__ = __webpack_require__(102);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -684,9 +698,9 @@ var CalculatePaymentPage = (function () {
 }());
 CalculatePaymentPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-calculate-payment',template:/*ion-inline-start:"C:\Users\Senda\Desktop\FInal\20171211\MobileAppGZONETECHNOLOGIES\src\pages\calculate-payment\calculate-payment.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>\n\n      Calculate Payment\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding id="page12">\n\n  <div id="calculatePayment-container1">\n\n    <div id="calculatePayment-markdown9" class="show-list-numbers-and-dots">\n\n      <p style="color:#000000;">\n\n        Delivery Order Total (LKR)\n\n      </p>\n\n    </div>\n\n      <ion-item>\n\n        <ion-label>{{total | number:\'1.2-2\'}}</ion-label>\n\n      </ion-item>\n\n    <div id="calculatePayment-markdown13" class="show-list-numbers-and-dots">\n\n      <p style="color:#000000;">\n\n        (-) Commission (LKR)\n\n      </p>\n\n    </div>\n\n      <ion-item>\n\n        <ion-label>{{commision | number:\'1.2-2\'}}</ion-label>\n\n      </ion-item>\n\n      <div class="spacer" style="width:300px;height:68px;" id="calculatePayment-spacer16"></div>\n\n    <div id="calculatePayment-markdown12" class="show-list-numbers-and-dots">\n\n      <p style="color:#000000;">\n\n        Amount to be Deposited\n\n      </p>\n\n    </div>\n\n      <ion-item>\n\n        <ion-label>{{deposit | number:\'1.2-2\'}}</ion-label>\n\n      </ion-item>\n\n      <button ion-button color="calm" block style="color:#000000;" on-click="totalAmount()">Deposit</button>\n\n      \n\n  </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Senda\Desktop\FInal\20171211\MobileAppGZONETECHNOLOGIES\src\pages\calculate-payment\calculate-payment.html"*/
+        selector: 'page-calculate-payment',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/calculate-payment/calculate-payment.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      Calculate Payment\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page12">\n  <div id="calculatePayment-container1">\n    <div id="calculatePayment-markdown9" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Delivery Order Total (LKR)\n      </p>\n    </div>\n      <ion-item>\n        <ion-label>{{total | number:\'1.2-2\'}}</ion-label>\n      </ion-item>\n    <div id="calculatePayment-markdown13" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        (-) Commission (LKR)\n      </p>\n    </div>\n      <ion-item>\n        <ion-label>{{commision | number:\'1.2-2\'}}</ion-label>\n      </ion-item>\n      <div class="spacer" style="width:300px;height:68px;" id="calculatePayment-spacer16"></div>\n    <div id="calculatePayment-markdown12" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Amount to be Deposited\n      </p>\n    </div>\n      <ion-item>\n        <ion-label>{{deposit | number:\'1.2-2\'}}</ion-label>\n      </ion-item>\n      <button ion-button color="calm" block style="color:#000000;" on-click="totalAmount()">Deposit</button>\n      \n  </div>\n</ion-content>'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/calculate-payment/calculate-payment.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]])
 ], CalculatePaymentPage);
 
 //# sourceMappingURL=calculate-payment.js.map
@@ -699,7 +713,7 @@ CalculatePaymentPage = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyProfilePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(19);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -732,9 +746,9 @@ var MyProfilePage = (function () {
 }());
 MyProfilePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-my-profile',template:/*ion-inline-start:"C:\Users\Senda\Desktop\FInal\20171211\MobileAppGZONETECHNOLOGIES\src\pages\my-profile\my-profile.html"*/'\n\n\n\n<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>\n\n      My Profile\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding id="page1" *ngIf="res">\n\n\n\n  <ion-card id="myProfile-card22">\n\n    <ion-list>\n\n      <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">\n\n              <!-- <img [src]="res.profile_photo" *ngIf="res.profile_photo" style="display:block;width:100%;height:200;margin-left:auto;margin-right:auto;" /> -->\n\n              <img [src]="res.profile_photo" *ngIf="res.profile_photo" style="display:block;width:100%;height:200;margin-left:auto;margin-right:auto;" />\n\n            </div>\n\n\n\n        </ion-list>\n\n\n\n      \n\n\n\n  <ion-list>\n\n    <ion-item>\n\n      <ion-icon name="person" item-start></ion-icon>\n\n      {{res.fname}} {{res.lname}}\n\n    </ion-item>\n\n\n\n\n\n    <ion-item>\n\n      <ion-icon name="ios-cog" item-start></ion-icon>\n\n      <strong>Username:  </strong>{{res.user_name}}\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-icon name="ios-home" item-start></ion-icon>\n\n      {{res.address}} \n\n   </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-icon name="ios-recording" item-start></ion-icon>\n\n      {{res.tel_no}}\n\n     </ion-item>\n\n\n\n  </ion-list>\n\n    \n\n  </ion-card>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Senda\Desktop\FInal\20171211\MobileAppGZONETECHNOLOGIES\src\pages\my-profile\my-profile.html"*/
+        selector: 'page-my-profile',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/my-profile/my-profile.html"*/'\n\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      My Profile\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page1" *ngIf="res">\n\n  <ion-card id="myProfile-card22">\n    <ion-list>\n      <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">\n              <!-- <img [src]="res.profile_photo" *ngIf="res.profile_photo" style="display:block;width:100%;height:200;margin-left:auto;margin-right:auto;" /> -->\n              <img [src]="res.profile_photo" *ngIf="res.profile_photo" style="display:block;width:100%;height:200;margin-left:auto;margin-right:auto;" />\n            </div>\n\n        </ion-list>\n\n      \n\n  <ion-list>\n    <ion-item>\n      <ion-icon name="person" item-start></ion-icon>\n      {{res.fname}} {{res.lname}}\n    </ion-item>\n\n\n    <ion-item>\n      <ion-icon name="ios-cog" item-start></ion-icon>\n      <strong>Username:  </strong>{{res.user_name}}\n    </ion-item>\n\n    <ion-item>\n      <ion-icon name="ios-home" item-start></ion-icon>\n      {{res.address}} \n   </ion-item>\n\n    <ion-item>\n      <ion-icon name="ios-recording" item-start></ion-icon>\n      {{res.tel_no}}\n     </ion-item>\n\n  </ion-list>\n    \n  </ion-card>\n</ion-content>'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/my-profile/my-profile.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]])
 ], MyProfilePage);
 
 //# sourceMappingURL=my-profile.js.map
@@ -745,9 +759,55 @@ MyProfilePage = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WarrantyHomePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the WarrantyHomePage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var WarrantyHomePage = (function () {
+    function WarrantyHomePage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    WarrantyHomePage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad WarrantyHomePage');
+    };
+    return WarrantyHomePage;
+}());
+WarrantyHomePage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-warranty-home',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/warranty-home/warranty-home.html"*/'<!--\n  Generated template for the WarrantyHomePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>WarrantyHome</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/warranty-home/warranty-home.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+], WarrantyHomePage);
+
+//# sourceMappingURL=warranty-home.js.map
+
+/***/ }),
+
+/***/ 206:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(206);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(224);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(225);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -755,15 +815,15 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 224:
+/***/ 225:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(265);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(266);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_my_profile_my_profile__ = __webpack_require__(204);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_my_payments_my_payments__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_my_deliveries_my_deliveries__ = __webpack_require__(200);
@@ -832,7 +892,11 @@ AppModule = __decorate([
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_17__angular_http__["b" /* HttpModule */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */])
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
+                links: [
+                    { loadChildren: '../pages/warranty-home/warranty-home.module#WarrantyHomePageModule', name: 'WarrantyHomePage', segment: 'warranty-home', priority: 'low', defaultHistory: [] }
+                ]
+            })
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
         entryComponents: [
@@ -863,13 +927,13 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 265:
+/***/ 266:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(192);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(195);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_login_login__ = __webpack_require__(99);
@@ -900,13 +964,13 @@ var MyApp = (function () {
     return MyApp;
 }());
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Nav */]),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Nav */])
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */]),
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */])
 ], MyApp.prototype, "navCtrl", void 0);
 MyApp = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"C:\Users\Senda\Desktop\FInal\20171211\MobileAppGZONETECHNOLOGIES\src\app\app.html"*/'<ion-menu [content]="mainContent">\n\n  <ion-header>\n\n    <ion-toolbar>\n\n      <ion-title>\n\n        Menu\n\n      </ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n  <ion-content id="side-menu21">\n\n    <div>\n\n      <img src="assets/img/9QAPDmx5QDGYgfQA1v9Q_12314128_1674935919443516_3250136307729642455_n.png" style="display:block;width:100%;height:auto;margin-left:auto;margin-right:auto;" />\n\n    </div>\n\n    <ion-list id="menu-list1">\n\n      <ion-item color="none" id="menu-list-item1">\n\n        My Orders\n\n      </ion-item>\n\n      <ion-item color="none" id="menu-list-item2">\n\n        My Deliveries\n\n      </ion-item>\n\n      <ion-item color="none" id="menu-list-item3">\n\n        My Payments\n\n      </ion-item>\n\n      <ion-item color="none" id="menu-list-item5">\n\n        View Profile\n\n      </ion-item>\n\n      <ion-item color="none" id="menu-list-item4">\n\n        Sign out\n\n      </ion-item>\n\n    </ion-list>\n\n  </ion-content>\n\n</ion-menu>\n\n\n\n<ion-nav #mainContent [root]="rootPage"></ion-nav>'/*ion-inline-end:"C:\Users\Senda\Desktop\FInal\20171211\MobileAppGZONETECHNOLOGIES\src\app\app.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/app/app.html"*/'<ion-menu [content]="mainContent">\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>\n        Menu\n      </ion-title>\n    </ion-toolbar>\n  </ion-header>\n  <ion-content id="side-menu21">\n    <div>\n      <img src="assets/img/9QAPDmx5QDGYgfQA1v9Q_12314128_1674935919443516_3250136307729642455_n.png" style="display:block;width:100%;height:auto;margin-left:auto;margin-right:auto;" />\n    </div>\n    <ion-list id="menu-list1">\n      <ion-item color="none" id="menu-list-item1">\n        My Orders\n      </ion-item>\n      <ion-item color="none" id="menu-list-item2">\n        My Deliveries\n      </ion-item>\n      <ion-item color="none" id="menu-list-item3">\n        My Payments\n      </ion-item>\n      <ion-item color="none" id="menu-list-item5">\n        View Profile\n      </ion-item>\n      <ion-item color="none" id="menu-list-item4">\n        Sign out\n      </ion-item>\n    </ion-list>\n  </ion-content>\n</ion-menu>\n\n<ion-nav #mainContent [root]="rootPage"></ion-nav>'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/app/app.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
 ], MyApp);
 
 //# sourceMappingURL=app.component.js.map
@@ -919,7 +983,7 @@ MyApp = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_page_home_page__ = __webpack_require__(196);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -977,13 +1041,13 @@ var LoginPage = (function () {
     return LoginPage;
 }());
 LoginPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({ selector: 'page-login',template:/*ion-inline-start:"C:\Users\Senda\Desktop\FInal\20171211\MobileAppGZONETECHNOLOGIES\src\pages\login\login.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Login\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding id="page4">\n\n  <form (ngSubmit)="logForm()" id="login-form1" method="post" action="Login.php" onsubmit="">\n\n    <div>\n\n      <img src="assets/img/2ktNuGpvTE2ep0GsYvZ3_12314128_1674935919443516_3250136307729642455_n.png" style="display:block;width:100%;height:auto;margin-left:auto;margin-right:auto;" />\n\n    </div>\n\n    <div class="spacer" style="width:300px;height:26px;" id="login-spacer3"></div>\n\n    <ion-list id="login-list2">\n\n      <ion-item id="login-input1">\n\n      <i class="icon ion-home"></i>\n\n        <ion-label>\n\n          Username\n\n        </ion-label>\n\n        <ion-input type="text" name="username" [(ngModel)]="account.username" placeholder=""></ion-input>\n\n      </ion-item>\n\n      <ion-item id="login-input2">\n\n        <ion-label>\n\n          Password\n\n        </ion-label>\n\n        <ion-icon name="logo-yen"></ion-icon>\n\n        <ion-input type="password" name="password" [(ngModel)]="account.password" placeholder=""></ion-input>\n\n      </ion-item>\n\n    </ion-list>\n\n  </form>\n\n<button id="submit" ion-button color="stable" block on-click="goToHomePage()">\n\n    Log in\n\n  </button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Senda\Desktop\FInal\20171211\MobileAppGZONETECHNOLOGIES\src\pages\login\login.html"*/ }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({ selector: 'page-login',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/login/login.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Login\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page4">\n  <form (ngSubmit)="logForm()" id="login-form1" method="post" action="Login.php" onsubmit="">\n    <div>\n      <img src="assets/img/2ktNuGpvTE2ep0GsYvZ3_12314128_1674935919443516_3250136307729642455_n.png" style="display:block;width:100%;height:auto;margin-left:auto;margin-right:auto;" />\n    </div>\n    <div class="spacer" style="width:300px;height:26px;" id="login-spacer3"></div>\n    <ion-list id="login-list2">\n      <ion-item id="login-input1">\n      <i class="icon ion-home"></i>\n        <ion-label>\n          Username\n        </ion-label>\n        <ion-input type="text" name="username" [(ngModel)]="account.username" placeholder=""></ion-input>\n      </ion-item>\n      <ion-item id="login-input2">\n        <ion-label>\n          Password\n        </ion-label>\n        <ion-icon name="logo-yen"></ion-icon>\n        <ion-input type="password" name="password" [(ngModel)]="account.password" placeholder=""></ion-input>\n      </ion-item>\n    </ion-list>\n  </form>\n<button id="submit" ion-button color="stable" block on-click="goToHomePage()">\n    Log in\n  </button>\n</ion-content>\n'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/login/login.html"*/ }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
 ], LoginPage);
 
 //# sourceMappingURL=login.js.map
 
 /***/ })
 
-},[205]);
+},[206]);
 //# sourceMappingURL=main.js.map
