@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { PreviousClaimsPage } from '../previous-claims/previous-claims';
+
 /**
  * Generated class for the SubmitClaimNamePage page.
  *
@@ -21,5 +23,10 @@ export class SubmitClaimNamePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad SubmitClaimNamePage');
   }
+
+  /**create function for to go to page which shows the previous claims of customer*/
+  goToPreviousClaims(params){
+    if (!params) params = {};
+    this.navCtrl.push(PreviousClaimsPage);}
 
 }

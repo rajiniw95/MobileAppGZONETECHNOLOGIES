@@ -28,7 +28,7 @@ export class LoginPage {
         .subscribe((response) => {
           var res = response.json();
           if(this.account.username == res[0].user_name && this.account.password == res[0].password){
-            let alert = this.Alert.create({title: 'Success', subTitle: 'Login Successfull', buttons: ['OK']});
+            let alert = this.Alert.create({title: 'Success', subTitle: 'Login Successful', buttons: ['OK']});
             alert.present();
             localStorage.setItem('Auth_Token', res[0].user_name);
             localStorage.setItem('Agent_ID', res[0].agentID);
