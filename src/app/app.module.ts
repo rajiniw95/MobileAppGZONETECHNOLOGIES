@@ -23,6 +23,7 @@ import { PreviousClaimsPage } from '../pages/previous-claims/previous-claims';
 import { WarrantyOrderListPage } from '../pages/warranty-order-list/warranty-order-list';
 import { ClaimOrderPage } from '../pages/claim-order/claim-order';
 import { WarrantyDetailsPage } from '../pages/warranty-details/warranty-details';
+import { SubmitRequestPage } from '../pages/submit-request/submit-request';
 
 
 
@@ -55,7 +56,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     PreviousClaimsPage,
     WarrantyOrderListPage,
     ClaimOrderPage,
-    WarrantyDetailsPage
+    WarrantyDetailsPage,
+    SubmitRequestPage
   ],
   imports: [
     BrowserModule,
@@ -85,7 +87,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     PreviousClaimsPage,
     WarrantyOrderListPage,
     ClaimOrderPage,
-    WarrantyDetailsPage
+    WarrantyDetailsPage,
+    SubmitRequestPage
   ],
   providers: [
     StatusBar,
