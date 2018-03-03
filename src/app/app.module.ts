@@ -15,6 +15,11 @@ import { OrderPage } from '../pages/order/order';
 import { DeliveryPage } from '../pages/delivery/delivery';
 import { CalculatePaymentPage } from '../pages/calculate-payment/calculate-payment';
 import { UploadDepositSlipPage } from '../pages/upload-deposit-slip/upload-deposit-slip';
+
+import { WarrantyHomePage } from '../pages/warranty-home/warranty-home';
+import { SubmitClaimPage } from '../pages/submit-claim/submit-claim';
+import { TrackClaimPage } from '../pages/track-claim/track-claim';
+
 import { Http,HttpModule } from '@angular/http';
 
 
@@ -36,7 +41,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     OrderPage,
     DeliveryPage,
     CalculatePaymentPage,
-    UploadDepositSlipPage
+    UploadDepositSlipPage,
+
+    WarrantyHomePage,
+    SubmitClaimPage,
+    TrackClaimPage
   ],
   imports: [
     BrowserModule,
@@ -58,7 +67,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     OrderPage,
     DeliveryPage,
     CalculatePaymentPage,
-    UploadDepositSlipPage
+    UploadDepositSlipPage,
+
+    WarrantyHomePage,
+    SubmitClaimPage,
+    TrackClaimPage
   ],
   providers: [
     StatusBar,

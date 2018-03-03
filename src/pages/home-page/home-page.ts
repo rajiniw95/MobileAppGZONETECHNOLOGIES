@@ -42,6 +42,7 @@ export class HomePagePage {
     this.navCtrl.push(LoginPage);
   }
 
+  /**create function for go to warranty home*/
   goToWarrantyHome(params){
     if (!params) params = {};
     this.navCtrl.push(WarrantyHomePage);
