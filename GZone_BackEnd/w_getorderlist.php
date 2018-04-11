@@ -6,11 +6,11 @@ header('Access-Control-Allow-Headers: Content-Type,x-prototype-version,x-request
 
 include('Connecting_DB.php');
 
-//set variable for id
-$ID = $_GET['id'];
+//set variable for username
+$customer_id = $_GET['customer_id'];
 
-//Select Data: product types in an order
-$query = sprintf("select * from order_has_product where orderID='%s'", $ID);
+//select the deliveries the agent has to make
+$query = sprintf("select * from orders where customerID='%s' and status='delivered'", $customer_id);
 
 $result = $mysqli->query($query) or die($mysqli->error . __LINE__);
 $ban = array();

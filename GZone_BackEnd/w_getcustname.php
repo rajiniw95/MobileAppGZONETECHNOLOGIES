@@ -6,21 +6,12 @@ header('Access-Control-Allow-Headers: Content-Type,x-prototype-version,x-request
 
 include('Connecting_DB.php');
 
-//id, status, date assigned to variables
-$orderID = $_GET['id'];
-$status = $_GET['status'];
-$date = $_GET['date'];
+//set variable for customer name
+$CusID = $_GET['custname'];
 
-/* query to update 
-status to $status, 
-month to $month,
-orderID to $orderID
-*/
-$query = sprintf("UPDATE orders SET status = '%s', month ='%s'WHERE orderID='%s'",$status,$date,$orderID);
-
+$query = sprintf("select * from customer where customer_name='%s'", $CusID);
 $result = $mysqli->query($query) or die($mysqli->error . __LINE__);
 $card = array();
-
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $card[] = $row;

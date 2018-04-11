@@ -2,11 +2,15 @@
 header('Access-Control-Allow-Origin:*');
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type,x-prototype-version,x-requested-with');
+
 include('Connecting_DB.php');
-//$con= mysql_connect("localhost","root","");
-//$db = mysql_select_db("Hello",$con);
+
+//set variable for id
 $ID = $_GET['id'];
+
+//get details of the order
 $query = sprintf("select * from orders where orderID='%s'", $ID);
+
 $result = $mysqli->query($query) or die($mysqli->error . __LINE__);
 $card = array();
 if ($result->num_rows > 0) {

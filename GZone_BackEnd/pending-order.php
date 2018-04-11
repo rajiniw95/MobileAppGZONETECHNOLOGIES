@@ -6,7 +6,8 @@ header('Access-Control-Allow-Headers: Content-Type,x-prototype-version,x-request
 include('Connecting_DB.php');
 
 $CusID = $_GET['username'];
-//Select Data from the postadvertiesement table in the smartapp database
+
+//Select Data from the orders table in the GZone database for orders with status PENDING of the logged in agent
 $query = sprintf("select * from orders where Agent_Id='%s' AND status='pending'", $CusID);
 
 $result = $mysqli->query($query) or die($mysqli->error . __LINE__);

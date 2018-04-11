@@ -3,10 +3,10 @@
 header('Access-Control-Allow-Origin:*');
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type,x-prototype-version,x-requested-with');
+
 include('Connecting_DB.php');
 
-//$con= mysql_connect("localhost","root","");
-//$db = mysql_select_db("newdatabase",$con);
+//set variable for username
 $CusID = $_GET['username'];
 
 $query = sprintf("select * from agent where user_name='%s'", $CusID);

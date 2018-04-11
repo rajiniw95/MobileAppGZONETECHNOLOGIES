@@ -3,11 +3,12 @@
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type,x-prototype-version,x-requested-with');
+
 include('Connecting_DB.php');
-//Select Data from the postadvertiesement table in the smartapp database
+
+//set variables for agentId and date
 $userName = $_GET['agentId'];
 $month = $_GET['date'];
-
 
 $query = sprintf("select * from `record-deposit` where Agent_Id='%s' AND month ='%s'", $userName,$month);
 
