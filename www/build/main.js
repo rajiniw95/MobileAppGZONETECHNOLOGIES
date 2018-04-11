@@ -7,7 +7,7 @@ webpackJsonp([11],{
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_page_home_page__ = __webpack_require__(207);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -79,7 +79,7 @@ LoginPage = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OrderPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(13);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -176,7 +176,7 @@ MyPaymentsPage = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RecordDepositPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__my_payments_my_payments__ = __webpack_require__(102);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__upload_deposit_slip_upload_deposit_slip__ = __webpack_require__(213);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -424,7 +424,8 @@ ClaimOrderPage = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WarrantyOrderListPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__claim_order_claim_order__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__claim_order_claim_order__ = __webpack_require__(106);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -437,6 +438,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the WarrantyOrderListPage page.
  *
@@ -444,9 +446,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * on Ionic pages and navigation.
  */
 var WarrantyOrderListPage = (function () {
-    function WarrantyOrderListPage(navCtrl, navParams) {
+    function WarrantyOrderListPage(navCtrl, http) {
+        var _this = this;
         this.navCtrl = navCtrl;
-        this.navParams = navParams;
+        this.http = http;
+        this.customer_id = localStorage.getItem('customer_id');
+        this.http.get('http://localhost:8081/GZone/w_getorderlist.php?customer_id=' + this.customer_id).subscribe(function (data) {
+            _this.res = data.json();
+        });
     }
     WarrantyOrderListPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad WarrantyOrderListPage');
@@ -455,18 +462,19 @@ var WarrantyOrderListPage = (function () {
     WarrantyOrderListPage.prototype.goToClaimOrder = function (params) {
         if (!params)
             params = {};
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__claim_order_claim_order__["a" /* ClaimOrderPage */]);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__claim_order_claim_order__["a" /* ClaimOrderPage */]);
     };
     return WarrantyOrderListPage;
 }());
 WarrantyOrderListPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-warranty-order-list',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/warranty-order-list/warranty-order-list.html"*/'<!--\n  Generated template for the WarrantyOrderListPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Customer Orders</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding id="page-orderlist">\n\n	<div id="orderlist-markdown1" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Customer ID\n      </p>\n    </div>\n      <ion-item>\n        <ion-label></ion-label>\n      </ion-item>\n\n      <div class="spacer" style="width:300px;height:20px;" id="submitclaim_name-spacer1"></div>\n\n  <form id="orderlist-form">\n    \n    <ion-item color="none" on-click="goToClaimOrder()" id="orderlist-list-item1" >\n      <ion-thumbnail item-left>\n        \n        <img src="assets/img/images.png"  />\n      </ion-thumbnail>\n\n      <h2>\n        Order ID: <br>\n        No. of Items: <br>\n        Total Price: <br>\n        Delivery Date: <br>\n      </h2> \n      \n    </ion-item>\n  </form>\n\n  \n</ion-content>\n\n\n\n'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/warranty-order-list/warranty-order-list.html"*/,
+        selector: 'page-warranty-order-list',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/warranty-order-list/warranty-order-list.html"*/'<!--\n  Generated template for the WarrantyOrderListPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Customer Orders</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding id="page-orderlist">\n\n	<div id="orderlist-markdown1" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Customer ID\n      </p>\n    </div>\n      <ion-item>\n        <ion-label>{{customer_id}}</ion-label>\n      </ion-item>\n\n      <div class="spacer" style="width:300px;height:20px;" id="submitclaim_name-spacer1"></div>\n\n  <form id="orderlist-form">\n    \n    <ion-item color="none" on-click="goToClaimOrder()" id="orderlist-list-item1" *ngFor="let cust_order of res">\n      <ion-thumbnail item-left>\n        \n        <img src="assets/img/images.png"  />\n      </ion-thumbnail>\n\n      <h2>\n        Order ID: {{cust_order.orderID}}<br>\n        No. of Items: {{cust_order.no_items}}<br>\n        Total Price: {{cust_order.total_amount}} <br>\n        Delivery Date: {{cust_order.deliverydate}}<br>\n      </h2> \n      \n    </ion-item>\n  </form>\n\n  \n</ion-content>\n\n\n\n'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/warranty-order-list/warranty-order-list.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]) === "function" && _b || Object])
 ], WarrantyOrderListPage);
 
+var _a, _b;
 //# sourceMappingURL=warranty-order-list.js.map
 
 /***/ }),
@@ -478,7 +486,8 @@ WarrantyOrderListPage = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PreviousClaimsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__warranty_order_list_warranty_order_list__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__warranty_order_list_warranty_order_list__ = __webpack_require__(107);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -491,6 +500,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the PreviousClaimsPage page.
  *
@@ -498,9 +508,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * on Ionic pages and navigation.
  */
 var PreviousClaimsPage = (function () {
-    function PreviousClaimsPage(navCtrl, navParams) {
+    function PreviousClaimsPage(navCtrl, http) {
+        var _this = this;
         this.navCtrl = navCtrl;
-        this.navParams = navParams;
+        this.http = http;
+        this.customer_id = localStorage.getItem('customer_id');
+        this.http.get('http://localhost:8081/GZone/w_getpreviousclaims.php?customer_id=' + this.customer_id).subscribe(function (data) {
+            _this.res = data.json();
+        });
     }
     PreviousClaimsPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad PreviousClaimsPage');
@@ -509,16 +524,16 @@ var PreviousClaimsPage = (function () {
     PreviousClaimsPage.prototype.goToWarrantyOrderList = function (params) {
         if (!params)
             params = {};
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__warranty_order_list_warranty_order_list__["a" /* WarrantyOrderListPage */]);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__warranty_order_list_warranty_order_list__["a" /* WarrantyOrderListPage */]);
     };
     return PreviousClaimsPage;
 }());
 PreviousClaimsPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-previous-claims',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/previous-claims/previous-claims.html"*/'<!--\n  Generated template for the PreviousClaimsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Previous Claims</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding id="page-previousclaims">\n\n	<div id="previousclaims-markdown1" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Customer ID\n      </p>\n    </div>\n      <ion-item>\n        <ion-label></ion-label>\n      </ion-item>\n\n      <div class="spacer" style="width:300px;height:20px;" id="submitclaim_name-spacer1"></div>\n\n  <form id="previousclaims-form">\n    \n    <ion-item color="none" id="previousclaims-list-item1" >\n      <ion-thumbnail item-left>\n        \n        <img src="assets/img/spanner.png"  />\n      </ion-thumbnail>\n\n      <h2>\n        Order ID: <br>\n        Product Name: <br>\n        Date: <br>\n        Quantity:<br>\n      </h2>\n      \n    </ion-item>\n  </form>\n\n  <div class="spacer" style="width:300px;height:20px;" id="submitclaim_name-spacer2"></div>\n\n  <button id="submit" ion-button color="calm" block style="color:#000000;" on-click="goToWarrantyOrderList()">Next</button>\n</ion-content>\n\n\n\n'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/previous-claims/previous-claims.html"*/,
+        selector: 'page-previous-claims',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/previous-claims/previous-claims.html"*/'<!--\n  Generated template for the PreviousClaimsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Previous Claims</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding id="page-previousclaims">\n\n	<div id="previousclaims-markdown1" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Customer ID  \n      </p>\n    </div>\n      <ion-item>\n        <ion-label> {{customer_id}}</ion-label>\n      </ion-item>\n\n      <div class="spacer" style="width:300px;height:20px;" id="submitclaim_name-spacer1"></div>\n\n  <form id="previousclaims-form">\n    \n    <ion-item color="none" id="previousclaims-list-item1" *ngFor="let claim of res">\n      <ion-thumbnail item-left>\n        \n        <img src="assets/img/spanner.png"  />\n      </ion-thumbnail>\n\n      <h2>\n        Order ID: {{claim.orderID}} <br>\n        Product Name: {{claim.prod_name}} <br>\n        Date: {{claim.date}} <br>\n        Quantity: {{claim.qty}}<br>\n      </h2>\n      \n    </ion-item>\n  </form>\n\n  <div class="spacer" style="width:300px;height:20px;" id="submitclaim_name-spacer2"></div>\n\n  <button id="submit" ion-button color="calm" block style="color:#000000;" on-click="goToWarrantyOrderList()">Next</button>\n</ion-content>\n\n\n\n'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/previous-claims/previous-claims.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]])
 ], PreviousClaimsPage);
 
 //# sourceMappingURL=previous-claims.js.map
@@ -532,7 +547,8 @@ PreviousClaimsPage = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SubmitClaimNamePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__previous_claims_previous_claims__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__previous_claims_previous_claims__ = __webpack_require__(108);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -545,6 +561,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 /**
  * Generated class for the SubmitClaimNamePage page.
  *
@@ -552,27 +570,54 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * on Ionic pages and navigation.
  */
 var SubmitClaimNamePage = (function () {
-    function SubmitClaimNamePage(navCtrl, navParams) {
+    function SubmitClaimNamePage(navCtrl, http, Alert) {
         this.navCtrl = navCtrl;
-        this.navParams = navParams;
+        this.http = http;
+        this.Alert = Alert;
+        this.account = {
+            custname: "",
+        };
     }
     SubmitClaimNamePage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad SubmitClaimNamePage');
     };
     /**create function for to go to page which shows the previous claims of customer*/
     SubmitClaimNamePage.prototype.goToPreviousClaims = function (params) {
+        var _this = this;
+        if (this.account.custname == "") {
+            var alert_1 = this.Alert.create({ title: 'Error', subTitle: 'Please Enter Customer Name', buttons: ['OK'] });
+            alert_1.present();
+        }
+        else {
+            this
+                .http
+                .get('http://localhost:8081/GZone/w_getcustname.php?custname=' + this.account.custname)
+                .subscribe(function (response) {
+                var res = response.json();
+                if (_this.account.custname == res[0].customer_name) {
+                    localStorage.setItem('Auth_Token', res[0].customer_name);
+                    localStorage.setItem('customer_id', res[0].customer_id);
+                    _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__previous_claims_previous_claims__["a" /* PreviousClaimsPage */]);
+                }
+                else {
+                    var alert_2 = _this.Alert.create({ title: 'Error', subTitle: 'Incorrect Customer Name. Please Re-enter!', buttons: ['OK'] });
+                    alert_2.present();
+                }
+            }, function (error) {
+                console.error(error);
+            });
+        }
         if (!params)
             params = {};
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__previous_claims_previous_claims__["a" /* PreviousClaimsPage */]);
     };
     return SubmitClaimNamePage;
 }());
 SubmitClaimNamePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-submit-claim-name',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/submit-claim-name/submit-claim-name.html"*/'<!--\n  Generated template for the SubmitClaimNamePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Submit Claim</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding id="submitclaim_namepage">\n  <div id="submitclaim_name-container1">\n    <div id="submitclaim_name-markdown1" class="show-list-numbers-and-dots">\n\n     <div class="spacer" style="width:300px;height:150px;" id="submitclaim_name-spacer1"></div>\n\n      <p style="color:#000000;">\n        Enter Customer Name\n      </p>\n    </div>\n    <div class="spacer" style="width:300px;height:20px;" id="submitclaim_name-spacer2"></div>\n      <ion-item>\n        <ion-input type="text"  name="title"></ion-input>\n      </ion-item>\n    \n    </div>\n      \n      <div class="spacer" style="width:300px;height:200px;" id="submitclaim_name-spacer3"></div>\n\n   \n      \n      <button id="submit" ion-button color="calm" block style="color:#000000;" on-click="goToPreviousClaims()">Next</button>\n	  \n\n  \n</ion-content>\n\n\n'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/submit-claim-name/submit-claim-name.html"*/,
+        selector: 'page-submit-claim-name',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/submit-claim-name/submit-claim-name.html"*/'<!--\n  Generated template for the SubmitClaimNamePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Submit Claim</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding id="submitclaim_namepage">\n  <div id="submitclaim_name-container1">\n    <div id="submitclaim_name-markdown1" class="show-list-numbers-and-dots">\n\n     <div class="spacer" style="width:300px;height:150px;" id="submitclaim_name-spacer1"></div>\n\n      <p style="color:#000000;">\n        Enter Customer Name\n      </p>\n    </div>\n    <div class="spacer" style="width:300px;height:20px;" id="submitclaim_name-spacer2"></div>\n      <ion-item>\n        <ion-input type="text"  name="custname" [(ngModel)]="account.custname" placeholder=""></ion-input>\n      </ion-item>\n    \n    </div>\n      \n      <div class="spacer" style="width:300px;height:200px;" id="submitclaim_name-spacer3"></div>\n\n   \n      \n      <button id="submit" ion-button color="calm" block style="color:#000000;" on-click="goToPreviousClaims()">Next</button>\n	  \n\n  \n</ion-content>\n\n\n'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/submit-claim-name/submit-claim-name.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
 ], SubmitClaimNamePage);
 
 //# sourceMappingURL=submit-claim-name.js.map
@@ -1024,7 +1069,7 @@ MyOrdersPage = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PreviousPurchasesPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__order_order__ = __webpack_require__(101);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1085,7 +1130,7 @@ PreviousPurchasesPage = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PendingOrdersPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__order_order__ = __webpack_require__(101);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1137,7 +1182,7 @@ PendingOrdersPage = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyDeliveriesPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__delivery_delivery__ = __webpack_require__(212);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1191,7 +1236,7 @@ MyDeliveriesPage = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DeliveryPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(13);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1314,7 +1359,7 @@ UploadDepositSlipPage = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CalculatePaymentPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__record_deposit_record_deposit__ = __webpack_require__(103);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1374,7 +1419,7 @@ CalculatePaymentPage = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyProfilePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(13);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1462,7 +1507,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_track_request_id_track_request_id__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_track_list_track_list__ = __webpack_require__(111);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_tracking_status_tracking_status__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__angular_http__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__angular_http__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__ionic_native_status_bar__ = __webpack_require__(203);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__ionic_native_splash_screen__ = __webpack_require__(206);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {

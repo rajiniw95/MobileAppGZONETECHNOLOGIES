@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Http } from '@angular/http';
 
 import { WarrantyOrderListPage } from '../warranty-order-list/warranty-order-list';
 
@@ -15,10 +16,19 @@ import { WarrantyOrderListPage } from '../warranty-order-list/warranty-order-lis
   selector: 'page-previous-claims',
   templateUrl: 'previous-claims.html',
 })
+
 export class PreviousClaimsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  customer_id : string;
+  res : any[];
+
+  constructor(public navCtrl : NavController, public http : Http) {
+   this.customer_id= localStorage.getItem('customer_id');
+    this.http.get('http://localhost:8081/GZone/w_getpreviousclaims.php?customer_id='+this.customer_id).subscribe((data) => {
+      this.res = data.json();
+    });
   }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PreviousClaimsPage');

@@ -17,28 +17,28 @@
 
 	<div id="previousclaims-markdown1" class="show-list-numbers-and-dots">
       <p style="color:#000000;">
-        Customer ID
+        Customer ID  
       </p>
     </div>
       <ion-item>
-        <ion-label></ion-label>
+        <ion-label> {{customer_id}}</ion-label>
       </ion-item>
 
       <div class="spacer" style="width:300px;height:20px;" id="submitclaim_name-spacer1"></div>
 
   <form id="previousclaims-form">
     
-    <ion-item color="none" id="previousclaims-list-item1" >
+    <ion-item color="none" id="previousclaims-list-item1" *ngFor="let claim of res">
       <ion-thumbnail item-left>
         
         <img src="assets/img/spanner.png"  />
       </ion-thumbnail>
 
       <h2>
-        Order ID: <br>
-        Product Name: <br>
-        Date: <br>
-        Quantity:<br>
+        Order ID: {{claim.orderID}} <br>
+        Product Name: {{claim.prod_name}} <br>
+        Date: {{claim.date}} <br>
+        Quantity: {{claim.qty}}<br>
       </h2>
       
     </ion-item>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Http } from '@angular/http';
 
 import { ClaimOrderPage } from '../claim-order/claim-order';
 
@@ -17,7 +18,14 @@ import { ClaimOrderPage } from '../claim-order/claim-order';
 })
 export class WarrantyOrderListPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  customer_id : string;
+  res : any[];
+
+  constructor(public navCtrl : NavController, public http : Http) {
+   this.customer_id= localStorage.getItem('customer_id');
+    this.http.get('http://localhost:8081/GZone/w_getorderlist.php?customer_id='+this.customer_id).subscribe((data) => {
+      this.res = data.json();
+    });
   }
 
   ionViewDidLoad() {
