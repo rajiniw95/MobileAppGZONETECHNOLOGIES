@@ -28,6 +28,7 @@ import { TrackRequestIdPage } from '../pages/track-request-id/track-request-id';
 import { TrackListPage } from '../pages/track-list/track-list';
 import { TrackingStatusPage } from '../pages/tracking-status/tracking-status';
 import { TrackingStatusListPage } from '../pages/tracking-status-list/tracking-status-list';
+import { WithinWarrantyPeriodPage } from '../pages/within-warranty-period/within-warranty-period';
 
 
 import { Http,HttpModule } from '@angular/http';
@@ -64,7 +65,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TrackRequestIdPage,
     TrackListPage,
     TrackingStatusPage,
-    TrackingStatusListPage
+    TrackingStatusListPage,
+    WithinWarrantyPeriodPage
   ],
   imports: [
     BrowserModule,
@@ -99,7 +101,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TrackRequestIdPage,
     TrackListPage,
     TrackingStatusPage,
-    TrackingStatusListPage
+    TrackingStatusListPage,
+    WithinWarrantyPeriodPage
   ],
   providers: [
     StatusBar,

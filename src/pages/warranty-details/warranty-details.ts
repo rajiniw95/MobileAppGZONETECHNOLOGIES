@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Http, Headers, Response} from '@angular/http';
 
 import { SubmitRequestPage } from '../submit-request/submit-request';
+import { WithinWarrantyPeriodPage } from '../within-warranty-period/within-warranty-period';
 
 /**
  * Generated class for the WarrantyDetailsPage page.
@@ -20,15 +21,19 @@ export class WarrantyDetailsPage {
 
   productID : string;
   res : any;
+  res_date : any;
 
   constructor(public navCtrl: NavController, public http: Http, public navparams : NavParams) {
     this.productID = this.navparams.get("id");
+    localStorage.setItem('product_id', this.productID);
     this.http
       .get('http://localhost:8081/GZone/w_warrantydetails.php?productID=' + this.productID)
       .subscribe((data) => {
         let response = data.json();
         this.res = response[0];
       });
+      
+        
   }
 
   ionViewDidLoad() {
@@ -38,7 +43,16 @@ export class WarrantyDetailsPage {
   
   /**create function for to go to page which shows the warranty details of the particular product*/
   checkWarrantyPeriod(params){
-    if (!params) params = {};
-    this.navCtrl.push(SubmitRequestPage);}
+    var d1 = new Date();
+    var date1 = d1.getDate();
+    let orderId = localStorage.getItem('orderId');
+
+    this.http.get('http://localhost:8081/GZone/getdeliverydate.php?orderId='+orderId).subscribe((response) => {
+    this.res_date = response.json();
+    });
+
+      this.navCtrl.push(WithinWarrantyPeriodPage);
+
+    }
 
 }

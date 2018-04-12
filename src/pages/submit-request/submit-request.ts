@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Http } from "@angular/http";
 
 /**
  * Generated class for the SubmitRequestPage page.
@@ -15,7 +16,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SubmitRequestPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+	customer_id : string;
+	customer_name : string;
+	product_id : any;
+	res : any;
+
+  constructor(public navCtrl: NavController, public http: Http, public navparams : NavParams) {
+  	this.customer_id = localStorage.getItem('customer_id');
+  	this.customer_name = localStorage.getItem('Auth_Token');
+
+	this.product_id = localStorage.getItem('product_id'); 
+
+	this.http
+      .get('http://localhost:8081/GZone/w_warrantydetails.php?productID=' + this.product_id)
+      .subscribe((data) => {
+        let response = data.json();
+        this.res = response[0];
+      }); 	
   }
 
   ionViewDidLoad() {

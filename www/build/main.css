@@ -25199,6 +25199,11 @@ ion-navbar.toolbar {
   }
 }
 
+page-submit-request .fixedLabel {
+  min-width: 200% !important;
+  max-width: 200% !important;
+}
+
 page-tracking-status .fixedLabel {
   min-width: 200% !important;
   max-width: 200% !important;
