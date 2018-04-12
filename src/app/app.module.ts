@@ -27,7 +27,7 @@ import { SubmitRequestPage } from '../pages/submit-request/submit-request';
 import { TrackRequestIdPage } from '../pages/track-request-id/track-request-id';
 import { TrackListPage } from '../pages/track-list/track-list';
 import { TrackingStatusPage } from '../pages/tracking-status/tracking-status';
-
+import { TrackingStatusListPage } from '../pages/tracking-status-list/tracking-status-list';
 
 
 import { Http,HttpModule } from '@angular/http';
@@ -63,7 +63,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SubmitRequestPage,
     TrackRequestIdPage,
     TrackListPage,
-    TrackingStatusPage
+    TrackingStatusPage,
+    TrackingStatusListPage
   ],
   imports: [
     BrowserModule,
@@ -97,7 +98,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SubmitRequestPage,
     TrackRequestIdPage,
     TrackListPage,
-    TrackingStatusPage
+    TrackingStatusPage,
+    TrackingStatusListPage
   ],
   providers: [
     StatusBar,

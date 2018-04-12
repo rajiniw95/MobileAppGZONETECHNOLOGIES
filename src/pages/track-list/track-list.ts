@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Http, Headers, Response } from '@angular/http';
 
-import { TrackingStatusPage } from '../tracking-status/tracking-status';
+import { TrackingStatusListPage } from '../tracking-status-list/tracking-status-list';
 
 /**
  * Generated class for the TrackListPage page.
@@ -17,7 +18,14 @@ import { TrackingStatusPage } from '../tracking-status/tracking-status';
 })
 export class TrackListPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  agent_id : string;
+  res : any[];
+
+  constructor(public navCtrl: NavController, public http: Http) {
+    this.agent_id= localStorage.getItem('Agent_ID');
+    this.http.get('http://localhost:8081/GZone/w_getagenttracklist.php?agent_id='+this.agent_id).subscribe((data) => {
+      this.res = data.json();
+    });
   }
 
   ionViewDidLoad() {
@@ -26,7 +34,8 @@ export class TrackListPage {
 
   goToTrackingStatus(params){
     if (!params) params = {};
-    this.navCtrl.push(TrackingStatusPage);}
+    localStorage.setItem('request_id', this.res[0].request_id);
+    this.navCtrl.push(TrackingStatusListPage, {request_id : params.request_id});}
 
 }
 

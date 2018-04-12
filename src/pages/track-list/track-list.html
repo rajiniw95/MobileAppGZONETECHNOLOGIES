@@ -20,17 +20,17 @@
 
   <form id="tracklist-form">
     
-    <ion-item color="none" on-click="goToTrackingStatus()" id="tracklist-list-item1" >
+    <ion-item color="none" on-click="goToTrackingStatus(w_track)" id="tracklist-list-item1" *ngFor="let w_track of res" >
       <ion-thumbnail item-left>
         
-        <img src="assets/img/spanner.png"  />
+        <img src="assets/img/spanner.png">
       </ion-thumbnail>
 
       <h2>
-        Warranty Request ID: <br>
-        Customer Name: <br>
-        Submitted Date: <br>
-        Status: <br>
+        Warranty Request ID: {{w_track.request_id}}<br>
+        Customer Name: {{w_track.customer_id}}<br>
+        Submitted Date: {{w_track.sub_date}} <br>
+        Status: {{w_track.status}}<br>
       </h2> 
       
     </ion-item>
