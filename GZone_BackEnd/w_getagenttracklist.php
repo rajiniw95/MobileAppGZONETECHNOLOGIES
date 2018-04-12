@@ -6,17 +6,16 @@ header('Access-Control-Allow-Headers: Content-Type,x-prototype-version,x-request
 
 include('Connecting_DB.php');
 
-//set variable for customer name
-$Cusname = $_GET['custname'];
+$ag_id = $_GET['agent_id'];
 
-$query = sprintf("select * from customer where customer_name='%s'", $Cusname);
+$query = sprintf("select * from warranty_claim_request where agent_id='%s'", $ag_id);
 $result = $mysqli->query($query) or die($mysqli->error . __LINE__);
-$card = array();
+$ban = array();
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        $card[] = $row;
+        $ban[] = $row;
     }
 }
-$json_response = json_encode($card);
+$json_response = json_encode($ban);
 echo $json_response;
 ?>
