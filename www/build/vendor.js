@@ -16771,7 +16771,7 @@ function setupPlatform(doc, platformConfigs, zone) {
 /* unused harmony reexport Config */
 /* unused harmony reexport setupConfig */
 /* unused harmony reexport ConfigToken */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_108__platform_dom_controller__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_108__platform_dom_controller__ = __webpack_require__(10);
 /* unused harmony reexport DomController */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_109__platform_platform__ = __webpack_require__(3);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return __WEBPACK_IMPORTED_MODULE_109__platform_platform__["a"]; });
@@ -18894,233 +18894,6 @@ function BlockerDelegate_tsickle_Closure_declarations() {
 
 /***/ }),
 /* 9 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export DomDebouncer */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DomController; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__platform__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util_util__ = __webpack_require__(2);
-/**
- * Adopted from FastDom
- * https://github.com/wilsonpage/fastdom
- * MIT License
- */
-
-
-
-/**
- * @hidden
- */
-var DomDebouncer = (function () {
-    /**
-     * @param {?} dom
-     */
-    function DomDebouncer(dom) {
-        this.dom = dom;
-        this.writeTask = null;
-        this.readTask = null;
-    }
-    /**
-     * @param {?} fn
-     * @return {?}
-     */
-    DomDebouncer.prototype.read = function (fn) {
-        var _this = this;
-        if (this.readTask) {
-            return;
-        }
-        return this.readTask = this.dom.read(function (t) {
-            _this.readTask = null;
-            fn(t);
-        });
-    };
-    /**
-     * @param {?} fn
-     * @return {?}
-     */
-    DomDebouncer.prototype.write = function (fn) {
-        var _this = this;
-        if (this.writeTask) {
-            return;
-        }
-        return this.writeTask = this.dom.write(function (t) {
-            _this.writeTask = null;
-            fn(t);
-        });
-    };
-    /**
-     * @return {?}
-     */
-    DomDebouncer.prototype.cancel = function () {
-        var /** @type {?} */ writeTask = this.writeTask;
-        writeTask && this.dom.cancel(writeTask);
-        var /** @type {?} */ readTask = this.readTask;
-        readTask && this.dom.cancel(readTask);
-        this.readTask = this.writeTask = null;
-    };
-    return DomDebouncer;
-}());
-
-function DomDebouncer_tsickle_Closure_declarations() {
-    /** @type {?} */
-    DomDebouncer.prototype.writeTask;
-    /** @type {?} */
-    DomDebouncer.prototype.readTask;
-    /** @type {?} */
-    DomDebouncer.prototype.dom;
-}
-/**
- * @hidden
- */
-var DomController = (function () {
-    /**
-     * @param {?} plt
-     */
-    function DomController(plt) {
-        this.plt = plt;
-        this.r = [];
-        this.w = [];
-    }
-    /**
-     * @return {?}
-     */
-    DomController.prototype.debouncer = function () {
-        return new DomDebouncer(this);
-    };
-    /**
-     * @param {?} fn
-     * @param {?=} timeout
-     * @return {?}
-     */
-    DomController.prototype.read = function (fn, timeout) {
-        var _this = this;
-        if (timeout) {
-            ((fn)).timeoutId = this.plt.timeout(function () {
-                _this.r.push(fn);
-                _this._queue();
-            }, timeout);
-        }
-        else {
-            this.r.push(fn);
-            this._queue();
-        }
-        return fn;
-    };
-    /**
-     * @param {?} fn
-     * @param {?=} timeout
-     * @return {?}
-     */
-    DomController.prototype.write = function (fn, timeout) {
-        var _this = this;
-        if (timeout) {
-            ((fn)).timeoutId = this.plt.timeout(function () {
-                _this.w.push(fn);
-                _this._queue();
-            }, timeout);
-        }
-        else {
-            this.w.push(fn);
-            this._queue();
-        }
-        return fn;
-    };
-    /**
-     * @param {?} fn
-     * @return {?}
-     */
-    DomController.prototype.cancel = function (fn) {
-        if (fn) {
-            if (fn.timeoutId) {
-                this.plt.cancelTimeout(fn.timeoutId);
-            }
-            Object(__WEBPACK_IMPORTED_MODULE_2__util_util__["q" /* removeArrayItem */])(this.r, fn) || Object(__WEBPACK_IMPORTED_MODULE_2__util_util__["q" /* removeArrayItem */])(this.w, fn);
-        }
-    };
-    /**
-     * @return {?}
-     */
-    DomController.prototype._queue = function () {
-        var /** @type {?} */ self = this;
-        if (!self.q) {
-            self.q = true;
-            self.plt.raf(function rafCallback(timeStamp) {
-                self._flush(timeStamp);
-            });
-        }
-    };
-    /**
-     * @param {?} timeStamp
-     * @return {?}
-     */
-    DomController.prototype._flush = function (timeStamp) {
-        var /** @type {?} */ err;
-        try {
-            dispatch(timeStamp, this.r, this.w);
-        }
-        catch (e) {
-            err = e;
-        }
-        this.q = false;
-        if (this.r.length || this.w.length) {
-            this._queue();
-        }
-        if (err) {
-            throw err;
-        }
-    };
-    return DomController;
-}());
-
-DomController.decorators = [
-    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */] },
-];
-/**
- * @nocollapse
- */
-DomController.ctorParameters = function () { return [
-    { type: __WEBPACK_IMPORTED_MODULE_1__platform__["a" /* Platform */], },
-]; };
-function DomController_tsickle_Closure_declarations() {
-    /** @type {?} */
-    DomController.decorators;
-    /**
-     * @nocollapse
-     * @type {?}
-     */
-    DomController.ctorParameters;
-    /** @type {?} */
-    DomController.prototype.r;
-    /** @type {?} */
-    DomController.prototype.w;
-    /** @type {?} */
-    DomController.prototype.q;
-    /** @type {?} */
-    DomController.prototype.plt;
-}
-/**
- * @param {?} timeStamp
- * @param {?} r
- * @param {?} w
- * @return {?}
- */
-function dispatch(timeStamp, r, w) {
-    var /** @type {?} */ fn;
-    // ******** DOM READS ****************
-    while (fn = r.shift()) {
-        fn(timeStamp);
-    }
-    // ******** DOM WRITES ****************
-    while (fn = w.shift()) {
-        fn(timeStamp);
-    }
-}
-//# sourceMappingURL=dom-controller.js.map
-
-/***/ }),
-/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -21347,6 +21120,233 @@ var VERSION = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* Version *
 
 //# sourceMappingURL=http.es5.js.map
 
+
+/***/ }),
+/* 10 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export DomDebouncer */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DomController; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__platform__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util_util__ = __webpack_require__(2);
+/**
+ * Adopted from FastDom
+ * https://github.com/wilsonpage/fastdom
+ * MIT License
+ */
+
+
+
+/**
+ * @hidden
+ */
+var DomDebouncer = (function () {
+    /**
+     * @param {?} dom
+     */
+    function DomDebouncer(dom) {
+        this.dom = dom;
+        this.writeTask = null;
+        this.readTask = null;
+    }
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    DomDebouncer.prototype.read = function (fn) {
+        var _this = this;
+        if (this.readTask) {
+            return;
+        }
+        return this.readTask = this.dom.read(function (t) {
+            _this.readTask = null;
+            fn(t);
+        });
+    };
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    DomDebouncer.prototype.write = function (fn) {
+        var _this = this;
+        if (this.writeTask) {
+            return;
+        }
+        return this.writeTask = this.dom.write(function (t) {
+            _this.writeTask = null;
+            fn(t);
+        });
+    };
+    /**
+     * @return {?}
+     */
+    DomDebouncer.prototype.cancel = function () {
+        var /** @type {?} */ writeTask = this.writeTask;
+        writeTask && this.dom.cancel(writeTask);
+        var /** @type {?} */ readTask = this.readTask;
+        readTask && this.dom.cancel(readTask);
+        this.readTask = this.writeTask = null;
+    };
+    return DomDebouncer;
+}());
+
+function DomDebouncer_tsickle_Closure_declarations() {
+    /** @type {?} */
+    DomDebouncer.prototype.writeTask;
+    /** @type {?} */
+    DomDebouncer.prototype.readTask;
+    /** @type {?} */
+    DomDebouncer.prototype.dom;
+}
+/**
+ * @hidden
+ */
+var DomController = (function () {
+    /**
+     * @param {?} plt
+     */
+    function DomController(plt) {
+        this.plt = plt;
+        this.r = [];
+        this.w = [];
+    }
+    /**
+     * @return {?}
+     */
+    DomController.prototype.debouncer = function () {
+        return new DomDebouncer(this);
+    };
+    /**
+     * @param {?} fn
+     * @param {?=} timeout
+     * @return {?}
+     */
+    DomController.prototype.read = function (fn, timeout) {
+        var _this = this;
+        if (timeout) {
+            ((fn)).timeoutId = this.plt.timeout(function () {
+                _this.r.push(fn);
+                _this._queue();
+            }, timeout);
+        }
+        else {
+            this.r.push(fn);
+            this._queue();
+        }
+        return fn;
+    };
+    /**
+     * @param {?} fn
+     * @param {?=} timeout
+     * @return {?}
+     */
+    DomController.prototype.write = function (fn, timeout) {
+        var _this = this;
+        if (timeout) {
+            ((fn)).timeoutId = this.plt.timeout(function () {
+                _this.w.push(fn);
+                _this._queue();
+            }, timeout);
+        }
+        else {
+            this.w.push(fn);
+            this._queue();
+        }
+        return fn;
+    };
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    DomController.prototype.cancel = function (fn) {
+        if (fn) {
+            if (fn.timeoutId) {
+                this.plt.cancelTimeout(fn.timeoutId);
+            }
+            Object(__WEBPACK_IMPORTED_MODULE_2__util_util__["q" /* removeArrayItem */])(this.r, fn) || Object(__WEBPACK_IMPORTED_MODULE_2__util_util__["q" /* removeArrayItem */])(this.w, fn);
+        }
+    };
+    /**
+     * @return {?}
+     */
+    DomController.prototype._queue = function () {
+        var /** @type {?} */ self = this;
+        if (!self.q) {
+            self.q = true;
+            self.plt.raf(function rafCallback(timeStamp) {
+                self._flush(timeStamp);
+            });
+        }
+    };
+    /**
+     * @param {?} timeStamp
+     * @return {?}
+     */
+    DomController.prototype._flush = function (timeStamp) {
+        var /** @type {?} */ err;
+        try {
+            dispatch(timeStamp, this.r, this.w);
+        }
+        catch (e) {
+            err = e;
+        }
+        this.q = false;
+        if (this.r.length || this.w.length) {
+            this._queue();
+        }
+        if (err) {
+            throw err;
+        }
+    };
+    return DomController;
+}());
+
+DomController.decorators = [
+    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */] },
+];
+/**
+ * @nocollapse
+ */
+DomController.ctorParameters = function () { return [
+    { type: __WEBPACK_IMPORTED_MODULE_1__platform__["a" /* Platform */], },
+]; };
+function DomController_tsickle_Closure_declarations() {
+    /** @type {?} */
+    DomController.decorators;
+    /**
+     * @nocollapse
+     * @type {?}
+     */
+    DomController.ctorParameters;
+    /** @type {?} */
+    DomController.prototype.r;
+    /** @type {?} */
+    DomController.prototype.w;
+    /** @type {?} */
+    DomController.prototype.q;
+    /** @type {?} */
+    DomController.prototype.plt;
+}
+/**
+ * @param {?} timeStamp
+ * @param {?} r
+ * @param {?} w
+ * @return {?}
+ */
+function dispatch(timeStamp, r, w) {
+    var /** @type {?} */ fn;
+    // ******** DOM READS ****************
+    while (fn = r.shift()) {
+        fn(timeStamp);
+    }
+    // ******** DOM WRITES ****************
+    while (fn = w.shift()) {
+        fn(timeStamp);
+    }
+}
+//# sourceMappingURL=dom-controller.js.map
 
 /***/ }),
 /* 11 */
@@ -30556,7 +30556,7 @@ var /** @type {?} */ KEY_TAB = 9;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_app__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config_config__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__platform_dom_controller__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__platform_dom_controller__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ion__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__navigation_nav_util__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__util_util__ = __webpack_require__(2);
@@ -39382,7 +39382,7 @@ function Button_tsickle_Closure_declarations() {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Keyboard; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__config_config__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dom_controller__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dom_controller__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util_dom__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__key__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__platform__ = __webpack_require__(3);
@@ -50271,7 +50271,7 @@ function Label_tsickle_Closure_declarations() {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ItemReorder; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__content_content__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__platform_dom_controller__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__platform_dom_controller__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util_util__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__item_reorder_gesture__ = __webpack_require__(251);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__platform_platform__ = __webpack_require__(3);
@@ -51046,7 +51046,7 @@ var /** @type {?} */ pickerIds = -1;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util_util__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config_config__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__platform_dom_controller__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__platform_dom_controller__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tap_click_haptic__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__picker_options__ = __webpack_require__(252);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__platform_platform__ = __webpack_require__(3);
@@ -51691,7 +51691,7 @@ function FabList_tsickle_Closure_declarations() {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InfiniteScroll; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__content_content__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__platform_dom_controller__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__platform_dom_controller__ = __webpack_require__(10);
 
 
 
@@ -52290,7 +52290,7 @@ function ItemOptions_tsickle_Closure_declarations() {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return List; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__config_config__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__platform_dom_controller__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__platform_dom_controller__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__gestures_gesture_controller__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ion__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__util_util__ = __webpack_require__(2);
@@ -52745,7 +52745,7 @@ var /** @type {?} */ loadingIds = -1;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_app__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config_config__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__navigation_deep_linker__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__gestures_gesture_controller__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__navigation_nav_controller__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__navigation_nav_controller_base__ = __webpack_require__(42);
@@ -58535,7 +58535,7 @@ var /** @type {?} */ tabIds = -1;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabHighlight; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__platform_dom_controller__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__platform_dom_controller__ = __webpack_require__(10);
 
 
 /**
@@ -59215,7 +59215,7 @@ exports.isScheduler = isScheduler;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config_config__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__navigation_deep_linker__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__gestures_gesture_controller__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__navigation_nav_controller_base__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__platform_platform__ = __webpack_require__(3);
@@ -63534,7 +63534,7 @@ function Row_tsickle_Closure_declarations() {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Img; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__content_content__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__platform_dom_controller__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__platform_dom_controller__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util_util__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__platform_platform__ = __webpack_require__(3);
 
@@ -64188,7 +64188,7 @@ function InfiniteScrollContent_tsickle_Closure_declarations() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__config_config__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__content_content__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__util_dom__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__platform_dom_controller__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__platform_dom_controller__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__util_form__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__util_base_input__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__util_util__ = __webpack_require__(2);
@@ -66228,7 +66228,7 @@ function LoadingController_tsickle_Closure_declarations() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__backdrop_backdrop__ = __webpack_require__(61);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__config_config__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__content_content__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__platform_dom_controller__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__platform_dom_controller__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__gestures_gesture_controller__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__util_util__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__platform_keyboard__ = __webpack_require__(36);
@@ -68648,7 +68648,7 @@ function RadioButton_tsickle_Closure_declarations() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util_util__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__config_config__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__util_form__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__tap_click_haptic__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__util_base_input__ = __webpack_require__(25);
@@ -72397,7 +72397,7 @@ var /** @type {?} */ SPINNERS = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_app__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config_config__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__navigation_deep_linker__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__gestures_gesture_controller__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__util_util__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__navigation_nav_controller_base__ = __webpack_require__(42);
@@ -73365,7 +73365,7 @@ function ToastController_tsickle_Closure_declarations() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config_config__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__platform_dom_controller__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__platform_dom_controller__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__util_form__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__gestures_gesture_controller__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__tap_click_haptic__ = __webpack_require__(37);
@@ -74206,7 +74206,7 @@ function Typography_tsickle_Closure_declarations() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__virtual_util__ = __webpack_require__(270);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config_config__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__content_content__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__util_util__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__platform_platform__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__navigation_view_controller__ = __webpack_require__(6);
@@ -75181,7 +75181,7 @@ var /** @type {?} */ SCROLL_QUEUE_DOM_WRITE = 3;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__activator__ = __webpack_require__(199);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_app_app__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__config_config__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__platform_dom_controller__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__gestures_gesture_controller__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__platform_platform__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__util_dom__ = __webpack_require__(12);
@@ -113310,7 +113310,7 @@ var IonicErrorHandler = (function (_super) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_app_app_root__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__config_config__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__navigation_deep_linker__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__platform_dom_controller__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__platform_dom_controller__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__util_events__ = __webpack_require__(201);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__util_form__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__gestures_gesture_controller__ = __webpack_require__(8);

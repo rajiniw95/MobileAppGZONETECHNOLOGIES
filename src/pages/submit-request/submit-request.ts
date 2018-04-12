@@ -16,12 +16,17 @@ import { Http } from "@angular/http";
 })
 export class SubmitRequestPage {
 
-	customer_id : string;
-	customer_name : string;
-	product_id : any;
+	customer_id : string = "null";
+	customer_name : string = "null";
+	product_id : any = "null";
+  agent_id : string = "null"; 
+  telno : string = "null"; 
+  quantity : string = "null";  
+  comments : string = "null"; 
 	res : any;
 
   constructor(public navCtrl: NavController, public http: Http, public navparams : NavParams) {
+    this.agent_id = localStorage.getItem('agentId');
   	this.customer_id = localStorage.getItem('customer_id');
   	this.customer_name = localStorage.getItem('Auth_Token');
 

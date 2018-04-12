@@ -6,7 +6,7 @@ header('Access-Control-Allow-Headers: Content-Type,x-prototype-version,x-request
 include('Connecting_DB.php');
 
 //set variable for id
-$ID = $_GET['id'];
+$ID = $_GET['orderId'];
 
 //get details of the order
 $query = sprintf("select deliverydate from orders where orderID='%s'", $ID);

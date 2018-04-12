@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 12, 2018 at 11:12 AM
+-- Generation Time: Apr 12, 2018 at 04:52 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -308,28 +308,31 @@ CREATE TABLE `order_has_product` (
   `orderID` int(11) NOT NULL,
   `productID` int(11) NOT NULL,
   `qty` int(11) NOT NULL,
-  `product_photo` varchar(500) NOT NULL
+  `product_photo` varchar(500) NOT NULL,
+  `description` text NOT NULL,
+  `product_name` int(11) NOT NULL,
+  `tot_price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `order_has_product`
 --
 
-INSERT INTO `order_has_product` (`ohp_Id`, `orderID`, `productID`, `qty`, `product_photo`) VALUES
-(1, 1, 2, 3, 'assets\\img\\images (1).jpg'),
-(6, 20, 1, 1, 'assets\\img\\bluetooth-isolated-on-white.jpg'),
-(7, 21, 1, 2, 'assets\\img\\bluetooth-isolated-on-white.jpg'),
-(8, 22, 1, 1, 'assets\\img\\bluetooth-isolated-on-white.jpg'),
-(9, 22, 2, 1, 'assets\\img\\images (1).jpg'),
-(10, 23, 2, 1, 'assets\\img\\images (1).jpg'),
-(11, 24, 2, 4, 'assets\\img\\images (1).jpg'),
-(13, 26, 2, 3, 'assets\\img\\images (1).jpg'),
-(14, 26, 2, 4, 'assets\\img\\images (1).jpg'),
-(15, 27, 1, 1, 'assets\\img\\bluetooth-isolated-on-white.jpg'),
-(16, 28, 1, 1, 'assets\\img\\bluetooth-isolated-on-white.jpg'),
-(18, 30, 1, 1, 'assets\\img\\bluetooth-isolated-on-white.jpg'),
-(19, 31, 1, 8, 'assets\\img\\bluetooth-isolated-on-white.jpg'),
-(20, 32, 1, 1, '');
+INSERT INTO `order_has_product` (`ohp_Id`, `orderID`, `productID`, `qty`, `product_photo`, `description`, `product_name`, `tot_price`) VALUES
+(1, 1, 2, 3, 'assets\\img\\images (1).jpg', '', 0, 0),
+(6, 20, 1, 1, 'assets\\img\\bluetooth-isolated-on-white.jpg', '', 0, 0),
+(7, 21, 1, 2, 'assets\\img\\bluetooth-isolated-on-white.jpg', '', 0, 0),
+(8, 22, 1, 1, 'assets\\img\\bluetooth-isolated-on-white.jpg', '', 0, 0),
+(9, 22, 2, 1, 'assets\\img\\images (1).jpg', '', 0, 0),
+(10, 23, 2, 1, 'assets\\img\\images (1).jpg', '', 0, 0),
+(11, 24, 2, 4, 'assets\\img\\images (1).jpg', '', 0, 0),
+(13, 26, 2, 3, 'assets\\img\\images (1).jpg', '', 0, 0),
+(14, 26, 2, 4, 'assets\\img\\images (1).jpg', '', 0, 0),
+(15, 27, 1, 1, 'assets\\img\\bluetooth-isolated-on-white.jpg', '', 0, 0),
+(16, 28, 1, 1, 'assets\\img\\bluetooth-isolated-on-white.jpg', '', 0, 0),
+(18, 30, 1, 1, 'assets\\img\\bluetooth-isolated-on-white.jpg', '', 0, 0),
+(19, 31, 1, 8, 'assets\\img\\bluetooth-isolated-on-white.jpg', '', 0, 0),
+(20, 32, 1, 1, '', '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -354,17 +357,21 @@ CREATE TABLE `payment_method` (
 
 CREATE TABLE `product` (
   `productID` int(11) NOT NULL,
+  `product_name` text NOT NULL,
   `product_photo` varchar(500) NOT NULL,
-  `qty` int(11) NOT NULL
+  `qty` int(11) NOT NULL,
+  `product_description` text NOT NULL,
+  `warranty_period` int(11) NOT NULL,
+  `w_validity_conditions` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`productID`, `product_photo`, `qty`) VALUES
-(1, 'assets\\img\\bluetooth-isolated-on-white.jpg', 90),
-(2, 'assets\\img\\images (1).jpg', 70);
+INSERT INTO `product` (`productID`, `product_name`, `product_photo`, `qty`, `product_description`, `warranty_period`, `w_validity_conditions`) VALUES
+(1, 'Bluetooth Device', 'assets\\img\\bluetooth-isolated-on-white.jpg', 90, 'High quality bluetooth device compatible with Android devices. ', 12, 'no physical damage to be done'),
+(2, 'Google Glass Replica', 'assets\\img\\images (1).jpg', 70, 'Unique pair of glasses similar to google glasses', 52, 'No scratch marks on lense ');
 
 -- --------------------------------------------------------
 
