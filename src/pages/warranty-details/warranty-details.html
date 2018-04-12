@@ -1,6 +1,5 @@
 <!--
   Generated template for the WarrantyDetailsPage page.
-
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
@@ -23,7 +22,7 @@
     </div>
 
       <ion-item>
-        <ion-label></ion-label>
+        <ion-label *ngIf="res">{{res.productID}}</ion-label>
       </ion-item>
 
     <div id="warrantydetails-markdown2" class="show-list-numbers-and-dots">
@@ -33,7 +32,7 @@
     </div>
 
       <ion-item>
-        <ion-label></ion-label>
+        <ion-label fixed class='fixedLabel' *ngIf="res">{{res.product_name}}</ion-label>
       </ion-item>
 
     <div id="warrantydetails-markdown3" class="show-list-numbers-and-dots">
@@ -43,17 +42,17 @@
     </div>
 
       <ion-item>
-        <ion-label></ion-label>
+        <ion-label stacked fixed class='fixedLabel' *ngIf="res">{{res.product_description}}</ion-label>
       </ion-item>
 
       <div id="warrantydetails-markdown4" class="show-list-numbers-and-dots">
       <p style="color:#000000;">
-        Warranty Period :
+        Warranty Period (in weeks):
       </p>
     </div>
 
       <ion-item>
-        <ion-label></ion-label>
+        <ion-label *ngIf="res">{{res.warranty_period}}</ion-label>
       </ion-item>
 
       <div id="warrantydetails-markdown5" class="show-list-numbers-and-dots">
@@ -63,7 +62,7 @@
     </div>
 
       <ion-item>
-        <ion-label></ion-label>
+        <ion-label fixed class='fixedLabel' *ngIf="res">{{res.w_validity_conditions}}</ion-label>
       </ion-item>
 
       <div class="spacer" style="width:300px;height:20px;" id="warrantydetails-spacer1"></div>

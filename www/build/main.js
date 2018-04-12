@@ -244,7 +244,8 @@ SubmitRequestPage = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WarrantyDetailsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__submit_request_submit_request__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__submit_request_submit_request__ = __webpack_require__(103);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -257,6 +258,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the WarrantyDetailsPage page.
  *
@@ -264,9 +266,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * on Ionic pages and navigation.
  */
 var WarrantyDetailsPage = (function () {
-    function WarrantyDetailsPage(navCtrl, navParams) {
+    function WarrantyDetailsPage(navCtrl, http, navparams) {
+        var _this = this;
         this.navCtrl = navCtrl;
-        this.navParams = navParams;
+        this.http = http;
+        this.navparams = navparams;
+        this.productID = this.navparams.get("id");
+        this.http
+            .get('http://localhost:8081/GZone/w_warrantydetails.php?productID=' + this.productID)
+            .subscribe(function (data) {
+            var response = data.json();
+            _this.res = response[0];
+        });
     }
     WarrantyDetailsPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad WarrantyDetailsPage');
@@ -275,16 +286,16 @@ var WarrantyDetailsPage = (function () {
     WarrantyDetailsPage.prototype.checkWarrantyPeriod = function (params) {
         if (!params)
             params = {};
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__submit_request_submit_request__["a" /* SubmitRequestPage */]);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__submit_request_submit_request__["a" /* SubmitRequestPage */]);
     };
     return WarrantyDetailsPage;
 }());
 WarrantyDetailsPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-warranty-details',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/warranty-details/warranty-details.html"*/'<!--\n  Generated template for the WarrantyDetailsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Warranty Details</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding id="warrantydetailspage">\n  <div id="warrantydetails-container1">\n\n    <div id="warrantydetails-markdown1" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Product ID :\n      </p>\n    </div>\n\n      <ion-item>\n        <ion-label></ion-label>\n      </ion-item>\n\n    <div id="warrantydetails-markdown2" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Product Name :\n      </p>\n    </div>\n\n      <ion-item>\n        <ion-label></ion-label>\n      </ion-item>\n\n    <div id="warrantydetails-markdown3" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Product Description :\n      </p>\n    </div>\n\n      <ion-item>\n        <ion-label></ion-label>\n      </ion-item>\n\n      <div id="warrantydetails-markdown4" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Warranty Period :\n      </p>\n    </div>\n\n      <ion-item>\n        <ion-label></ion-label>\n      </ion-item>\n\n      <div id="warrantydetails-markdown5" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Warranty Validity Conditions :\n      </p>\n    </div>\n\n      <ion-item>\n        <ion-label></ion-label>\n      </ion-item>\n\n      <div class="spacer" style="width:300px;height:20px;" id="warrantydetails-spacer1"></div>\n\n      <button ion-button color="calm" block style="color:#000000;" on-click="checkWarrantyPeriod()">Check for warranty period </button>\n      \n  </div>\n</ion-content>\n\n'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/warranty-details/warranty-details.html"*/,
+        selector: 'page-warranty-details',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/warranty-details/warranty-details.html"*/'<!--\n  Generated template for the WarrantyDetailsPage page.\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Warranty Details</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding id="warrantydetailspage">\n  <div id="warrantydetails-container1">\n\n    <div id="warrantydetails-markdown1" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Product ID :\n      </p>\n    </div>\n\n      <ion-item>\n        <ion-label *ngIf="res">{{res.productID}}</ion-label>\n      </ion-item>\n\n    <div id="warrantydetails-markdown2" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Product Name :\n      </p>\n    </div>\n\n      <ion-item>\n        <ion-label fixed class=\'fixedLabel\' *ngIf="res">{{res.product_name}}</ion-label>\n      </ion-item>\n\n    <div id="warrantydetails-markdown3" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Product Description :\n      </p>\n    </div>\n\n      <ion-item>\n        <ion-label stacked fixed class=\'fixedLabel\' *ngIf="res">{{res.product_description}}</ion-label>\n      </ion-item>\n\n      <div id="warrantydetails-markdown4" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Warranty Period (in weeks):\n      </p>\n    </div>\n\n      <ion-item>\n        <ion-label *ngIf="res">{{res.warranty_period}}</ion-label>\n      </ion-item>\n\n      <div id="warrantydetails-markdown5" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Warranty Validity Conditions :\n      </p>\n    </div>\n\n      <ion-item>\n        <ion-label fixed class=\'fixedLabel\' *ngIf="res">{{res.w_validity_conditions}}</ion-label>\n      </ion-item>\n\n      <div class="spacer" style="width:300px;height:20px;" id="warrantydetails-spacer1"></div>\n\n      <button ion-button color="calm" block style="color:#000000;" on-click="checkWarrantyPeriod()">Check for warranty period </button>\n      \n  </div>\n</ion-content>\n\n'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/warranty-details/warranty-details.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
 ], WarrantyDetailsPage);
 
 //# sourceMappingURL=warranty-details.js.map
@@ -326,7 +337,7 @@ var ClaimOrderPage = (function () {
         this.http = http;
         this.navparams = navparams;
         this.orderId = this.navparams.get("id");
-        this.user = localStorage.getItem('Auth_Token');
+        localStorage.setItem('order_id', this.orderId);
         this.http.get('http://localhost:8081/GZone/w_claimorder.php?id=' + this.orderId).subscribe(function (data) {
             _this.res = data.json();
             _this.http.get('http://localhost:8081/GZone/w_claimorderitems.php?id=' + _this.orderId).subscribe(function (response) {
@@ -341,14 +352,16 @@ var ClaimOrderPage = (function () {
     ClaimOrderPage.prototype.goToWarrantyDetails = function (params) {
         if (!params)
             params = {};
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__warranty_details_warranty_details__["a" /* WarrantyDetailsPage */]);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__warranty_details_warranty_details__["a" /* WarrantyDetailsPage */], {
+            id: params.productID
+        });
     };
     return ClaimOrderPage;
 }());
 ClaimOrderPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-claim-order',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/claim-order/claim-order.html"*/'<!--\n  Generated template for the ClaimOrderPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Order Details</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n<div id="claimorder-markdown1" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Order Delivery Date \n      </p>\n    </div>\n      <ion-item>\n        <ion-label>{{deliverydate}}</ion-label>\n      </ion-item>\n  \n<div padding id="pageclaimorder" *ngIf="items" >\n  <ion-card id="claimorder-card1" *ngFor="let item of res">\n\n    <ion-list>\n\n      <ion-item color="none" id="order-list-item1"> Product Name: {{item.qty}}</ion-item>\n      <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">\n          \n      </div>\n      <ion-list id="order-list5">\n        <ion-item color="none" id="order-list-item2">\n        \n         Product ID: {{item.qty}} <br>\n        \n         Product Description: {{item.qty}} <br>\n         \n         Quantity: {{item.qty}} <br>\n         \n         Total Price: {{item.qty}} <br>\n\n         <button id="submit" ion-button color="calm" block style="color:#000000;" on-click="goToWarrantyDetails()" >Get Warranty Details</button>\n        </ion-item>\n      </ion-list>\n    </ion-list>\n  </ion-card>\n\n\n  </div>\n\n  \n\n</ion-content>\n'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/claim-order/claim-order.html"*/,
+        selector: 'page-claim-order',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/claim-order/claim-order.html"*/'<!--\n  Generated template for the ClaimOrderPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Order Details</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n<div id="claimorder-markdown1" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Order ID \n      </p>\n    </div>\n      <ion-item>\n        <ion-label>{{orderId}}</ion-label>\n      </ion-item>\n  \n<div padding id="pageclaimorder" *ngIf="items" >\n  <ion-card id="claimorder-card1" *ngFor="let item of items">\n\n    <ion-list>\n\n      <ion-item color="none" id="order-list-item1"> Product Name: {{item.product_name}}</ion-item>\n      <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">\n\n        <img [src]="item.product_photo"/>\n          \n      </div>\n      <ion-list id="order-list5">\n        <ion-item color="none" id="order-list-item2">\n        \n         Product ID: {{item.productID}} <br>\n        \n         Product Description: {{item.description}} <br>\n         \n         Quantity: {{item.qty}} <br>\n         \n         Total Price: {{item.tot_price}} <br>\n\n         <button id="submit" ion-button color="calm" block style="color:#000000;" on-click="goToWarrantyDetails(item)" >Get Warranty Details</button>\n        </ion-item>\n      </ion-list>\n    </ion-list>\n  </ion-card>\n\n\n  </div>\n\n  \n\n\n\n'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/claim-order/claim-order.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
 ], ClaimOrderPage);
@@ -402,7 +415,6 @@ var WarrantyOrderListPage = (function () {
     WarrantyOrderListPage.prototype.goToClaimOrder = function (params) {
         if (!params)
             params = {};
-        localStorage.setItem('deliverydate', this.res[0].deliverydate);
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__claim_order_claim_order__["a" /* ClaimOrderPage */], { id: params.orderID });
     };
     return WarrantyOrderListPage;
@@ -410,7 +422,7 @@ var WarrantyOrderListPage = (function () {
 WarrantyOrderListPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-warranty-order-list',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/warranty-order-list/warranty-order-list.html"*/'<!--\n  Generated template for the WarrantyOrderListPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Customer Orders</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding id="page-orderlist">\n\n	<div id="orderlist-markdown1" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Customer ID\n      </p>\n    </div>\n      <ion-item>\n        <ion-label>{{customer_id}}</ion-label>\n      </ion-item>\n\n      <div class="spacer" style="width:300px;height:20px;" id="submitclaim_name-spacer1"></div>\n\n  <form id="orderlist-form">\n    \n    <ion-item color="none" on-click="goToClaimOrder()" id="orderlist-list-item1" *ngFor="let cust_order of res">\n      <ion-thumbnail item-left>\n        \n        <img src="assets/img/images.png"  />\n      </ion-thumbnail>\n\n      <h2>\n        Order ID: {{cust_order.orderID}}<br>\n        No. of Items: {{cust_order.no_items}}<br>\n        Total Price: {{cust_order.total_amount}} <br>\n        Delivery Date: {{cust_order.deliverydate}}<br>\n      </h2> \n      \n    </ion-item>\n  </form>\n\n  \n</ion-content>\n\n\n\n'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/warranty-order-list/warranty-order-list.html"*/,
+        selector: 'page-warranty-order-list',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/warranty-order-list/warranty-order-list.html"*/'<!--\n  Generated template for the WarrantyOrderListPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Customer Orders</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding id="page-orderlist">\n\n	<div id="orderlist-markdown1" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Customer ID\n      </p>\n    </div>\n      <ion-item>\n        <ion-label>{{customer_id}}</ion-label>\n      </ion-item>\n\n      <div class="spacer" style="width:300px;height:20px;" id="submitclaim_name-spacer1"></div>\n\n  <form id="orderlist-form">\n    \n    <ion-item color="none" on-click="goToClaimOrder(cust_order)" id="orderlist-list-item1" *ngFor="let cust_order of res">\n      <ion-thumbnail item-left>\n        \n        <img src="assets/img/images.png"  />\n      </ion-thumbnail>\n\n      <h2>\n        Order ID: {{cust_order.orderID}}<br>\n        No. of Items: {{cust_order.no_items}}<br>\n        Total Price: {{cust_order.total_amount}} <br>\n        Delivery Date: {{cust_order.deliverydate}}<br>\n      </h2> \n      \n    </ion-item>\n  </form>\n\n  \n</ion-content>\n\n\n\n'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/warranty-order-list/warranty-order-list.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]])
 ], WarrantyOrderListPage);
@@ -702,68 +714,6 @@ TrackRequestIdPage = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TrackListPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tracking_status_list_tracking_status_list__ = __webpack_require__(112);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-/**
- * Generated class for the TrackListPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-var TrackListPage = (function () {
-    function TrackListPage(navCtrl, http) {
-        var _this = this;
-        this.navCtrl = navCtrl;
-        this.http = http;
-        this.agent_id = localStorage.getItem('Agent_ID');
-        this.http.get('http://localhost:8081/GZone/w_getagenttracklist.php?agent_id=' + this.agent_id).subscribe(function (data) {
-            _this.res = data.json();
-        });
-    }
-    TrackListPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad TrackListPage');
-    };
-    TrackListPage.prototype.goToTrackingStatus = function (params) {
-        if (!params)
-            params = {};
-        localStorage.setItem('request_id', this.res[0].request_id);
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__tracking_status_list_tracking_status_list__["a" /* TrackingStatusListPage */], { request_id: params.request_id });
-    };
-    return TrackListPage;
-}());
-TrackListPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-track-list',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/track-list/track-list.html"*/'<!--\n  Generated template for the TrackListPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Warranty Requests</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding id="page-tracklist">\n\n\n      <div class="spacer" style="width:300px;height:20px;" id="submitclaim_name-spacer1"></div>\n\n  <form id="tracklist-form">\n    \n    <ion-item color="none" on-click="goToTrackingStatus(w_track)" id="tracklist-list-item1" *ngFor="let w_track of res" >\n      <ion-thumbnail item-left>\n        \n        <img src="assets/img/spanner.png">\n      </ion-thumbnail>\n\n      <h2>\n        Warranty Request ID: {{w_track.request_id}}<br>\n        Customer Name: {{w_track.customer_id}}<br>\n        Submitted Date: {{w_track.sub_date}} <br>\n        Status: {{w_track.status}}<br>\n      </h2> \n      \n    </ion-item>\n  </form>\n\n  \n</ion-content>\n\n\n\n\n'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/track-list/track-list.html"*/,
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]) === "function" && _b || Object])
-], TrackListPage);
-
-var _a, _b;
-//# sourceMappingURL=track-list.js.map
-
-/***/ }),
-
-/***/ 112:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TrackingStatusListPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
@@ -810,11 +760,71 @@ TrackingStatusListPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-tracking-status-list',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/tracking-status-list/tracking-status-list.html"*/'<!--\n  Generated template for the TrackingStatusListPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Request Status</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding id="requeststatuspage" >\n  <div id="requeststatus-container1">\n\n    <div id="requeststatus-markdown1" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Warranty Request ID :\n      </p>\n    </div>\n\n      <ion-item>\n        <ion-label *ngIf="res">{{res.request_id}}</ion-label>\n      </ion-item>\n\n    <div id="requeststatus-markdown2" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Customer ID :\n      </p>\n    </div>\n\n      <ion-item>\n        <ion-label *ngIf="res">{{res.customer_id}}</ion-label>\n      </ion-item>\n\n    <div id="requeststatus-markdown3" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Customer Name:\n      </p>\n    </div>\n\n      <ion-item>\n        <ion-label *ngIf="res">{{res.customer_name}}</ion-label>\n      </ion-item>\n\n      <div id="requeststatus-markdown4" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Customer Telephone Number :\n      </p>\n    </div>\n\n      <ion-item>\n        <ion-label *ngIf="res">{{res.customer_telno}}</ion-label>\n      </ion-item>\n\n      <div id="requeststatus-markdown5" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Warranty Request Status :\n      </p>\n    </div>\n\n      <ion-item>\n        <ion-label *ngIf="res">{{res.status}}</ion-label>\n      </ion-item>\n\n      <div id="requeststatus-markdown6" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Additional Comments :\n      </p>\n    </div>\n\n      <ion-item>\n        <ion-label stacked fixed class=\'fixedLabel\' *ngIf="res">{{res.comments}}</ion-label>\n      </ion-item>\n\n      <div class="spacer" style="width:300px;height:20px;" id="requeststatus-spacer1"></div>\n\n      \n  </div>\n</ion-content>'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/tracking-status-list/tracking-status-list.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
 ], TrackingStatusListPage);
 
-var _a, _b, _c;
 //# sourceMappingURL=tracking-status-list.js.map
+
+/***/ }),
+
+/***/ 112:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TrackListPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tracking_status_list_tracking_status_list__ = __webpack_require__(111);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+/**
+ * Generated class for the TrackListPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var TrackListPage = (function () {
+    function TrackListPage(navCtrl, http) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.http = http;
+        this.agent_id = localStorage.getItem('Agent_ID');
+        this.http.get('http://localhost:8081/GZone/w_getagenttracklist.php?agent_id=' + this.agent_id).subscribe(function (data) {
+            _this.res = data.json();
+        });
+    }
+    TrackListPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad TrackListPage');
+    };
+    TrackListPage.prototype.goToTrackingStatus = function (params) {
+        if (!params)
+            params = {};
+        localStorage.setItem('request_id', this.res[0].request_id);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__tracking_status_list_tracking_status_list__["a" /* TrackingStatusListPage */], { request_id: params.request_id });
+    };
+    return TrackListPage;
+}());
+TrackListPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-track-list',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/track-list/track-list.html"*/'<!--\n  Generated template for the TrackListPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Warranty Requests</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding id="page-tracklist">\n\n\n      <div class="spacer" style="width:300px;height:20px;" id="submitclaim_name-spacer1"></div>\n\n  <form id="tracklist-form">\n    \n    <ion-item color="none" on-click="goToTrackingStatus(w_track)" id="tracklist-list-item1" *ngFor="let w_track of res" >\n      <ion-thumbnail item-left>\n        \n        <img src="assets/img/spanner.png">\n      </ion-thumbnail>\n\n      <h2>\n        Warranty Request ID: {{w_track.request_id}}<br>\n        Customer Name: {{w_track.customer_id}}<br>\n        Submitted Date: {{w_track.sub_date}} <br>\n        Status: {{w_track.status}}<br>\n      </h2> \n      \n    </ion-item>\n  </form>\n\n  \n</ion-content>\n\n\n\n\n'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/track-list/track-list.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]])
+], TrackListPage);
+
+//# sourceMappingURL=track-list.js.map
 
 /***/ }),
 
@@ -826,7 +836,7 @@ var _a, _b, _c;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__track_request_id_track_request_id__ = __webpack_require__(110);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__track_list_track_list__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__track_list_track_list__ = __webpack_require__(112);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -979,11 +989,11 @@ var map = {
 		8
 	],
 	"../pages/track-claim/track-claim.module": [
-		295,
+		296,
 		7
 	],
 	"../pages/track-list/track-list.module": [
-		294,
+		295,
 		6
 	],
 	"../pages/track-request-id/track-request-id.module": [
@@ -991,7 +1001,7 @@ var map = {
 		5
 	],
 	"../pages/tracking-status-list/tracking-status-list.module": [
-		297,
+		294,
 		4
 	],
 	"../pages/tracking-status/tracking-status.module": [
@@ -1003,7 +1013,7 @@ var map = {
 		2
 	],
 	"../pages/warranty-home/warranty-home.module": [
-		296,
+		297,
 		1
 	],
 	"../pages/warranty-order-list/warranty-order-list.module": [
@@ -1597,9 +1607,9 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_warranty_details_warranty_details__ = __webpack_require__(104);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_submit_request_submit_request__ = __webpack_require__(103);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_track_request_id_track_request_id__ = __webpack_require__(110);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_track_list_track_list__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_track_list_track_list__ = __webpack_require__(112);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_tracking_status_tracking_status__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_tracking_status_list_tracking_status_list__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_tracking_status_list_tracking_status_list__ = __webpack_require__(111);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__angular_http__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__ionic_native_status_bar__ = __webpack_require__(204);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__ionic_native_splash_screen__ = __webpack_require__(207);
@@ -1689,10 +1699,10 @@ AppModule = __decorate([
                     { loadChildren: '../pages/submit-claim-name/submit-claim-name.module#SubmitClaimNamePageModule', name: 'SubmitClaimNamePage', segment: 'submit-claim-name', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/tracking-status/tracking-status.module#TrackingStatusPageModule', name: 'TrackingStatusPage', segment: 'tracking-status', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/track-request-id/track-request-id.module#TrackRequestIdPageModule', name: 'TrackRequestIdPage', segment: 'track-request-id', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/tracking-status-list/tracking-status-list.module#TrackingStatusListPageModule', name: 'TrackingStatusListPage', segment: 'tracking-status-list', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/track-list/track-list.module#TrackListPageModule', name: 'TrackListPage', segment: 'track-list', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/track-claim/track-claim.module#TrackClaimPageModule', name: 'TrackClaimPage', segment: 'track-claim', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/warranty-home/warranty-home.module#WarrantyHomePageModule', name: 'WarrantyHomePage', segment: 'warranty-home', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/tracking-status-list/tracking-status-list.module#TrackingStatusListPageModule', name: 'TrackingStatusListPage', segment: 'tracking-status-list', priority: 'low', defaultHistory: [] }
+                    { loadChildren: '../pages/warranty-home/warranty-home.module#WarrantyHomePageModule', name: 'WarrantyHomePage', segment: 'warranty-home', priority: 'low', defaultHistory: [] }
                 ]
             })
         ],

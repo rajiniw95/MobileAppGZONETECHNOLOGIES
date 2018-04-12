@@ -17,34 +17,36 @@
 
 <div id="claimorder-markdown1" class="show-list-numbers-and-dots">
       <p style="color:#000000;">
-        Order Delivery Date 
+        Order ID 
       </p>
     </div>
       <ion-item>
-        <ion-label>{{deliverydate}}</ion-label>
+        <ion-label>{{orderId}}</ion-label>
       </ion-item>
   
 <div padding id="pageclaimorder" *ngIf="items" >
-  <ion-card id="claimorder-card1" *ngFor="let item of res">
+  <ion-card id="claimorder-card1" *ngFor="let item of items">
 
     <ion-list>
 
-      <ion-item color="none" id="order-list-item1"> Product Name: {{item.qty}}</ion-item>
+      <ion-item color="none" id="order-list-item1"> Product Name: {{item.product_name}}</ion-item>
       <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
+
+        <img [src]="item.product_photo"/>
           
       </div>
       <ion-list id="order-list5">
         <ion-item color="none" id="order-list-item2">
         
-         Product ID: {{item.qty}} <br>
+         Product ID: {{item.productID}} <br>
         
-         Product Description: {{item.qty}} <br>
+         Product Description: {{item.description}} <br>
          
          Quantity: {{item.qty}} <br>
          
-         Total Price: {{item.qty}} <br>
+         Total Price: {{item.tot_price}} <br>
 
-         <button id="submit" ion-button color="calm" block style="color:#000000;" on-click="goToWarrantyDetails()" >Get Warranty Details</button>
+         <button id="submit" ion-button color="calm" block style="color:#000000;" on-click="goToWarrantyDetails(item)" >Get Warranty Details</button>
         </ion-item>
       </ion-list>
     </ion-list>
@@ -55,4 +57,5 @@
 
   
 
-</ion-content>
+
+

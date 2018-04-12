@@ -25203,3 +25203,13 @@ page-tracking-status .fixedLabel {
   min-width: 200% !important;
   max-width: 200% !important;
 }
+
+page-tracking-status-list .fixedLabel {
+  min-width: 200% !important;
+  max-width: 200% !important;
+}
+
+page-warranty-details .fixedLabel {
+  min-width: 100% !important;
+  max-width: 100% !important;
+}

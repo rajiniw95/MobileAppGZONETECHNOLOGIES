@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Http, Headers, Response} from '@angular/http';
 
 import { SubmitRequestPage } from '../submit-request/submit-request';
 
@@ -17,7 +18,17 @@ import { SubmitRequestPage } from '../submit-request/submit-request';
 })
 export class WarrantyDetailsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  productID : string;
+  res : any;
+
+  constructor(public navCtrl: NavController, public http: Http, public navparams : NavParams) {
+    this.productID = this.navparams.get("id");
+    this.http
+      .get('http://localhost:8081/GZone/w_warrantydetails.php?productID=' + this.productID)
+      .subscribe((data) => {
+        let response = data.json();
+        this.res = response[0];
+      });
   }
 
   ionViewDidLoad() {

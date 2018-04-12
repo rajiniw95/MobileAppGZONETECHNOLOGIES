@@ -18,20 +18,24 @@ import { WarrantyDetailsPage } from '../warranty-details/warranty-details';
 })
 export class ClaimOrderPage {
 
-  user : string;
   res : any;
+  res_date : any[];
   items : any;
   public orderId;
 
   constructor(public navCtrl: NavController, public http: Http, public navparams : NavParams) {
+
     this.orderId = this.navparams.get("id");
-    this.user= localStorage.getItem('Auth_Token');
+
+    localStorage.setItem('order_id', this.orderId);
+
     this.http.get('http://localhost:8081/GZone/w_claimorder.php?id='+this.orderId).subscribe((data) => {
       this.res = data.json();
       this.http.get('http://localhost:8081/GZone/w_claimorderitems.php?id='+this.orderId).subscribe((response) => {
         this.items = response.json();
       });
     });
+  
   }
 
   ionViewDidLoad() {
@@ -43,6 +47,10 @@ export class ClaimOrderPage {
   /**create function for to go to page which shows the warranty details of the particular product*/
   goToWarrantyDetails(params){
     if (!params) params = {};
-    this.navCtrl.push(WarrantyDetailsPage);}
+
+    this.navCtrl.push(WarrantyDetailsPage,  {
+      id : params.productID
+    });
+    }
 
 }

@@ -29,7 +29,7 @@
 
   <form id="orderlist-form">
     
-    <ion-item color="none" on-click="goToClaimOrder()" id="orderlist-list-item1" *ngFor="let cust_order of res">
+    <ion-item color="none" on-click="goToClaimOrder(cust_order)" id="orderlist-list-item1" *ngFor="let cust_order of res">
       <ion-thumbnail item-left>
         
         <img src="assets/img/images.png"  />
