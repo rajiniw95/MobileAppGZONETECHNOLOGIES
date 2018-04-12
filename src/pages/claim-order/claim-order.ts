@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Http } from "@angular/http";
 
 import { WarrantyDetailsPage } from '../warranty-details/warranty-details';
 
@@ -17,7 +18,20 @@ import { WarrantyDetailsPage } from '../warranty-details/warranty-details';
 })
 export class ClaimOrderPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  user : string;
+  res : any;
+  items : any;
+  public orderId;
+
+  constructor(public navCtrl: NavController, public http: Http, public navparams : NavParams) {
+    this.orderId = this.navparams.get("id");
+    this.user= localStorage.getItem('Auth_Token');
+    this.http.get('http://localhost:8081/GZone/w_claimorder.php?id='+this.orderId).subscribe((data) => {
+      this.res = data.json();
+      this.http.get('http://localhost:8081/GZone/w_claimorderitems.php?id='+this.orderId).subscribe((response) => {
+        this.items = response.json();
+      });
+    });
   }
 
   ionViewDidLoad() {

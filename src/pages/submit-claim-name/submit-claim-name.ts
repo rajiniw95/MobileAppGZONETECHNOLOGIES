@@ -65,7 +65,6 @@ export class SubmitClaimNamePage {
         });
 
     }
-    if (!params) params = {};
     
 
 }

@@ -35,5 +35,7 @@ export class WarrantyOrderListPage {
   /**create function for to go to page which shows details of order*/
   goToClaimOrder(params){
     if (!params) params = {};
-    this.navCtrl.push(ClaimOrderPage);}
+    localStorage.setItem('deliverydate', this.res[0].deliverydate);
+    this.navCtrl.push(ClaimOrderPage , {id : params.orderID});
+    }
 }

@@ -1,6 +1,5 @@
 <!--
   Generated template for the TrackingStatusPage page.
-
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
@@ -13,7 +12,7 @@
 </ion-header>
 
 
-<ion-content padding id="requeststatuspage">
+<ion-content padding id="requeststatuspage" >
   <div id="requeststatus-container1">
 
     <div id="requeststatus-markdown1" class="show-list-numbers-and-dots">
@@ -23,7 +22,7 @@
     </div>
 
       <ion-item>
-        <ion-label></ion-label>
+        <ion-label *ngIf="res">{{res.request_id}}</ion-label>
       </ion-item>
 
     <div id="requeststatus-markdown2" class="show-list-numbers-and-dots">
@@ -33,7 +32,7 @@
     </div>
 
       <ion-item>
-        <ion-label></ion-label>
+        <ion-label *ngIf="res">{{res.customer_id}}</ion-label>
       </ion-item>
 
     <div id="requeststatus-markdown3" class="show-list-numbers-and-dots">
@@ -43,7 +42,7 @@
     </div>
 
       <ion-item>
-        <ion-label></ion-label>
+        <ion-label *ngIf="res">{{res.customer_name}}</ion-label>
       </ion-item>
 
       <div id="requeststatus-markdown4" class="show-list-numbers-and-dots">
@@ -53,7 +52,7 @@
     </div>
 
       <ion-item>
-        <ion-label></ion-label>
+        <ion-label *ngIf="res">{{res.customer_telno}}</ion-label>
       </ion-item>
 
       <div id="requeststatus-markdown5" class="show-list-numbers-and-dots">
@@ -63,7 +62,7 @@
     </div>
 
       <ion-item>
-        <ion-label></ion-label>
+        <ion-label *ngIf="res">{{res.status}}</ion-label>
       </ion-item>
 
       <div id="requeststatus-markdown6" class="show-list-numbers-and-dots">
@@ -73,7 +72,7 @@
     </div>
 
       <ion-item>
-        <ion-label></ion-label>
+        <ion-label stacked fixed class='fixedLabel' *ngIf="res">{{res.comments}}</ion-label>
       </ion-item>
 
       <div class="spacer" style="width:300px;height:20px;" id="requeststatus-spacer1"></div>
