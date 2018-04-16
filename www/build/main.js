@@ -209,6 +209,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the SubmitRequestPage page.
  *
@@ -216,11 +217,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * on Ionic pages and navigation.
  */
 var SubmitRequestPage = (function () {
-    function SubmitRequestPage(navCtrl, http, navparams) {
+    function SubmitRequestPage(navCtrl, http, navparams, Alert) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.http = http;
         this.navparams = navparams;
+        this.Alert = Alert;
         this.customer_id = "null";
         this.customer_name = "null";
         this.product_id = "null";
@@ -243,7 +245,33 @@ var SubmitRequestPage = (function () {
         console.log('ionViewDidLoad SubmitRequestPage');
     };
     /**ccheck whether the item falls within the warranty period*/
-    SubmitRequestPage.prototype.SubmitRequest = function (params) { };
+    SubmitRequestPage.prototype.SubmitRequest = function (params) {
+        var _this = this;
+        if (this.telno == "null" || this.quantity == "null" || this.comments == "null") {
+            var alert = this.Alert.create({ title: 'Error', subTitle: 'All fields must be filled', buttons: ['OK'] });
+            alert.present();
+        }
+        else {
+            var Agent_Id = localStorage.getItem('Agent_ID');
+            var customer_id = localStorage.getItem('customer_id');
+            var customer_name = localStorage.getItem('Auth_Token');
+            var product_id = localStorage.getItem('product_id');
+            this.http.post('http://localhost:8081/GZone/w_submitrequest.php?customer_id=' + this.customer_id + '&agent_id=' + this.agent_id + '&comments=' + this.comments + '&customer_name=' + this.customer_name + '&telno=' + this.telno + '&qty=' + this.quantity + '&product_id=' + this.product_id, "").subscribe(function (response) {
+                console.log(response);
+                if (response.statusText) {
+                    var alert = _this.Alert.create({ title: 'Success', subTitle: 'Request Submitted for Review', buttons: ['OK'] });
+                    alert.present();
+                    _this.quantity = "null";
+                    _this.telno = "null";
+                    _this.comments = "null";
+                }
+                else {
+                    var alert = _this.Alert.create({ title: 'Error', subTitle: 'Error Inserting values', buttons: ['OK'] });
+                    alert.present();
+                }
+            });
+        }
+    };
     return SubmitRequestPage;
 }());
 SubmitRequestPage = __decorate([
@@ -251,10 +279,10 @@ SubmitRequestPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-submit-request',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/submit-request/submit-request.html"*/'<!--\n  Generated template for the SubmitRequestPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Submit Request</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding id="submitrequestpage">\n  <div id="submitRequest-container1">\n\n    <div id="submitRequest-markdown1" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Customer ID : \n      </p>\n    </div>\n      <ion-item>\n        <ion-label>{{customer_id}}</ion-label>\n      </ion-item>\n\n      <div id="submitRequest-markdown2" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Customer Name : \n      </p>\n    </div>\n      <ion-item>\n        <ion-label>{{customer_name}}</ion-label>\n      </ion-item>\n\n      <div id="submitRequest-markdown3" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Product ID : \n      </p>\n    </div>\n      <ion-item>\n        <ion-label>{{product_id}}</ion-label>\n      </ion-item>\n\n    <div id="submitRequest-markdown4" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Product Name : \n      </p>\n    </div>\n      <ion-item>\n        <ion-label fixed class=\'fixedLabel\' *ngIf="res">{{res.product_name}}</ion-label>\n      </ion-item>\n\n    <div id="submitRequest-markdown7" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Customer Contact Number :\n      </p>\n    </div>\n      <ion-item>\n        <ion-input type="text"  name="telno" [(ngModel)]="telno"></ion-input>\n      </ion-item>\n\n      <div id="submitRequest-markdown5" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Quantity :\n      </p>\n    </div>\n      <ion-item>\n        <ion-input type="txt"  name="quantity" [(ngModel)]="quantity"></ion-input>\n      </ion-item>\n\n      <div id="submitRequest-markdown6" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Special Remarks and Observations : \n      </p>\n    </div>\n      <ion-item>\n        <ion-input type="text"  name="comments" [(ngModel)]="comments"></ion-input>\n      </ion-item>\n\n      <div class="spacer" style="width:300px;height:20px;" id="submitRequest-spacer1"></div>\n\n      <button ion-button color="calm" block style="color:#000000;" on-click="SubmitRequest()">Submit Warranty Request</button>\n      \n  </div>\n</ion-content>\n\n\n\n'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/submit-request/submit-request.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _d || Object])
 ], SubmitRequestPage);
 
-var _a, _b, _c;
+var _a, _b, _c, _d;
 //# sourceMappingURL=submit-request.js.map
 
 /***/ }),
