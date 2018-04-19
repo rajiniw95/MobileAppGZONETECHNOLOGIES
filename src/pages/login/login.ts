@@ -27,16 +27,42 @@ export class LoginPage {
         .get('http://localhost:8081/GZone/Login.php?username=' + this.account.username)
         .subscribe((response) => {
           var res = response.json();
-          if(this.account.username == res[0].user_name && this.account.password == res[0].password){
-            let alert = this.Alert.create({title: 'Success', subTitle: 'Login Successful', buttons: ['OK']});
-            alert.present();
-            localStorage.setItem('Auth_Token', res[0].user_name);
-            localStorage.setItem('Agent_ID', res[0].agentID);
-            this.navCtrl.push(HomePagePage);
+          if(res.length != 0){
+            if(this.account.username == res[0].user_name && this.account.password == res[0].password){
+              let alert = this.Alert.create({title: 'Success', subTitle: 'Login Successful', buttons: ['OK']});
+              alert.present();
+              if(res[0] && res[0].user_name){
+                localStorage.setItem('Auth_Token', res[0].user_name);
+                localStorage.setItem('Agent_ID', res[0].agentID);
+              }
+  
+              this.http
+               .get('http://localhost:8081/GZone/show-adds.php')
+               .subscribe((response) => {
+                var add = response.json();
+                var paths;
+                for(var i=0; i<add.length; i++){
+                  if(i == 0){
+                    paths = add[i].path;
+                  }else{
+                    paths = paths + "," + add[i].path;
+                  }
+                }
+                localStorage.setItem('Advertiesements', paths);
+  
+               }, error => {
+                console.error(error);
+               });
+              this.navCtrl.push(HomePagePage);
+            }else{
+              let alert = this.Alert.create({title: 'Error', subTitle: 'Login Failed', buttons: ['OK']});
+              alert.present();
+            }
           }else{
             let alert = this.Alert.create({title: 'Error', subTitle: 'Login Failed', buttons: ['OK']});
             alert.present();
           }
+
         }, error => {
           console.error(error);
         });

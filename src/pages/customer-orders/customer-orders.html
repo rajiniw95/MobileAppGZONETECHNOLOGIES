@@ -1,0 +1,27 @@
+
+<ion-header>
+        <ion-navbar>
+          <ion-title>
+            Orders For Customers
+          </ion-title>
+        </ion-navbar>
+      </ion-header>
+      <ion-content padding id="page7" *ngIf="res">
+      
+        <ion-list id="customerOrders-list3">
+          
+      
+            <ion-item color="none" on-click="goToOrder(order)" id="customerOrders-list-item10" *ngFor="let order of res">
+              <ion-thumbnail item-left>
+                  <!-- <img [src]="order.image"/> -->
+                  <img src="assets/img/images.png"  />
+              </ion-thumbnail>
+              <h2>
+                Order ID: {{order.orderID}}
+              </h2>
+              <ion-badge item-end *ngIf="order.status == 'dispatched'">dispatched</ion-badge>
+              <ion-badge item-end *ngIf="order.status == 'pending'">pending</ion-badge>
+              <button ion-button color="light" *ngIf="order.status == 'dispatched'" on-click="updateDelivery()">recieved</button>
+            </ion-item>
+          </ion-list>
+        

@@ -8,8 +8,10 @@
     <ion-title>
       My Profile
     </ion-title>
+    <button id="submit" ion-button style="float:right" on-click="Edit()">Edit</button>
   </ion-navbar>
 </ion-header>
+
 <ion-content padding id="page1" *ngIf="res">
 
   <ion-card id="myProfile-card22">
@@ -49,3 +51,10 @@
     
   </ion-card>
 </ion-content>
+<ion-footer>
+    <ion-slides  autoplay="2000" loop="true" speed="2000" *ngIf="array">
+        <ion-slide class="slide-img" *ngFor="let x of array">
+             <img [src]="x"/>
+       </ion-slide>
+     </ion-slides>
+   </ion-footer>
