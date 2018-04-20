@@ -1,6 +1,10 @@
 <?php 
 
 	require_once('phpmailer/class.phpmailer.php');
+    header('Access-Control-Allow-Origin: *');
+    header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+    header('Access-Control-Allow-Headers: Content-Type,x-prototype-version,x-requested-with');
+
 
     $agent_email = $_GET['agent_email'];
     $customer_name = $_GET['customer_name'];
@@ -29,7 +33,7 @@
     $mail->IsHTML(true);
     $mail->Body    = 'Hi there ,
 	                  <br />
-					  Please note that a warranty claim request has been made by you, on behalf of {$customer_name}. Please reply with photos of the damaged item, so that we could further investigate the warranty claim and take the necessary action. 
+					  Please note that a warranty claim request has been made by you, on behalf of' .$customer_name. 'Please reply with photos of the damaged item, so that we could further investigate the warranty claim and take the necessary action. 
 					  <br />
 					  We thank you greatly for being part of GZone Technologies and assisting us provide customer satisfation. 
                       <br />
