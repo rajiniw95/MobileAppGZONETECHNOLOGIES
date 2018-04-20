@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Pending Orders
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page8" *ngIf="res">
+  <ion-list id="pendingOrders-list4">
+    
+    <ion-item color="none"  on-click="goToOrder(order)" id="pendingOrders-list-item30" *ngFor="let order of res">
+      <ion-thumbnail item-left>
+        <!-- <img [src]="order.image"/> -->
+        <img src="assets/img/images.png"  />
+      </ion-thumbnail>
+      <h2>
+        Order ID: {{order.orderID}}
+      </h2>
+      <button ion-button style="float:right"  *ngIf="Dispatched">Dispatched</button>
+    </ion-item>
+    </ion-list>
+  </ion-content>
