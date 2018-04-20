@@ -26,5 +26,15 @@ export class PersonalOrderPage {
       id : params.orderID
     });
   }
-
+  updateDelivery(order){
+    var status = "delivered";
+    this.http.post('http://localhost:8081/GZone/update-status.php?id='+order.orderID+'&status='+status,"").subscribe((data) => {
+      console.log(data);
+      for(var i=0; i < this.res.length; i++){
+        if(this.res[i].orderID == order.orderID){
+          this.res.splice(i, 1);
+        }
+      }
+    });
+}
 }

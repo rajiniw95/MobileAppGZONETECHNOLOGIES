@@ -29,10 +29,12 @@ export class PendingOrdersPage {
   goToCustomerOrders(params){
     if (!params) params = {};
     this.navCtrl.push(CustomerOrder);
+    
   }
   goToPersonalOrders(params){
     if (!params) params = {};
     this.navCtrl.push(PersonalOrderPage);
+    
   }
   // goToOrder(params){
   // if (!params) params = {};

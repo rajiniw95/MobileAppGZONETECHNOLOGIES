@@ -335,10 +335,17 @@ ClaimOrderPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-claim-order',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/claim-order/claim-order.html"*/'<!--\n  Generated template for the ClaimOrderPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Order Details</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n<div id="claimorder-markdown1" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Order ID \n      </p>\n    </div>\n      <ion-item>\n        <ion-label>{{orderId}}</ion-label>\n      </ion-item>\n  \n<div padding id="pageclaimorder" *ngIf="items" >\n  <ion-card id="claimorder-card1" *ngFor="let item of items">\n\n    <ion-list>\n\n      <ion-item color="none" id="order-list-item1"> Product Name: {{item.product_name}}</ion-item>\n      <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">\n\n        <img [src]="item.product_photo"/>\n          \n      </div>\n      <ion-list id="order-list5">\n        <ion-item color="none" id="order-list-item2">\n        \n         Product ID: {{item.productID}} <br>\n        \n         Product Description: {{item.description}} <br>\n         \n         Quantity: {{item.qty}} <br>\n         \n         Total Price: {{item.tot_price}} <br>\n\n         <button id="submit" ion-button color="calm" block style="color:#000000;" on-click="goToWarrantyDetails(item)" >Get Warranty Details</button>\n        </ion-item>\n      </ion-list>\n    </ion-list>\n  </ion-card>\n\n\n  </div>\n\n  \n\n\n\n'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/claim-order/claim-order.html"*/,
     }),
+<<<<<<< HEAD
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
 ], ClaimOrderPage);
 
 //# sourceMappingURL=claim-order.js.map
+=======
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]])
+], MyProfilePage);
+
+//# sourceMappingURL=my-profile.js.map
+>>>>>>> ed78a436722a405187ff5115c474e291d56fbe33
 
 /***/ }),
 
@@ -388,9 +395,39 @@ var WarrantyDetailsPage = (function () {
     WarrantyDetailsPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad WarrantyDetailsPage');
     };
+<<<<<<< HEAD
     /**create function for to go to page which shows the warranty details of the particular product*/
     WarrantyDetailsPage.prototype.checkWarrantyPeriod = function (params) {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__submit_request_submit_request__["a" /* SubmitRequestPage */]);
+=======
+    /**ccheck whether the item falls within the warranty period*/
+    SubmitRequestPage.prototype.SubmitRequest = function (params) {
+        var _this = this;
+        if (this.telno == "null" || this.quantity == "null" || this.comments == "null") {
+            var alert_1 = this.Alert.create({ title: 'Error', subTitle: 'All fields must be filled', buttons: ['OK'] });
+            alert_1.present();
+        }
+        else {
+            var Agent_Id = localStorage.getItem('Agent_ID');
+            var customer_id = localStorage.getItem('customer_id');
+            var customer_name = localStorage.getItem('Auth_Token');
+            var product_id = localStorage.getItem('product_id');
+            this.http.post('http://localhost:8081/GZone/w_submitrequest.php?customer_id=' + this.customer_id + '&agent_id=' + this.agent_id + '&comments=' + this.comments + '&customer_name=' + this.customer_name + '&telno=' + this.telno + '&qty=' + this.quantity + '&product_id=' + this.product_id, "").subscribe(function (response) {
+                console.log(response);
+                if (response.statusText) {
+                    var alert_2 = _this.Alert.create({ title: 'Success', subTitle: 'Request Submitted for Review', buttons: ['OK'] });
+                    alert_2.present();
+                    _this.quantity = "null";
+                    _this.telno = "null";
+                    _this.comments = "null";
+                }
+                else {
+                    var alert_3 = _this.Alert.create({ title: 'Error', subTitle: 'Error Inserting values', buttons: ['OK'] });
+                    alert_3.present();
+                }
+            });
+        }
+>>>>>>> ed78a436722a405187ff5115c474e291d56fbe33
     };
     return WarrantyDetailsPage;
 }());
@@ -399,10 +436,17 @@ WarrantyDetailsPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-warranty-details',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/warranty-details/warranty-details.html"*/'<!--\n  Generated template for the WarrantyDetailsPage page.\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Warranty Details</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding id="warrantydetailspage">\n  <div id="warrantydetails-container1">\n\n    <div id="warrantydetails-markdown1" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Product ID :\n      </p>\n    </div>\n\n      <ion-item>\n        <ion-label *ngIf="res">{{res.productID}}</ion-label>\n      </ion-item>\n\n    <div id="warrantydetails-markdown2" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Product Name :\n      </p>\n    </div>\n\n      <ion-item>\n        <ion-label fixed class=\'fixedLabel\' *ngIf="res">{{res.product_name}}</ion-label>\n      </ion-item>\n\n    <div id="warrantydetails-markdown3" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Product Description :\n      </p>\n    </div>\n\n      <ion-item>\n        <ion-label stacked fixed class=\'fixedLabel\' *ngIf="res">{{res.product_description}}</ion-label>\n      </ion-item>\n\n      <div id="warrantydetails-markdown4" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Warranty Period (in weeks):\n      </p>\n    </div>\n\n      <ion-item>\n        <ion-label *ngIf="res">{{res.warranty_period}}</ion-label>\n      </ion-item>\n\n      <div id="warrantydetails-markdown5" class="show-list-numbers-and-dots">\n      <p style="color:#000000;">\n        Warranty Validity Conditions :\n      </p>\n    </div>\n\n      <ion-item>\n        <ion-label fixed class=\'fixedLabel\' *ngIf="res">{{res.w_validity_conditions}}</ion-label>\n      </ion-item>\n\n      <div class="spacer" style="width:300px;height:10px;" id="warrantydetails-spacer1"></div>\n\n      <button ion-button color="calm" block style="color:#000000;" on-click="checkWarrantyPeriod()">Proceed to Submit Warranty Request </button>\n      \n  </div>\n</ion-content>\n\n'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/warranty-details/warranty-details.html"*/,
     }),
+<<<<<<< HEAD
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
 ], WarrantyDetailsPage);
 
 //# sourceMappingURL=warranty-details.js.map
+=======
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+], SubmitRequestPage);
+
+//# sourceMappingURL=submit-request.js.map
+>>>>>>> ed78a436722a405187ff5115c474e291d56fbe33
 
 /***/ }),
 
@@ -1440,10 +1484,18 @@ WithinWarrantyPeriodPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-within-warranty-period',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/within-warranty-period/within-warranty-period.html"*/'<!--\n  Generated template for the WithinWarrantyPeriodPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Warranty Period</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding id="page_within_warranty_period">\n  <div class="spacer" style="width:300px;height:102px;" id="warrantyperiod-spacer1"></div>\n  <ion-title>Product Within Warranty Period!</ion-title>\n    \n  <div class="spacer" style="width:300px;height:42px;" id="warrantyHome-spacer2"></div>\n  <button id="warrantyperiod-button2" ion-button color="calm" block style="color:#000000;" on-click="goToSubmitRequest()">\n    Proceed to Submit Warranty Request\n  </button>\n  <div class="spacer" style="width:300px;height:102px;" id="warrantyHome-spacer3"></div>\n  <div>\n    <img src="assets/img/TtHlAxrfTdiy3Y5Kpu0M_12342335_1674935559443552_4840384717682269278_n.png" style="display:block;width:20%;height:auto;margin-left:auto;margin-right:auto;" />\n  </div>\n</ion-content>\n\n\n\n\n'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/within-warranty-period/within-warranty-period.html"*/,
     }),
+<<<<<<< HEAD
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
 ], WithinWarrantyPeriodPage);
 
 //# sourceMappingURL=within-warranty-period.js.map
+=======
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]) === "function" && _b || Object])
+], PendingOrdersPage);
+
+var _a, _b;
+//# sourceMappingURL=pending-orders.js.map
+>>>>>>> ed78a436722a405187ff5115c474e291d56fbe33
 
 /***/ }),
 
@@ -1455,9 +1507,56 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(222);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(240);
 
+<<<<<<< HEAD
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
 //# sourceMappingURL=main.js.map
+=======
+var CustomerOrder = (function () {
+    function CustomerOrder(navCtrl, http, navparams) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.http = http;
+        this.navparams = navparams;
+        this.orderId = this.navparams.get("id");
+        this.userID = localStorage.getItem('Agent_ID');
+        this.http.get('http://localhost:8081/GZone/customer-orders.php?username=' + this.userID).subscribe(function (data) {
+            console.log(data);
+            _this.res = data.json();
+        });
+    }
+    CustomerOrder.prototype.goToOrder = function (params) {
+        if (!params)
+            params = {};
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__order_order__["a" /* OrderPage */], {
+            id: params.orderID
+        });
+    };
+    CustomerOrder.prototype.updateDelivery = function (order) {
+        var _this = this;
+        var status = "delivered";
+        this.http.post('http://localhost:8081/GZone/update-status.php?id=' + order.orderID + '&status=' + status, "").subscribe(function (data) {
+            console.log(data);
+            for (var i = 0; i < _this.res.length; i++) {
+                if (_this.res[i].orderID == order.orderID) {
+                    _this.res.splice(i, 1);
+                }
+            }
+            //this.res = data.json();
+        });
+    };
+    return CustomerOrder;
+}());
+CustomerOrder = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-delivery',template:/*ion-inline-start:"C:\Users\rpa28\Desktop\Senda\MobileApp\MobileAppGZONETECHNOLOGIES\src\pages\customer-orders\customer-orders.html"*/'\n\n<ion-header>\n\n        <ion-navbar>\n\n          <ion-title>\n\n            Orders For Customers\n\n          </ion-title>\n\n        </ion-navbar>\n\n      </ion-header>\n\n      <ion-content padding id="page7" *ngIf="res">\n\n      \n\n        <ion-list id="customerOrders-list3">\n\n          \n\n      \n\n            <ion-item color="none" id="customerOrders-list-item10" *ngFor="let order of res">\n\n              <ion-thumbnail item-left>\n\n                  <!-- <img [src]="order.image"/> -->\n\n                  <img src="assets/img/images.png"  />\n\n              </ion-thumbnail>\n\n              <h2 on-click="goToOrder(order)">\n\n                Order ID: {{order.orderID}}\n\n              </h2>\n\n              <ion-badge item-end *ngIf="order.status == \'dispatched\'" style="font-size: 10px">dispatched</ion-badge>\n\n              <ion-badge item-end *ngIf="order.status == \'pending\'">pending</ion-badge>\n\n              <button ion-button color="light" *ngIf="order.status == \'dispatched\' && order" on-click="updateDelivery(order)">recieved</button>\n\n            </ion-item>\n\n          </ion-list>\n\n        '/*ion-inline-end:"C:\Users\rpa28\Desktop\Senda\MobileApp\MobileAppGZONETECHNOLOGIES\src\pages\customer-orders\customer-orders.html"*/
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _c || Object])
+], CustomerOrder);
+
+var _a, _b, _c;
+//# sourceMappingURL=customer-orders.js.map
+>>>>>>> ed78a436722a405187ff5115c474e291d56fbe33
 
 /***/ }),
 
@@ -1512,7 +1611,51 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+<<<<<<< HEAD
 
+=======
+var PersonalOrderPage = (function () {
+    function PersonalOrderPage(navCtrl, http) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.http = http;
+        this.userID = localStorage.getItem('Agent_ID');
+        this.http.get('http://localhost:8081/GZone/personal-orders.php?username=' + this.userID).subscribe(function (data) {
+            console.log(data);
+            _this.res = data.json();
+        });
+    }
+    PersonalOrderPage.prototype.goToOrder = function (params) {
+        if (!params)
+            params = {};
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__order_order__["a" /* OrderPage */], {
+            id: params.orderID
+        });
+    };
+    PersonalOrderPage.prototype.updateDelivery = function (order) {
+        var _this = this;
+        var status = "delivered";
+        this.http.post('http://localhost:8081/GZone/update-status.php?id=' + order.orderID + '&status=' + status, "").subscribe(function (data) {
+            console.log(data);
+            for (var i = 0; i < _this.res.length; i++) {
+                if (_this.res[i].orderID == order.orderID) {
+                    _this.res.splice(i, 1);
+                }
+            }
+        });
+    };
+    return PersonalOrderPage;
+}());
+PersonalOrderPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-personal-orders',template:/*ion-inline-start:"C:\Users\rpa28\Desktop\Senda\MobileApp\MobileAppGZONETECHNOLOGIES\src\pages\personal-orders\personal-orders.html"*/'\n\n<ion-header>\n\n        <ion-navbar>\n\n          <ion-title>\n\n            Orders For Personal Use\n\n          </ion-title>\n\n        </ion-navbar>\n\n      </ion-header>\n\n      <ion-content padding id="page7" *ngIf="res">\n\n      \n\n        <ion-list id="personalOrders-list3">\n\n          \n\n      \n\n            <ion-item color="none"  id="personalOrders-list-item10" *ngFor="let order of res">\n\n              <ion-thumbnail item-left>\n\n                  <!-- <img [src]="order.image"/> -->\n\n                  <img src="assets/img/images.png"  />\n\n              </ion-thumbnail>\n\n              <h2 on-click="goToOrder(order)">\n\n                Order ID: {{order.orderID}}\n\n              </h2>\n\n              <ion-badge item-end *ngIf="order.status == \'dispatched\'"style="font-size: 10px" >dispatched</ion-badge>\n\n              <ion-badge item-end *ngIf="order.status == \'pending\'">pending</ion-badge>\n\n              <button ion-button color="light" *ngIf="order.status == \'dispatched\'" on-click="updateDelivery(order)">recieved</button>\n\n            </ion-item>\n\n          </ion-list>\n\n        '/*ion-inline-end:"C:\Users\rpa28\Desktop\Senda\MobileApp\MobileAppGZONETECHNOLOGIES\src\pages\personal-orders\personal-orders.html"*/
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]) === "function" && _b || Object])
+], PersonalOrderPage);
+
+var _a, _b;
+//# sourceMappingURL=personal-orders.js.map
+>>>>>>> ed78a436722a405187ff5115c474e291d56fbe33
 
 
 
@@ -2061,12 +2204,94 @@ var RecordDepositPage = (function () {
     };
     return RecordDepositPage;
 }());
+<<<<<<< HEAD
 RecordDepositPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-record-deposit',template:/*ion-inline-start:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/record-deposit/record-deposit.html"*/'\n\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      Record Deposit\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding id="page9">\n    <form id="recordDeposit-form6" method="POST">\n  <div id="recordDeposit-markdown7" class="show-list-numbers-and-dots">\n    <p style="color:#000000;">\n      Deposit Date\n    </p>\n  </div>\n    <div class="spacer" style="width:300px;height:18px;" id="recordDeposit-spacer14"></div>\n    <ion-item id="recordDeposit-select2">\n      <ion-label>\n        Month\n      </ion-label>\n      <ion-select name="month" [(ngModel)]="month">\n        <ion-option value=\'1\'>\n          January\n        </ion-option>\n        <ion-option value=\'2\'>\n          February\n        </ion-option>\n        <ion-option value=\'3\'>\n          March\n        </ion-option>\n        <ion-option value=\'4\'>\n          April\n        </ion-option>\n        <ion-option value=\'5\'>\n          May\n        </ion-option>\n        <ion-option value=\'6\'>\n          June\n        </ion-option>\n        <ion-option value=\'7\'>\n          July\n        </ion-option>\n        <ion-option value=\'8\'>\n          August\n        </ion-option>\n        <ion-option value=\'9\'>\n          September\n        </ion-option>\n        <ion-option value=\'10\'>\n          October\n        </ion-option>\n        <ion-option value=\'11\'>\n          November\n        </ion-option>\n        <ion-option value=\'12\'>\n          December\n        </ion-option>\n      </ion-select>\n    </ion-item>\n    <ion-item id="recordDeposit-select3">\n      <ion-label>\n        Year\n      </ion-label>\n      <ion-select name="year" [(ngModel)]="year">\n        <ion-option>\n        2015\n        </ion-option>\n        <ion-option>\n        2016\n        </ion-option>\n        <ion-option>\n          2017\n        </ion-option>\n        <ion-option>\n          2018\n        </ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item id="recordDeposit-select3">\n      <ion-label>\n        Date\n      </ion-label>\n      <ion-select name="date" [(ngModel)]="date">\n        <ion-option>\n        1\n        </ion-option>\n        <ion-option>\n        2\n        </ion-option>\n        <ion-option>\n        3\n        </ion-option>\n        <ion-option>\n        4\n        </ion-option>\n        <ion-option>\n        5\n        </ion-option>\n        <ion-option>\n        6\n        </ion-option>\n        <ion-option>\n        7\n        </ion-option>\n        <ion-option>\n        8\n        </ion-option>\n        <ion-option>\n        9\n        </ion-option>\n        <ion-option>\n        10\n        </ion-option>\n        <ion-option>\n        11\n        </ion-option>\n        <ion-option>\n        12\n        </ion-option>\n        <ion-option>\n        13\n        </ion-option>\n        <ion-option>\n        14\n        </ion-option>\n        <ion-option>\n        15\n        </ion-option>\n        <ion-option>\n        16\n        </ion-option>\n        <ion-option>\n        17\n        </ion-option>\n        <ion-option>\n        18\n        </ion-option>\n        <ion-option>\n        19\n        </ion-option>\n        <ion-option>\n        20\n        </ion-option>\n        <ion-option>\n        21\n        </ion-option>\n        <ion-option>\n        22\n        </ion-option>\n        <ion-option>\n        23\n        </ion-option>\n        <ion-option>\n        24\n        </ion-option>\n        <ion-option>\n        25\n        </ion-option>\n        <ion-option>\n        26\n        </ion-option>\n        <ion-option>\n        27\n        </ion-option>\n        <ion-option>\n        28\n        </ion-option>\n        <ion-option>\n        29\n        </ion-option>\n        <ion-option>\n        30\n        </ion-option>\n        <ion-option>\n        31\n        </ion-option>\n        \n      </ion-select>\n    </ion-item>\n\n  <div id="recordDeposit-markdown6" class="show-list-numbers-and-dots">\n    <p style="color:#000000;">\n      Amount Deposited (LKR)\n    </p>\n  </div>\n    <ion-item id="recordDeposit-input3">\n      <ion-input type="number" disabled="true" placeholder="Amount" name="amount" [(ngModel)]="amount"></ion-input>\n    </ion-item>\n  </form>\n  <button ion-button color="calm" block style="color:#000000;" on-click="addDeposit()" >Submit</button>\n  <div class="spacer" style="width:300px;height:27px;" id="recordDeposit-spacer15"></div>\n  \n</ion-content>\n'/*ion-inline-end:"/Users/rajiniwijayawardana/Desktop/MobileAppGZONETECHNOLOGIES/src/pages/record-deposit/record-deposit.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
 ], RecordDepositPage);
+=======
+AppModule = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */],
+            __WEBPACK_IMPORTED_MODULE_4__pages_my_profile_my_profile__["a" /* MyProfilePage */],
+            __WEBPACK_IMPORTED_MODULE_5__pages_my_payments_my_payments__["a" /* MyPaymentsPage */],
+            __WEBPACK_IMPORTED_MODULE_6__pages_my_deliveries_my_deliveries__["a" /* MyDeliveriesPage */],
+            __WEBPACK_IMPORTED_MODULE_7__pages_login_login__["a" /* LoginPage */],
+            __WEBPACK_IMPORTED_MODULE_8__pages_my_orders_my_orders__["a" /* MyOrdersPage */],
+            __WEBPACK_IMPORTED_MODULE_9__pages_home_page_home_page__["a" /* HomePagePage */],
+            __WEBPACK_IMPORTED_MODULE_10__pages_previous_purchases_previous_purchases__["a" /* PreviousPurchasesPage */],
+            __WEBPACK_IMPORTED_MODULE_11__pages_pending_orders_pending_orders__["a" /* PendingOrdersPage */],
+            __WEBPACK_IMPORTED_MODULE_12__pages_record_deposit_record_deposit__["a" /* RecordDepositPage */],
+            __WEBPACK_IMPORTED_MODULE_13__pages_order_order__["a" /* OrderPage */],
+            __WEBPACK_IMPORTED_MODULE_14__pages_delivery_delivery__["a" /* DeliveryPage */],
+            __WEBPACK_IMPORTED_MODULE_15__pages_calculate_payment_calculate_payment__["a" /* CalculatePaymentPage */],
+            __WEBPACK_IMPORTED_MODULE_16__pages_upload_deposit_slip_upload_deposit_slip__["a" /* UploadDepositSlipPage */],
+            __WEBPACK_IMPORTED_MODULE_17__pages_Edit_profile_Edit_profile__["a" /* EditProfile */],
+            __WEBPACK_IMPORTED_MODULE_30__pages_personal_orders_personal_orders__["a" /* PersonalOrderPage */],
+            __WEBPACK_IMPORTED_MODULE_31__pages_customer_orders_customer_orders__["a" /* CustomerOrder */],
+            __WEBPACK_IMPORTED_MODULE_18__pages_warranty_home_warranty_home__["a" /* WarrantyHomePage */],
+            __WEBPACK_IMPORTED_MODULE_19__pages_submit_claim_name_submit_claim_name__["a" /* SubmitClaimNamePage */],
+            __WEBPACK_IMPORTED_MODULE_20__pages_track_claim_track_claim__["a" /* TrackClaimPage */],
+            __WEBPACK_IMPORTED_MODULE_21__pages_previous_claims_previous_claims__["a" /* PreviousClaimsPage */],
+            __WEBPACK_IMPORTED_MODULE_22__pages_warranty_order_list_warranty_order_list__["a" /* WarrantyOrderListPage */],
+            __WEBPACK_IMPORTED_MODULE_23__pages_claim_order_claim_order__["a" /* ClaimOrderPage */],
+            __WEBPACK_IMPORTED_MODULE_24__pages_warranty_details_warranty_details__["a" /* WarrantyDetailsPage */],
+            __WEBPACK_IMPORTED_MODULE_25__pages_submit_request_submit_request__["a" /* SubmitRequestPage */],
+            __WEBPACK_IMPORTED_MODULE_26__pages_track_request_id_track_request_id__["a" /* TrackRequestIdPage */],
+            __WEBPACK_IMPORTED_MODULE_27__pages_track_list_track_list__["a" /* TrackListPage */],
+            __WEBPACK_IMPORTED_MODULE_28__pages_tracking_status_tracking_status__["a" /* TrackingStatusPage */],
+            __WEBPACK_IMPORTED_MODULE_29__pages_tracking_status_list_tracking_status_list__["a" /* TrackingStatusListPage */],
+            __WEBPACK_IMPORTED_MODULE_32__pages_within_warranty_period_within_warranty_period__["a" /* WithinWarrantyPeriodPage */]
+        ],
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
+            __WEBPACK_IMPORTED_MODULE_33__angular_http__["b" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */])
+        ],
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
+        entryComponents: [
+            __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */],
+            __WEBPACK_IMPORTED_MODULE_4__pages_my_profile_my_profile__["a" /* MyProfilePage */],
+            __WEBPACK_IMPORTED_MODULE_5__pages_my_payments_my_payments__["a" /* MyPaymentsPage */],
+            __WEBPACK_IMPORTED_MODULE_6__pages_my_deliveries_my_deliveries__["a" /* MyDeliveriesPage */],
+            __WEBPACK_IMPORTED_MODULE_7__pages_login_login__["a" /* LoginPage */],
+            __WEBPACK_IMPORTED_MODULE_8__pages_my_orders_my_orders__["a" /* MyOrdersPage */],
+            __WEBPACK_IMPORTED_MODULE_9__pages_home_page_home_page__["a" /* HomePagePage */],
+            __WEBPACK_IMPORTED_MODULE_10__pages_previous_purchases_previous_purchases__["a" /* PreviousPurchasesPage */],
+            __WEBPACK_IMPORTED_MODULE_11__pages_pending_orders_pending_orders__["a" /* PendingOrdersPage */],
+            __WEBPACK_IMPORTED_MODULE_12__pages_record_deposit_record_deposit__["a" /* RecordDepositPage */],
+            __WEBPACK_IMPORTED_MODULE_13__pages_order_order__["a" /* OrderPage */],
+            __WEBPACK_IMPORTED_MODULE_14__pages_delivery_delivery__["a" /* DeliveryPage */],
+            __WEBPACK_IMPORTED_MODULE_15__pages_calculate_payment_calculate_payment__["a" /* CalculatePaymentPage */],
+            __WEBPACK_IMPORTED_MODULE_16__pages_upload_deposit_slip_upload_deposit_slip__["a" /* UploadDepositSlipPage */],
+            __WEBPACK_IMPORTED_MODULE_17__pages_Edit_profile_Edit_profile__["a" /* EditProfile */],
+            __WEBPACK_IMPORTED_MODULE_18__pages_warranty_home_warranty_home__["a" /* WarrantyHomePage */],
+            __WEBPACK_IMPORTED_MODULE_19__pages_submit_claim_name_submit_claim_name__["a" /* SubmitClaimNamePage */],
+            __WEBPACK_IMPORTED_MODULE_20__pages_track_claim_track_claim__["a" /* TrackClaimPage */],
+            __WEBPACK_IMPORTED_MODULE_21__pages_previous_claims_previous_claims__["a" /* PreviousClaimsPage */],
+            __WEBPACK_IMPORTED_MODULE_22__pages_warranty_order_list_warranty_order_list__["a" /* WarrantyOrderListPage */],
+            __WEBPACK_IMPORTED_MODULE_23__pages_claim_order_claim_order__["a" /* ClaimOrderPage */],
+            __WEBPACK_IMPORTED_MODULE_31__pages_customer_orders_customer_orders__["a" /* CustomerOrder */],
+            __WEBPACK_IMPORTED_MODULE_30__pages_personal_orders_personal_orders__["a" /* PersonalOrderPage */],
+            __WEBPACK_IMPORTED_MODULE_24__pages_warranty_details_warranty_details__["a" /* WarrantyDetailsPage */],
+            __WEBPACK_IMPORTED_MODULE_25__pages_submit_request_submit_request__["a" /* SubmitRequestPage */],
+            __WEBPACK_IMPORTED_MODULE_26__pages_track_request_id_track_request_id__["a" /* TrackRequestIdPage */],
+            __WEBPACK_IMPORTED_MODULE_27__pages_track_list_track_list__["a" /* TrackListPage */],
+            __WEBPACK_IMPORTED_MODULE_28__pages_tracking_status_tracking_status__["a" /* TrackingStatusPage */],
+            __WEBPACK_IMPORTED_MODULE_29__pages_tracking_status_list_tracking_status_list__["a" /* TrackingStatusListPage */],
+            __WEBPACK_IMPORTED_MODULE_32__pages_within_warranty_period_within_warranty_period__["a" /* WithinWarrantyPeriodPage */]
+        ],
+        providers: [
+            __WEBPACK_IMPORTED_MODULE_34__ionic_native_status_bar__["a" /* StatusBar */],
+            __WEBPACK_IMPORTED_MODULE_35__ionic_native_splash_screen__["a" /* SplashScreen */],
+            { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] },
+        ]
+    })
+], AppModule);
+>>>>>>> ed78a436722a405187ff5115c474e291d56fbe33
 
 //# sourceMappingURL=record-deposit.js.map
 

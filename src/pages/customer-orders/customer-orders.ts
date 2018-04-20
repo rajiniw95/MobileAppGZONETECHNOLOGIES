@@ -11,7 +11,9 @@ import { OrderPage } from '../order/order';
 export class CustomerOrder {
   userID : string;
   res : any[];
-  constructor(public navCtrl: NavController, public http: Http) {
+  public orderId;
+  constructor(public navCtrl: NavController, public http: Http, public navparams : NavParams) {
+    this.orderId = this.navparams.get("id");
    this.userID= localStorage.getItem('Agent_ID');
     this.http.get('http://localhost:8081/GZone/customer-orders.php?username='+this.userID).subscribe((data) => {
       console.log(data);
@@ -26,11 +28,19 @@ export class CustomerOrder {
     });
   }
 
-  updateDelivery(){
-    // this.http.post('http://localhost:8081/GZone/update-status.php?staus='+'delivered').subscribe((data) => {
-    //   console.log(data);
-    //   this.res = data.json();
-    // });
+  updateDelivery(order){
+    var status = "delivered";
+    
+    this.http.post('http://localhost:8081/GZone/update-status.php?id='+order.orderID+'&status='+status,"").subscribe((data) => {
+      console.log(data);
+      for(var i=0; i < this.res.length; i++){
+        if(this.res[i].orderID == order.orderID){
+          this.res.splice(i, 1);
+        }
+      }
+
+      //this.res = data.json();
+    });
   }
 
 }
