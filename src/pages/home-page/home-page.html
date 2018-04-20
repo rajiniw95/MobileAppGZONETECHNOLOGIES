@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar hideBackButton="true">
     <ion-title>
       Home Page
     </ion-title>
@@ -25,11 +25,19 @@
   <button id="homePage-button12" ion-button color="calm" block style="color:#000000;" on-click="goToLogin()">
     Sign out
   </button>
-  <div class="spacer" style="width:300px;height:52px;" id="homePage-spacer9"></div>
   <div>
-    <img src="assets/img/5BVK1GSduXGR69BddHAA_12342335_1674935559443552_4840384717682269278_n.png" style="display:block;width:30%;height:auto;margin-left:auto;" />
-  </div>
+      <img src="assets/img/5BVK1GSduXGR69BddHAA_12342335_1674935559443552_4840384717682269278_n.png" style="display:block;width:30%;height:auto;margin-left:auto;" />
+    </div>
+  <div class="spacer" style="width:300px;height:52px;" id="homePage-spacer9"></div>
+
 </ion-content>
+<ion-footer>
+    <ion-slides  autoplay="2000" loop="true" speed="2000" *ngIf="array">
+        <ion-slide class="slide-img" *ngFor="let x of array">
+             <img [src]="x"/>
+       </ion-slide>
+     </ion-slides>
+   </ion-footer>
 
 
-<!--on-click direct to relevant pages-->
+<!--on-click direct to relevant pages--><ion-footer>

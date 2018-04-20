@@ -1,0 +1,57 @@
+
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      My Profile
+    </ion-title>
+    
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding id="page1" *ngIf="res">
+
+  <ion-card id="myProfile-card22">
+    <ion-list>
+      <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
+              <!-- <img [src]="res.profile_photo" *ngIf="res.profile_photo" style="display:block;width:100%;height:200;margin-left:auto;margin-right:auto;" /> -->
+              <img [src]="res.profile_photo" *ngIf="res.profile_photo" style="display:block;width:100%;height:200;margin-left:auto;margin-right:auto;" />
+            </div>
+
+        </ion-list>
+
+      
+
+  <ion-list>
+
+        <ion-item>
+          <ion-icon name="person" item-start></ion-icon>
+          <ion-input type="text"  [(ngModel)]="res.fname"></ion-input>
+        </ion-item>
+
+            <ion-item>
+              <ion-icon name="person" item-start></ion-icon>
+              <ion-input type="text"  [(ngModel)]="res.lname"></ion-input>
+            </ion-item>
+    <ion-item>
+      <ion-icon name="ios-cog" item-start></ion-icon>
+      <strong>Username:  </strong>{{res.user_name}}
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="ios-home" item-start ></ion-icon>
+      <ion-input type="text"  [(ngModel)]="res.address"></ion-input>
+   </ion-item>
+
+    <ion-item>
+      <ion-icon name="ios-recording" item-start></ion-icon>
+      <ion-input type="text"  [(ngModel)]="res.tel_no"></ion-input>
+     </ion-item>
+     <button ion-button color="calm" block style="color:#000000;" on-click="editProfile()" >Save</button>
+  </ion-list>
+    
+  </ion-card>
+</ion-content>

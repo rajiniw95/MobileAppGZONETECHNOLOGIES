@@ -13,8 +13,11 @@ import { WarrantyHomePage } from '../warranty-home/warranty-home';
   templateUrl: 'home-page.html'
 })
 export class HomePagePage {
-
+  addver;
+  array = [];
   constructor(public navCtrl: NavController) {
+    this.addver = localStorage.getItem('Advertiesements');
+    this.array = this.addver.split(',');
   }
 
   goToMyOrders(params){

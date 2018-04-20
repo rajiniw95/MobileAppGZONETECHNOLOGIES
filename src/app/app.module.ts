@@ -15,6 +15,7 @@ import { OrderPage } from '../pages/order/order';
 import { DeliveryPage } from '../pages/delivery/delivery';
 import { CalculatePaymentPage } from '../pages/calculate-payment/calculate-payment';
 import { UploadDepositSlipPage } from '../pages/upload-deposit-slip/upload-deposit-slip';
+import { EditProfile } from '../pages/Edit-profile/Edit-profile';
 
 import { WarrantyHomePage } from '../pages/warranty-home/warranty-home';
 import { SubmitClaimNamePage } from '../pages/submit-claim-name/submit-claim-name';
@@ -28,6 +29,8 @@ import { TrackRequestIdPage } from '../pages/track-request-id/track-request-id';
 import { TrackListPage } from '../pages/track-list/track-list';
 import { TrackingStatusPage } from '../pages/tracking-status/tracking-status';
 import { TrackingStatusListPage } from '../pages/tracking-status-list/tracking-status-list';
+import { PersonalOrderPage } from '../pages/personal-orders/personal-orders';
+import { CustomerOrder } from '../pages/customer-orders/customer-orders';
 import { WithinWarrantyPeriodPage } from '../pages/within-warranty-period/within-warranty-period';
 
 
@@ -53,7 +56,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     DeliveryPage,
     CalculatePaymentPage,
     UploadDepositSlipPage,
-
+    EditProfile,
+    PersonalOrderPage,
+    CustomerOrder,
     WarrantyHomePage,
     SubmitClaimNamePage,
     TrackClaimPage,
@@ -89,13 +94,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     DeliveryPage,
     CalculatePaymentPage,
     UploadDepositSlipPage,
-
+    EditProfile,
     WarrantyHomePage,
     SubmitClaimNamePage,
     TrackClaimPage,
     PreviousClaimsPage,
     WarrantyOrderListPage,
     ClaimOrderPage,
+    CustomerOrder,
+    PersonalOrderPage,
     WarrantyDetailsPage,
     SubmitRequestPage,
     TrackRequestIdPage,

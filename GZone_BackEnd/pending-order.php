@@ -8,7 +8,7 @@ include('Connecting_DB.php');
 $CusID = $_GET['username'];
 
 //Select Data from the orders table in the GZone database for orders with status PENDING of the logged in agent
-$query = sprintf("select * from orders where Agent_Id='%s' AND status='pending'", $CusID);
+$query = sprintf("select * from orders where Agent_Id='%s' AND status='pending'OR status= 'dispatched'", $CusID);
 
 $result = $mysqli->query($query) or die($mysqli->error . __LINE__);
 $ban = array();
