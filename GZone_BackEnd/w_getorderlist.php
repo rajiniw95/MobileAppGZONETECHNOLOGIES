@@ -6,10 +6,10 @@ header('Access-Control-Allow-Headers: Content-Type,x-prototype-version,x-request
 
 include('Connecting_DB.php');
 
-//set variable for username
+//set variable for customer id
 $customer_id = $_GET['customer_id'];
 
-//select the deliveries the agent has to make
+//select the orders which are delivered to customer. 
 $query = sprintf("select * from orders where customerID='%s' and status='delivered'", $customer_id);
 
 $result = $mysqli->query($query) or die($mysqli->error . __LINE__);

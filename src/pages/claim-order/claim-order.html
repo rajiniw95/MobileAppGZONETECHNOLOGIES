@@ -21,11 +21,12 @@
       </p>
     </div>
       <ion-item>
-        <ion-label>{{orderId}}</ion-label>
+        <ion-label>{{orderId}}</ion-label> <!-- from local storage -->
       </ion-item>
   
-<div padding id="pageclaimorder" *ngIf="items" >
+<div padding id="pageclaimorder" *ngIf="items" > <!-- ngIf to include HTML components if true -->
   <ion-card id="claimorder-card1" *ngFor="let item of items">
+  <!-- ngFor to create list -->
 
     <ion-list>
 
@@ -37,6 +38,7 @@
       </div>
       <ion-list id="order-list5">
         <ion-item color="none" id="order-list-item2">
+        <!-- variables from item (list item) -->
         
          Product ID: {{item.productID}} <br>
         

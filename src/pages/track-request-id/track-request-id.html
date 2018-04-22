@@ -12,6 +12,8 @@
 
 </ion-header>
 
+<!--With the ng-model directive you can bind the value of an input field to a variable created in AngularJS.-->
+
 
 <ion-content padding id="trackrequestid">
   <div id="trackrequestid-container1">
@@ -25,6 +27,7 @@
     </div>
     <div class="spacer" style="width:300px;height:20px;" id="trackrequestid-spacer2"></div>
       <ion-item>
+        <!--ng-model-->
         <ion-input type="text"  name="request_id" [(ngModel)]="account.request_id" placeholder=""></ion-input>
       </ion-item>
     

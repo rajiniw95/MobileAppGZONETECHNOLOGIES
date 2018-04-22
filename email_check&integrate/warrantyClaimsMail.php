@@ -5,7 +5,7 @@
     header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
     header('Access-Control-Allow-Headers: Content-Type,x-prototype-version,x-requested-with');
 
-
+    //agent email and customer's name to be passed with HTTP call 
     $agent_email = $_GET['agent_email'];
     $customer_name = $_GET['customer_name'];
 	
@@ -27,7 +27,7 @@
     )
     );
     $mail->setFrom('shoppinggzone@gmail.com', 'Gzone Admin');
-    $mail->AddAddress($agent_email);
+    $mail->AddAddress($agent_email); 
  
     $mail->Subject  =  'Warranty Claim Request Made';
     $mail->IsHTML(true);

@@ -22,6 +22,7 @@
       </p>
     </div>
       <ion-item>
+      <!-- customer id taken from local storage -->
         <ion-label>{{customer_id}}</ion-label>
       </ion-item>
 
@@ -30,11 +31,13 @@
   <form id="orderlist-form">
     
     <ion-item color="none" on-click="goToClaimOrder(cust_order)" id="orderlist-list-item1" *ngFor="let cust_order of res">
+    <!-- ngFor used for res -->
       <ion-thumbnail item-left>
         
         <img src="assets/img/images.png"  />
       </ion-thumbnail>
 
+      <!-- variables taken from res -->
       <h2>
         Order ID: {{cust_order.orderID}}<br>
         No. of Items: {{cust_order.no_items}}<br>
