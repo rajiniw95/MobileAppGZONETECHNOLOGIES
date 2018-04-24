@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 19, 2018 at 09:45 AM
--- Server version: 10.1.29-MariaDB
--- PHP Version: 7.2.0
+-- Host: localhost
+-- Generation Time: Apr 20, 2018 at 06:48 PM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 7.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -37,27 +35,6 @@ CREATE TABLE `admin` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `advertisements`
---
-
-CREATE TABLE `advertisements` (
-  `addID` int(10) NOT NULL,
-  `name` varchar(200) NOT NULL,
-  `path` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `advertisements`
---
-
-INSERT INTO `advertisements` (`addID`, `name`, `path`) VALUES
-(1, 'Galaxy S8', 'assets\\adds\\imageOne.jpg'),
-(2, 'Headset', 'assets\\adds\\imageTwo.jpg'),
-(3, 'TV', 'assets\\adds\\imageThree.jpg');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `agent`
 --
 
@@ -69,17 +46,18 @@ CREATE TABLE `agent` (
   `lname` text NOT NULL,
   `profile_photo` varchar(500) NOT NULL,
   `address` varchar(250) NOT NULL,
-  `tel_no` char(10) NOT NULL
+  `tel_no` char(10) NOT NULL,
+  `email` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `agent`
 --
 
-INSERT INTO `agent` (`agentID`, `user_name`, `password`, `fname`, `lname`, `profile_photo`, `address`, `tel_no`) VALUES
-(1, 'agent1', 'agent111', 'Peter', 'Parker', 'assets\\img\\20160822033636.jpg', '40, Mal Road, Colombo', '0772637288'),
-(2, 'agent2', 'agent222', 'John', 'SmithASSS', 'assets\\img\\8_19.jpg', '70, Flower Road, Kandy', '0775446344'),
-(3, 'agent3', 'agent333', 'Jill', 'Selva', 'assets\\img\\images.jpg', '90, Dias Road, Galle', '0774354422');
+INSERT INTO `agent` (`agentID`, `user_name`, `password`, `fname`, `lname`, `profile_photo`, `address`, `tel_no`, `email`) VALUES
+(1, 'agent1', 'agent111', 'Peter', 'Parker', 'assets\\img\\20160822033636.jpg', '40, Mal Road, Colombo', '0772637288', 'rajiniw95@gmail.com'),
+(2, 'agent2', 'agent222', 'John', 'SmithASSS', 'assets\\img\\8_19.jpg', '70, Flower Road, Kandy', '0775446344', 'rajiniw95@gmail.com'),
+(3, 'agent3', 'agent333', 'Jill', 'Selva', 'assets\\img\\images.jpg', '90, Dias Road, Galle', '0774354422', 'rajiniw95@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -491,58 +469,6 @@ INSERT INTO `user_role` (`id`, `type`) VALUES
 (1, 'agent'),
 (2, 'customer');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `warranty_claims_made`
---
-
-CREATE TABLE `warranty_claims_made` (
-  `warranty_claim_id` int(11) NOT NULL,
-  `customer_id` int(11) NOT NULL,
-  `orderID` int(11) NOT NULL,
-  `prod_name` text NOT NULL,
-  `date` date NOT NULL,
-  `qty` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `warranty_claims_made`
---
-
-INSERT INTO `warranty_claims_made` (`warranty_claim_id`, `customer_id`, `orderID`, `prod_name`, `date`, `qty`) VALUES
-(2, 3, 1, 'DSLR Camera', '2017-09-12', 1),
-(3, 3, 26, 'iPhone X', '2018-03-21', 2),
-(4, 5, 27, 'Headphones', '2017-12-13', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `warranty_claim_request`
---
-
-CREATE TABLE `warranty_claim_request` (
-  `request_id` int(11) NOT NULL,
-  `customer_id` int(11) NOT NULL,
-  `agent_id` int(11) NOT NULL,
-  `status` text NOT NULL,
-  `comments` text NOT NULL,
-  `customer_name` text NOT NULL,
-  `customer_telno` int(11) NOT NULL,
-  `sub_date` date NOT NULL,
-  `qty` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `warranty_claim_request`
---
-
-INSERT INTO `warranty_claim_request` (`request_id`, `customer_id`, `agent_id`, `status`, `comments`, `customer_name`, `customer_telno`, `sub_date`, `qty`, `product_id`) VALUES
-(3, 3, 2, 'pending', '', 'Sunil', 777256372, '2018-04-11', 0, 0),
-(4, 3, 2, 'rejected', 'rejected due to physical damage done by customer', 'Sunil', 772536177, '2018-04-01', 0, 0),
-(5, 4, 3, 'rejected', 'N/A', 'Sajith', 772637162, '2018-04-06', 0, 0);
-
 --
 -- Indexes for dumped tables
 --
@@ -552,12 +478,6 @@ INSERT INTO `warranty_claim_request` (`request_id`, `customer_id`, `agent_id`, `
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `advertisements`
---
-ALTER TABLE `advertisements`
-  ADD PRIMARY KEY (`addID`);
 
 --
 -- Indexes for table `agent`
@@ -706,18 +626,6 @@ ALTER TABLE `user_role`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `warranty_claims_made`
---
-ALTER TABLE `warranty_claims_made`
-  ADD PRIMARY KEY (`warranty_claim_id`);
-
---
--- Indexes for table `warranty_claim_request`
---
-ALTER TABLE `warranty_claim_request`
-  ADD PRIMARY KEY (`request_id`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -726,133 +634,96 @@ ALTER TABLE `warranty_claim_request`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `advertisements`
---
-ALTER TABLE `advertisements`
-  MODIFY `addID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT for table `agent`
 --
 ALTER TABLE `agent`
   MODIFY `agentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `amout_to_be_deposit`
 --
 ALTER TABLE `amout_to_be_deposit`
   MODIFY `to_deposit_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `cash_on_delivery`
 --
 ALTER TABLE `cash_on_delivery`
   MODIFY `cash_on_delivery_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
   MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT for table `collection_point`
 --
 ALTER TABLE `collection_point`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `courier_serviceprovider`
 --
 ALTER TABLE `courier_serviceprovider`
   MODIFY `courier_serviceprovider_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
   MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
 --
 -- AUTO_INCREMENT for table `customer_address`
 --
 ALTER TABLE `customer_address`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `deliveries`
 --
 ALTER TABLE `deliveries`
   MODIFY `dID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
 --
 -- AUTO_INCREMENT for table `delivery_method`
 --
 ALTER TABLE `delivery_method`
   MODIFY `delivery_method_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `online_payment`
 --
 ALTER TABLE `online_payment`
   MODIFY `online_payment_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
   MODIFY `orderID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
-
 --
 -- AUTO_INCREMENT for table `order_has_product`
 --
 ALTER TABLE `order_has_product`
   MODIFY `ohp_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
 --
 -- AUTO_INCREMENT for table `payment_method`
 --
 ALTER TABLE `payment_method`
   MODIFY `payment_method_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
   MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `record-deposit`
 --
 ALTER TABLE `record-deposit`
   MODIFY `rdID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `segment`
 --
 ALTER TABLE `segment`
   MODIFY `segment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
 --
 -- AUTO_INCREMENT for table `user_role`
 --
 ALTER TABLE `user_role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `warranty_claims_made`
---
-ALTER TABLE `warranty_claims_made`
-  MODIFY `warranty_claim_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `warranty_claim_request`
---
-ALTER TABLE `warranty_claim_request`
-  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- Constraints for dumped tables
 --
@@ -909,7 +780,6 @@ ALTER TABLE `record-deposit`
 --
 ALTER TABLE `segment`
   ADD CONSTRAINT `fk_segment_category1` FOREIGN KEY (`category_cat_id`) REFERENCES `category` (`cat_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

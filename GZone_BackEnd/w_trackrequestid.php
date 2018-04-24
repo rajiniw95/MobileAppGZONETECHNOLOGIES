@@ -6,6 +6,7 @@ header('Access-Control-Allow-Headers: Content-Type,x-prototype-version,x-request
 
 include('Connecting_DB.php');
 
+//variable for warranty request ID gets input from HTTP call
 $req_id = $_GET['request_id'];
 
 $query = sprintf("select * from warranty_claim_request where request_id='%s'", $req_id);

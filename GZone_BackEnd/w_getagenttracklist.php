@@ -6,8 +6,10 @@ header('Access-Control-Allow-Headers: Content-Type,x-prototype-version,x-request
 
 include('Connecting_DB.php');
 
+//set variable for agent ID which is passed with HTTP call
 $ag_id = $_GET['agent_id'];
 
+//get agent details from database
 $query = sprintf("select * from warranty_claim_request where agent_id='%s'", $ag_id);
 $result = $mysqli->query($query) or die($mysqli->error . __LINE__);
 $ban = array();

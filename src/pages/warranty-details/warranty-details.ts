@@ -43,15 +43,7 @@ export class WarrantyDetailsPage {
   
   /**create function for to go to page which shows the warranty details of the particular product*/
   checkWarrantyPeriod(params){
-    var d1 = new Date();
-    var date1 = d1.getDate();
-    let orderId = localStorage.getItem('orderId');
-
-    this.http.get('http://localhost:8081/GZone/getdeliverydate.php?orderId='+orderId).subscribe((response) => {
-    this.res_date = response.json();
-    });
-
-      this.navCtrl.push(WithinWarrantyPeriodPage);
+      this.navCtrl.push(SubmitRequestPage);
 
     }
 

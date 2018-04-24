@@ -8,7 +8,7 @@ include('Connecting_DB.php');
 //set variable for id
 $ID = $_GET['orderId'];
 
-//get details of the order
+//get delivered date of order
 $query = sprintf("select deliverydate from orders where orderID='%s'", $ID);
 
 $result = $mysqli->query($query) or die($mysqli->error . __LINE__);

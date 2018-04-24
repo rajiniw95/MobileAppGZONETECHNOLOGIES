@@ -6,6 +6,8 @@ header('Access-Control-Allow-Headers: Content-Type,x-prototype-version,x-request
 
 include('Connecting_DB.php');
 
+//variable productID gets input from HTTP call
+
 $productID = $_GET['productID'];
 
 $query = sprintf("select * from product where productID='%s'", $productID);

@@ -40,7 +40,8 @@ export class SubmitClaimNamePage {
   {
       let alert =this.Alert.create({title: 'Error', subTitle: 'Please Enter Customer Name', buttons: ['OK']});
       alert.present();
-    }
+  }
+    
     else 
     {
       this
@@ -49,12 +50,23 @@ export class SubmitClaimNamePage {
         .subscribe((response) => {
           var res = response.json();
 
-          if(this.account.custname == res[0]. customer_name)
+          if(res.length != 0)
           {
-            localStorage.setItem('Auth_Token', res[0].customer_name);
-            localStorage.setItem('customer_id', res[0].customer_id);
-            this.navCtrl.push(PreviousClaimsPage);
+            if(this.account.custname == res[0]. customer_name)
+            {
+              localStorage.setItem('Auth_Token', res[0].customer_name);
+              localStorage.setItem('customer_id', res[0].customer_id);
+              this.navCtrl.push(PreviousClaimsPage);
+            }
+
+            else
+            {
+              let alert = this.Alert.create({title: 'Error', subTitle: 'Incorrect Customer Name. Please Re-enter!', buttons: ['OK']});
+              alert.present();
+            }
           }
+        
+
           else
           {
             let alert = this.Alert.create({title: 'Error', subTitle: 'Incorrect Customer Name. Please Re-enter!', buttons: ['OK']});
@@ -67,5 +79,7 @@ export class SubmitClaimNamePage {
     }
     
 
-}
-}
+}}
+
+
+

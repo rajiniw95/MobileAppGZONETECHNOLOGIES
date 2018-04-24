@@ -15,7 +15,7 @@ $sub_date      = $_GET['sub_date'];
 $qty      = $_GET['qty'];
 $product_id     = $_GET['product_id'];
 
-
+//pass 'submitted' as status by default
 	$query = sprintf(
 		"INSERT INTO warranty_claim_request 
 		(customer_id,

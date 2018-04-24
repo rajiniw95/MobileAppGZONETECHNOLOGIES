@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Http } from "@angular/http";
 import {AlertController} from 'ionic-angular';
 
+import { HomePagePage } from '../home-page/home-page';
+
 /**
  * Generated class for the SubmitRequestPage page.
  *
@@ -75,6 +77,12 @@ export class SubmitRequestPage {
           alert.present();
         }
       });
+
+      this.http.post('https://senda-mobile-app-senuraa.c9users.io/mail/index.php?agentId=' + Agent_Id,"").subscribe((response) => {
+        console.log(response);
+      });
+
+      this.navCtrl.push(HomePagePage);
     }
   }
 

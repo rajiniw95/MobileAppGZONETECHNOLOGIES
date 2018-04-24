@@ -22,7 +22,7 @@
       </p>
     </div>
       <ion-item>
-        <ion-label>{{customer_id}}</ion-label>
+        <ion-label>{{customer_id}}</ion-label> <!-- from local storage -->
       </ion-item>
 
       <div id="submitRequest-markdown2" class="show-list-numbers-and-dots">
@@ -31,7 +31,7 @@
       </p>
     </div>
       <ion-item>
-        <ion-label>{{customer_name}}</ion-label>
+        <ion-label>{{customer_name}}</ion-label> <!-- from local storage -->
       </ion-item>
 
       <div id="submitRequest-markdown3" class="show-list-numbers-and-dots">
@@ -40,7 +40,7 @@
       </p>
     </div>
       <ion-item>
-        <ion-label>{{product_id}}</ion-label>
+        <ion-label>{{product_id}}</ion-label> <!-- from local storage -->
       </ion-item>
 
     <div id="submitRequest-markdown4" class="show-list-numbers-and-dots">
@@ -49,7 +49,7 @@
       </p>
     </div>
       <ion-item>
-        <ion-label fixed class='fixedLabel' *ngIf="res">{{res.product_name}}</ion-label>
+        <ion-label fixed class='fixedLabel' *ngIf="res">{{res.product_name}}</ion-label> <!-- from res-->
       </ion-item>
 
     <div id="submitRequest-markdown7" class="show-list-numbers-and-dots">
@@ -58,7 +58,7 @@
       </p>
     </div>
       <ion-item>
-        <ion-input type="text"  name="telno" [(ngModel)]="telno"></ion-input>
+        <ion-input type="text"  name="telno" [(ngModel)]="telno"></ion-input> <!-- ngModel to assign to variable -->
       </ion-item>
 
       <div id="submitRequest-markdown5" class="show-list-numbers-and-dots">
@@ -67,7 +67,7 @@
       </p>
     </div>
       <ion-item>
-        <ion-input type="txt"  name="quantity" [(ngModel)]="quantity"></ion-input>
+        <ion-input type="txt"  name="quantity" [(ngModel)]="quantity"></ion-input> <!-- ngModel to assign to variable -->
       </ion-item>
 
       <div id="submitRequest-markdown6" class="show-list-numbers-and-dots">
@@ -76,7 +76,7 @@
       </p>
     </div>
       <ion-item>
-        <ion-input type="text"  name="comments" [(ngModel)]="comments"></ion-input>
+        <ion-input type="text"  name="comments" [(ngModel)]="comments"></ion-input> <!-- ngModel to assign to variable -->
       </ion-item>
 
       <div class="spacer" style="width:300px;height:20px;" id="submitRequest-spacer1"></div>

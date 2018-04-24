@@ -19,6 +19,8 @@
       <div class="spacer" style="width:300px;height:20px;" id="submitclaim_name-spacer1"></div>
 
   <form id="tracklist-form">
+
+  <!--ng-for used to create list-->
     
     <ion-item color="none" on-click="goToTrackingStatus(w_track)" id="tracklist-list-item1" *ngFor="let w_track of res" >
       <ion-thumbnail item-left>
@@ -27,6 +29,7 @@
       </ion-thumbnail>
 
       <h2>
+      <!--variables taken from w_track list item-->
         Warranty Request ID: {{w_track.request_id}}<br>
         Customer Name: {{w_track.customer_id}}<br>
         Submitted Date: {{w_track.sub_date}} <br>

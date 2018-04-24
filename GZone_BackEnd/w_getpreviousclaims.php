@@ -9,7 +9,7 @@ include('Connecting_DB.php');
 //set variable for username
 $customer_id = $_GET['customer_id'];
 
-//select the deliveries the agent has to make
+//select the previous claims made by the customer 
 $query = sprintf("select * from warranty_claims_made where customer_ID='%s'", $customer_id);
 
 $result = $mysqli->query($query) or die($mysqli->error . __LINE__);
