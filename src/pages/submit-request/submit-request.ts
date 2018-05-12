@@ -29,10 +29,11 @@ export class SubmitRequestPage {
   agent_email : string = "null"; 
   res : any;
   resp : any;
+  email: any;
   
 
   constructor(public navCtrl: NavController, public http: Http, public navparams : NavParams, public Alert : AlertController) {
-    this.agent_id = localStorage.getItem('agentId');
+    this.agent_id= localStorage.getItem('Agent_ID');
     this.customer_id = localStorage.getItem('customer_id');
     this.customer_name = localStorage.getItem('Auth_Token');
     
@@ -46,33 +47,36 @@ export class SubmitRequestPage {
       });   
   }
 
+
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad SubmitRequestPage');
   }
 
-  /**ccheck whether the item falls within the warranty period*/
+  /**check whether the item falls within the warranty period*/
   SubmitRequest(params){
     if( this.telno == "null" || this.quantity == "null" || this.comments == "null"){
       let alert = this.Alert.create({title: 'Error', subTitle: 'All fields must be filled', buttons: ['OK']});
       alert.present();
     }
     else {
-      let Agent_Id = localStorage.getItem('Agent_ID');
+      let agent_id= localStorage.getItem('Agent_ID');
       let customer_id = localStorage.getItem('customer_id');
       let customer_name = localStorage.getItem('Auth_Token');
       let product_id = localStorage.getItem('product_id'); 
 
       this
         .http
-        .get('http://localhost:8081/GZone/w_getagentmail.php?agentID=' + this.agent_id)
+        .get('http://localhost:8081/GZone/w_getagentemail.php?AgentId=' + this.agent_id)
         .subscribe((data) => 
           {
             let response = data.json();
             this.resp = response[0];
+            console.log(data);
+
           });
 
-      
-      
+          
 
 
       this.http.post('http://localhost:8081/GZone/w_submitrequest.php?customer_id='+this.customer_id+'&agent_id='+this.agent_id+'&comments='+this.comments+'&customer_name='+this.customer_name+'&telno='+this.telno+'&qty='+this.quantity+'&product_id='+this.product_id,"").subscribe((response) => {
