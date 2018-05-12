@@ -65,10 +65,13 @@ export class SubmitRequestPage {
       this
         .http
         .get('http://localhost:8081/GZone/w_getagentmail.php?agentID=' + this.agent_id)
-        .subscribe((response) => {
-          var resp = response.json();
+        .subscribe((data) => 
+          {
+            let response = data.json();
+            this.resp = response[0];
+          });
 
-      let agent_email = resp.email;}
+      
       
 
 
@@ -85,9 +88,9 @@ export class SubmitRequestPage {
           let alert = this.Alert.create({title: 'Error', subTitle: 'Error Inserting values', buttons: ['OK']});
           alert.present();
         }
-      }));
+      });
 
-      this.http.post('https://senda-mobile-app-senuraa.c9users.io/mail/index.php?customer_name=' + this.customer_name + '&agent_email='+this.agent_email,"").subscribe((response) => {
+      this.http.post('https://senda-mobile-app-senuraa.c9users.io/mail/warrantyClaimsMail.php?customer_name=' + this.customer_name + '&agent_email=rajiniw95@gmail.com',"").subscribe((response) => {
         console.log(response);
       });
 
