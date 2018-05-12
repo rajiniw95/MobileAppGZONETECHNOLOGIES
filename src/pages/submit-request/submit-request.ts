@@ -26,7 +26,9 @@ export class SubmitRequestPage {
   telno : string = "null"; 
   quantity : string = "null";  
   comments : string = "null"; 
+  agent_email : string = "null"; 
 	res : any;
+  resp : any;
   
 
   constructor(public navCtrl: NavController, public http: Http, public navparams : NavParams, public Alert : AlertController) {
@@ -60,6 +62,13 @@ export class SubmitRequestPage {
       let customer_name = localStorage.getItem('Auth_Token');
       let product_id = localStorage.getItem('product_id'); 
 
+      this
+        .http
+        .get('http://localhost:8081/GZone/w_getagentmail.php?agentID=' + this.account.Agent_Id)
+        .subscribe((response) => {
+          var resp = response.json();}
+
+      let agent_email = resp.email
       
 
 
@@ -78,7 +87,7 @@ export class SubmitRequestPage {
         }
       });
 
-      this.http.post('https://senda-mobile-app-senuraa.c9users.io/mail/index.php?agentId=' + Agent_Id,"").subscribe((response) => {
+      this.http.post('https://senda-mobile-app-senuraa.c9users.io/mail/warrantyClaimsMail.php?customer_name=' + this.customer_name + '&agent_email='+this.agent_email,"").subscribe((response) => {
         console.log(response);
       });
 
