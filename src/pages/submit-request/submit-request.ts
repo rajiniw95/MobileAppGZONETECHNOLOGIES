@@ -19,31 +19,31 @@ import { HomePagePage } from '../home-page/home-page';
 })
 export class SubmitRequestPage {
 
-	customer_id : string = "null";
-	customer_name : string = "null";
-	product_id : string = "null";
+  customer_id : string = "null";
+  customer_name : string = "null";
+  product_id : string = "null";
   agent_id : string = "null"; 
   telno : string = "null"; 
   quantity : string = "null";  
   comments : string = "null"; 
   agent_email : string = "null"; 
-	res : any;
+  res : any;
   resp : any;
   
 
   constructor(public navCtrl: NavController, public http: Http, public navparams : NavParams, public Alert : AlertController) {
     this.agent_id = localStorage.getItem('agentId');
-  	this.customer_id = localStorage.getItem('customer_id');
-  	this.customer_name = localStorage.getItem('Auth_Token');
+    this.customer_id = localStorage.getItem('customer_id');
+    this.customer_name = localStorage.getItem('Auth_Token');
     
     this.product_id = localStorage.getItem('product_id'); 
 
-	this.http
+  this.http
       .get('http://localhost:8081/GZone/w_warrantydetails.php?productID=' + this.product_id)
       .subscribe((data) => {
         let response = data.json();
         this.res = response[0];
-      }); 	
+      });   
   }
 
   ionViewDidLoad() {
@@ -64,11 +64,11 @@ export class SubmitRequestPage {
 
       this
         .http
-        .get('http://localhost:8081/GZone/w_getagentmail.php?agentID=' + this.account.Agent_Id)
+        .get('http://localhost:8081/GZone/w_getagentmail.php?agentID=' + this.agent_id)
         .subscribe((response) => {
-          var resp = response.json();}
+          var resp = response.json();
 
-      let agent_email = resp.email
+      let agent_email = resp.email;}
       
 
 
@@ -85,9 +85,9 @@ export class SubmitRequestPage {
           let alert = this.Alert.create({title: 'Error', subTitle: 'Error Inserting values', buttons: ['OK']});
           alert.present();
         }
-      });
+      }));
 
-      this.http.post('https://senda-mobile-app-senuraa.c9users.io/mail/warrantyClaimsMail.php?customer_name=' + this.customer_name + '&agent_email='+this.agent_email,"").subscribe((response) => {
+      this.http.post('https://senda-mobile-app-senuraa.c9users.io/mail/index.php?customer_name=' + this.customer_name + '&agent_email='+this.agent_email,"").subscribe((response) => {
         console.log(response);
       });
 
