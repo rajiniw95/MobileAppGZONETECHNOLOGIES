@@ -29,7 +29,7 @@ export class SubmitRequestPage {
   agent_email : string = "null"; 
   res : any;
   resp : any;
-  email: any;
+ // email: string;
   
 
   constructor(public navCtrl: NavController, public http: Http, public navparams : NavParams, public Alert : AlertController) {
@@ -44,7 +44,18 @@ export class SubmitRequestPage {
       .subscribe((data) => {
         let response = data.json();
         this.res = response[0];
-      });   
+      });  
+      this
+      .http
+      .get('http://localhost:8081/GZone/w_getagentemail.php?AgentId=' + this.agent_id)
+      .subscribe((data) => 
+        {
+          let response = data.json();
+          this.resp = response[0];
+          console.log(response[0].email);
+           this.agent_email = response[0].email;
+           console.log(this.agent_email);
+        }); 
   }
 
 
@@ -55,6 +66,7 @@ export class SubmitRequestPage {
 
   /**check whether the item falls within the warranty period*/
   SubmitRequest(params){
+    var email;
     if( this.telno == "null" || this.quantity == "null" || this.comments == "null"){
       let alert = this.Alert.create({title: 'Error', subTitle: 'All fields must be filled', buttons: ['OK']});
       alert.present();
@@ -65,16 +77,7 @@ export class SubmitRequestPage {
       let customer_name = localStorage.getItem('Auth_Token');
       let product_id = localStorage.getItem('product_id'); 
 
-      this
-        .http
-        .get('http://localhost:8081/GZone/w_getagentemail.php?AgentId=' + this.agent_id)
-        .subscribe((data) => 
-          {
-            let response = data.json();
-            this.resp = response[0];
-            console.log(data);
-
-          });
+      
 
           
 
@@ -94,7 +97,7 @@ export class SubmitRequestPage {
         }
       });
 
-      this.http.post('https://senda-mobile-app-senuraa.c9users.io/mail/warrantyClaimsMail.php?customer_name=' + this.customer_name + '&agent_email=rajiniw95@gmail.com',"").subscribe((response) => {
+      this.http.post('https://senda-mobile-app-senuraa.c9users.io/mail/warrantyClaimsMail.php?customer_name=' + this.customer_name + '&agent_email='+this.agent_email,"").subscribe((response) => {
         console.log(response);
       });
 
